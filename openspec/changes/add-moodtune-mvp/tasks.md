@@ -13,13 +13,14 @@
 
 ## 3. Library Retrieval (spotify-library)
 
-- [ ] 3.1 Implement `/api/spotify/library` to fetch saved tracks and playlists using the session cookie, and verify it returns at least one track for a seeded test account
+- [ ] 3.1 Implement `/api/spotify/library` to fetch saved tracks and the user's own playlists (excluding followed playlists) using the session cookie, and verify it returns at least one track for a seeded test account
 - [ ] 3.2 Show a dedicated empty-library message instead of attempting a recommendation when the library is empty, and verify an account with no saved tracks sees that message
 
 ## 4. Weather Context (weather-context)
 
 - [ ] 4.1 Request browser geolocation permission on the input step and call `/api/weather` with the coordinates, and verify the weather badge shows condition and temperature when permission is granted
 - [ ] 4.2 Continue the recommendation flow without weather context when retrieval fails or permission is denied, and verify a recommendation still succeeds in that case
+- [ ] 4.3 Show a manual city input field when geolocation permission is denied or retrieval fails, and call `/api/weather` with the entered city name (FR-11), and verify submitting a city updates the weather badge with condition and temperature
 
 ## 5. Mood & Situation Input (mood-context-input)
 

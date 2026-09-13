@@ -31,127 +31,138 @@
 ## 3. Spec 요구사항 (ADDED Requirements)
 
 ### Requirement: Spotify OAuth Login
-사용자는 Spotify OAuth(Authorization Code Flow)로 로그인해 앱에 라이브러리 읽기 권한을 부여할 수 있어야 한다.
+사용자는 Spotify OAuth(Authorization Code Flow)로 로그인해 앱에 라이브러리 읽기 권한을 부여할 수 있어야 한다. (FR-1)
 
 #### Scenario: 로그인 성공
 - **WHEN** 사용자가 Landing 페이지에서 "Spotify로 시작하기"를 클릭하고 OAuth 동의 화면에서 승인한다
 - **THEN** 시스템은 액세스 토큰을 발급하고 사용자를 다음 화면으로 진행시킨다
 
 #### Scenario: 로그인 거부/실패
-- **WHEN** 사용자가 동의를 거부하거나 OAuth 흐름이 실패한다
+- **WHEN** 사용자가 OAuth 동의 화면에서 거부하거나 인증에 실패한다
 - **THEN** Landing 페이지는 에러 상태와 재시도 버튼을 표시한다
 
-### Requirement: User Library Retrieval
-로그인한 사용자의 저장한 곡(Liked Songs) 및 플레이리스트 목록을 조회할 수 있어야 한다.
+### Requirement: Library Retrieval
+로그인한 사용자의 저장한 곡(Liked Songs) 및 플레이리스트 목록을 조회할 수 있어야 한다. (FR-2)
 
 #### Scenario: 라이브러리 조회 성공
-- **WHEN** 로그인이 완료된 사용자에 대해 라이브러리 조회가 실행된다
-- **THEN** 최소 1개 이상의 트랙/플레이리스트가 반환된다
+- **WHEN** 로그인한 사용자가 라이브러리 조회를 요청한다
+- **THEN** 시스템은 최소 1개 이상의 트랙/플레이리스트를 반환한다
 
 #### Scenario: 빈 라이브러리
-- **WHEN** 사용자의 라이브러리가 비어 있다
-- **THEN** 별도의 안내가 표시된다 (정확한 문구/동작은 02 Open Question — 4절 참고)
+- **WHEN** 사용자의 라이브러리에 저장된 곡/플레이리스트가 없다
+- **THEN** 시스템은 별도의 안내를 표시한다 (정확한 문구/동작은 `04. 미정` 목록 참고)
 
-### Requirement: Automatic Weather Context
-위치 기반으로 현재 날씨(조건 + 기온)를 자동 조회해 추천에 반영해야 한다.
+### Requirement: Automatic Weather Lookup
+위치 기반으로 현재 날씨(조건+기온)를 자동 조회해 추천에 반영해야 한다. (FR-3)
 
 #### Scenario: 위치 권한 허용
-- **WHEN** 사용자가 위치 권한을 허용한다
-- **THEN** Input 페이지에 날씨 조건과 기온이 표시된다
+- **WHEN** 사용자가 Input 페이지에서 위치 권한을 허용한다
+- **THEN** 시스템은 날씨 조건과 기온을 표시한다
 
-### Requirement: Mood and Situation Quick-Reply Input
-사용자는 기분과 상황을 각각 퀵리플라이 버튼으로 단일 선택할 수 있어야 한다.
+### Requirement: Mood Quick Reply Selection
+사용자는 기분을 퀵리플라이 버튼으로 단일 선택할 수 있어야 한다. (FR-4)
 
-#### Scenario: 단일 선택 및 제출 조건
-- **WHEN** 사용자가 기분 버튼 그룹과 상황 버튼 그룹에서 각각 하나씩 선택한다
-- **THEN** "추천받기" 버튼이 활성화된다
+#### Scenario: 기분 단일 선택
+- **WHEN** 사용자가 기분 버튼 그룹에서 하나를 선택한다
+- **THEN** 선택한 버튼만 선택 상태로 표시되고 다른 버튼은 비선택 상태를 유지한다
 
-#### Scenario: 미선택 시 제출 차단
+### Requirement: Situation Quick Reply Selection
+사용자는 상황을 퀵리플라이 버튼으로 단일 선택할 수 있어야 한다. (FR-5)
+
+#### Scenario: 상황 단일 선택
+- **WHEN** 사용자가 상황 버튼 그룹에서 하나를 선택한다
+- **THEN** 선택한 버튼만 선택 상태로 표시되고 다른 버튼은 비선택 상태를 유지한다
+
+#### Scenario: 필수 입력 미완성 시 제출 차단
 - **WHEN** 기분 또는 상황 중 하나라도 선택되지 않았다
 - **THEN** "추천받기" 버튼은 비활성화 상태로 표시된다
 
-### Requirement: AI-Based Recommendation Generation and Display
-기분·날씨·상황·라이브러리를 종합해 Claude API로 추천을 생성하고, 결과를 화면에 표시해야 한다.
+### Requirement: AI-Generated Recommendation
+기분·날씨·상황·라이브러리를 종합해 Claude API로 추천을 생성하고 결과를 화면에 표시해야 한다. (FR-7, FR-8)
 
-#### Scenario: 추천 성공
-- **WHEN** 사용자가 유효한 입력으로 "추천받기"를 제출한다
-- **THEN** 로딩 상태를 거쳐 최소 1개 트랙(제목/아티스트/앨범아트)과 추천 이유 문구가 표시된다
+#### Scenario: 추천 요청 및 결과 표시
+- **WHEN** 사용자가 기분·상황을 선택하고 "추천받기"를 제출한다
+- **THEN** 시스템은 로딩 상태를 표시한 뒤, 성공 시 최소 1개 트랙(제목/아티스트/앨범아트)과 추천 이유 문구를 표시한다
 
-### Requirement: Redirect to Spotify for Playback
-추천 결과를 클릭하면 Spotify 앱 또는 웹으로 이동해 재생할 수 있어야 한다.
+### Requirement: Spotify Redirect on Recommendation
+추천 결과를 클릭하면 Spotify 앱 또는 웹으로 이동해 재생할 수 있어야 한다. (FR-9)
 
-#### Scenario: 결과 클릭
+#### Scenario: 추천 결과 클릭
 - **WHEN** 사용자가 추천된 트랙 카드를 클릭한다
-- **THEN** 새 탭(웹) 또는 앱 딥링크로 해당 Spotify 트랙 페이지가 열린다
+- **THEN** 새 탭/앱으로 해당 Spotify 트랙 페이지가 열린다
 
-### Requirement: Recommendation Library Validation and Fallback
-AI가 반환한 추천 트랙은 항상 사용자의 실제 라이브러리 안에 있는 트랙이어야 한다 (환각 방지).
+### Requirement: Recommendation Library Validation & Fallback
+AI 추천 결과가 사용자 라이브러리에 실제로 존재하는 트랙인지 검증하고, 아니면 결정론적으로 폴백해야 한다 (환각 방지). (FR-12)
 
-#### Scenario: 정상 응답
-- **WHEN** Claude 응답의 트랙이 `librarySample`과 URI/ID 기준으로 일치한다
-- **THEN** 해당 트랙과 추천 이유가 그대로 사용자에게 표시된다
+#### Scenario: 라이브러리 내 트랙으로 검증됨
+- **WHEN** Claude가 반환한 트랙이 `librarySample`의 URI/ID와 일치한다
+- **THEN** 시스템은 해당 트랙을 그대로 추천 결과로 사용한다
 
 #### Scenario: 불일치 후 재시도 성공
-- **WHEN** Claude 응답의 트랙이 라이브러리와 일치하지 않는다
-- **THEN** 시스템은 제약을 강조해 최대 1회 재시도하고, 성공 시 해당 결과를 사용한다
+- **WHEN** Claude가 반환한 트랙이 `librarySample`과 일치하지 않는다
+- **THEN** 시스템은 "목록 안의 트랙만 선택하라"는 제약을 포함해 최대 1회 재시도한다
 
-#### Scenario: 재시도 후에도 불일치 (폴백)
-- **WHEN** 재시도 후에도 라이브러리와 일치하는 트랙을 얻지 못한다
-- **THEN** 시스템은 `librarySample`에서 결정론적 폴백 트랙을 선택하고 일반화된 이유 문구로 대체하며, 사용자에게는 폴백 여부를 노출하지 않는다
+#### Scenario: 재시도 후에도 불일치 — 결정론적 폴백
+- **WHEN** 재시도한 응답도 `librarySample`과 일치하지 않는다
+- **THEN** 시스템은 `librarySample`에서 결정론적으로 폴백 트랙을 선택하고, 이유 문구를 일반화된 문구로 대체하며, 사용자에게는 `isFallback` 여부를 노출하지 않는다
 
 ## 4. Design 결정사항
 
-(04_TECHNICAL_DESIGN.md에서 이미 확정된 항목만)
-
-- **Tech Stack**: Next.js, React, TypeScript, Tailwind CSS + Spotify Web API, OpenWeather API, Claude API
-- **Routes**: `/`, `/input`, `/result`(쿼리 파라미터 필수, 없으면 `/input` 리다이렉트), `/api/auth/spotify/login`, `/api/auth/spotify/callback`, `/api/spotify/library`, `/api/weather`, `/api/recommend`
-- **Data Model**: `SpotifySession`, `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult`(`isFallback` 포함)
-- **FR-12 검증 로직**: Claude 응답을 `librarySample`과 대조 → 불일치 시 제약을 강조해 최대 1회 재시도 → 그래도 불일치면 `librarySample[0]` 등 결정론적 폴백 + 일반화된 이유 문구, `isFallback: true`
-- **State 관리**: 전역 상태 라이브러리·브라우저 저장소 없이 React 로컬 상태만 사용. Input→Result 전달은 URL 쿼리 파라미터(`uri`, `name`, `artist`, `art`, `reason`)로 확정
-- **Storage**: 영구 DB 없음. 라이브러리/추천 결과는 요청-응답 생명주기 동안만 메모리에 존재
-- **에러 처리**: 날씨 실패 → 날씨 없이 진행 / Claude 실패 → 재시도 액션 제공 / 토큰 만료 → 재로그인 유도
-- **Non-Goals**: 커스텀 인증 시스템, 실시간 기능, 대용량 파일 업로드, Spotify/OpenWeather/Claude 외 외부 연동 없음
+### 확정된 것
+- **Route** (04 §2): `/`, `/input`, `/result`, `/api/auth/spotify/login`, `/api/auth/spotify/callback`, `/api/spotify/library`, `/api/weather`, `/api/recommend`
+- **Source Structure** (04 §3): `src/app`, `src/components`, `src/lib`, `src/types` 구조
+- **Data Model** (04 §4): `SpotifySession`, `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult`(`isFallback` 포함) 필드 확정
+- **FR-12 검증 로직** (04 §4.1): 대조 → 최대 1회 재시도 → 결정론적 폴백(`librarySample[0]` 등) → `isFallback`과 무관하게 동일 방식으로 렌더링
+- **State/전달 방식** (04 §5): 전역 상태 라이브러리·브라우저 저장소 없이, Input→Result는 URL 쿼리 파라미터(`uri`, `name`, `artist`, `art`, `reason`)로 전달. Result는 필수 파라미터(`uri`, `name`) 없으면 `/input`으로 리다이렉트
+- **Storage** (04 §6): 영구 DB 없음. Spotify 토큰은 서버 사이드 세션(암호화된 http-only 쿠키)에만 보관. localStorage/sessionStorage 사용 안 함
+- **에러 처리 전략** (04 §8): 날씨 API 실패 → 날씨 없이 진행(NFR-2). Claude API 실패 → 재시도 액션 제공(NFR-3). 토큰 만료 → Landing으로 재로그인 유도
+- **환경 변수** (04 §7): `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `ANTHROPIC_API_KEY`
 
 ### 미정 — 착수 전 확정 필요
-- FR-4/FR-5 기분·상황 퀵리플라이의 세부 옵션 목록 (02 TODO — Must 요구사항 자체의 세부값이라 우선순위 높음)
-- `librarySample` 선택 기준: 무작위/최근 좋아요/장르 다양성 중 확정 필요 (04 TODO — Claude 비용·추천 품질에 직접 영향)
-- 빈 라이브러리일 때 정확한 대체 문구/동작 (02 Open Question)
-- FR-10 "다시 추천받기"가 `/api/recommend` 재호출인지 별도 엔드포인트인지 (04 TODO — 단, FR-10 자체는 Should라 이번 change 범위 밖. FR-9/FR-12 구현 시 재사용 가능성만 참고)
-- Spotify 토큰 세션 저장의 정확한 구현체: 04에 "예: 암호화된 http-only 쿠키"로만 서술되어 있어, JWT 방식인지 서버 메모리+쿠키 ID 방식인지 확정되지 않음 (배포 대상이 서버리스인지 여부와 직결)
-- 배포 대상 (Vercel 가정, 확정 필요)
-- Spotify Developer 앱 등록 및 실제 redirect URI 값
+- 기분(mood)/상황(situation) 퀵리플라이 옵션의 실제 값 (02, TODO 초안만 존재)
+- "라이브러리" 범위 — Liked Songs만인지 팔로우한 플레이리스트도 포함하는지 (01 Open Question)
+- `librarySample` 구성 방식 — 무작위/최근 좋아요/장르 다양성 중 선택 (04, TODO)
+- 라이브러리가 비어있거나 매우 적을 때의 정확한 대체 문구/동작 (02 Open Question)
+- 배포 대상 (Vercel로 가정, 04 Open Question)
+- Spotify Developer 앱 등록 및 실제 redirect URI 값 (04 Open Question)
 
 ## 5. Tasks 제안
 
-### 1. Spotify OAuth (FR-1)
-- [ ] 1.1 Spotify Developer 앱 등록 및 redirect URI 확정 (선행 필요 — 위 미정 항목)
-- [ ] 1.2 세션 저장 방식(쿠키 구현체) 확정 (선행 필요 — 위 미정 항목)
-- [ ] 1.3 `/api/auth/spotify/login`, `/api/auth/spotify/callback` 실제 OAuth 로직 구현
+### A. 프로젝트 기반
+- [ ] 1.1 Next.js + TypeScript + Tailwind 프로젝트 초기화
+- [ ] 1.2 `components/`, `lib/`, `types/` 폴더 구조 생성
+- [ ] 1.3 `types/index.ts`에 `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult` 인터페이스 정의
+- [ ] 1.4 환경 변수(`SPOTIFY_CLIENT_ID` 등) 설정
 
-### 2. 라이브러리 조회 (FR-2)
-- [ ] 2.1 `/api/spotify/library` 실제 Spotify Web API 연동
-- [ ] 2.2 빈 라이브러리 케이스 대체 문구/동작 확정 후 구현
+### B. Spotify OAuth (FR-1)
+- [ ] 2.1 `/api/auth/spotify/login` 구현 (읽기 전용 scope만 요청)
+- [ ] 2.2 `/api/auth/spotify/callback` 구현 — 토큰 교환 및 암호화된 http-only 쿠키에 세션 저장
+- [ ] 2.3 Landing 페이지 로그인 거부/실패 에러 상태 + 재시도 버튼
 
-### 3. 날씨 연동 (FR-3)
-- [ ] 3.1 브라우저 geolocation 권한 요청 흐름 구현
-- [ ] 3.2 `/api/weather` OpenWeather 연동
+### C. Library Retrieval (FR-2)
+- [ ] 3.1 `/api/spotify/library` 구현 — 저장한 곡 + 플레이리스트 조회 (범위는 "미정" 목록 확정 후 반영)
+- [ ] 3.2 빈 라이브러리 안내 처리 (문구는 "미정" 목록 확정 후 반영)
 
-### 4. 기분/상황 입력 (FR-4, FR-5)
-- [ ] 4.1 기분/상황 옵션 목록 확정 (선행 필요 — 위 미정 항목)
-- [ ] 4.2 확정된 옵션으로 `QuickReplyChip` 그룹 채우기
+### D. Weather (FR-3)
+- [ ] 4.1 Input 페이지에서 브라우저 위치 권한 요청 → `/api/weather` 호출
+- [ ] 4.2 `WeatherBadge`에 조건+기온 표시
 
-### 5. AI 추천 (FR-7, FR-8)
-- [ ] 5.1 `librarySample` 선택 기준 확정 (선행 필요 — 위 미정 항목)
-- [ ] 5.2 Claude API 프롬프트 설계 및 `/api/recommend` 연동
-- [ ] 5.3 추천 결과를 쿼리 파라미터로 `/result`에 전달 (04에서 이미 확정된 방식 적용)
+### E. Mood/Situation Input (FR-4, FR-5)
+- [ ] 5.1 기분/상황 옵션 값 확정 반영 (상수 배열)
+- [ ] 5.2 `QuickReplyChip` 두 그룹을 Input 페이지에 배치, 단일 선택 로직 연결
+- [ ] 5.3 기분/상황 미선택 시 "추천받기" 버튼 비활성화
 
-### 6. Spotify 이동 (FR-9)
-- [ ] 6.1 mock 딥링크를 실제 Spotify 트랙 URI/웹 링크로 교체
+### F. AI Recommendation (FR-7, FR-8, FR-12)
+- [ ] 6.1 `librarySample` 구성 로직 구현 (선택 방식은 "미정" 목록 확정 후 반영)
+- [ ] 6.2 `/api/recommend` 구현 — mood/situation/weather/librarySample을 Claude API에 전달
+- [ ] 6.3 Claude 응답을 `librarySample`과 URI/ID 대조 검증
+- [ ] 6.4 불일치 시 제약을 강조해 최대 1회 재시도
+- [ ] 6.5 재시도 후에도 불일치하면 결정론적 폴백 + `isFallback` 내부 플래그 처리
+- [ ] 6.6 결과를 URL 쿼리 파라미터로 인코딩해 `/result`로 이동
+- [ ] 6.7 `/result`에서 쿼리 파라미터 파싱해 `TrackCard` 렌더링, 필수 파라미터 없으면 `/input`으로 리다이렉트
 
-### 7. 추천 검증/폴백 (FR-12)
-- [ ] 7.1 `librarySample` 대조 검증 로직 구현
-- [ ] 7.2 불일치 시 1회 재시도 로직 구현
-- [ ] 7.3 결정론적 폴백 및 `isFallback` 처리 구현
+### G. Spotify Redirect (FR-9)
+- [ ] 7.1 `TrackCard`의 "Spotify에서 재생하기" 클릭 시 실제 Spotify 앱/웹 링크로 연결
 
 ## 이번 change에서 제외 (Should/Could)
 - FR-6: 자연어 텍스트로 추가 맥락 입력 (Should)

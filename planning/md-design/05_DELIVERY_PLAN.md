@@ -16,7 +16,7 @@
 ### 오늘 하지 않는 항목 (다음 세션)
 - Spotify OAuth 로그인 (FR-1)
 - 실제 라이브러리 조회 (FR-2)
-- 날씨 API 연동 (FR-3, FR-11)
+- 날씨 API 연동 (FR-3) 및 수동 도시 입력 (FR-11) — FR-11은 02_REQUIREMENTS_SPEC.md에서 Must로 격상되었지만, 날씨 API 실패 상태와 묶여 있는 기능이라 오늘의 mock-only 범위에는 포함하지 않는다. 다음 세션에 날씨 API 연동과 함께 구현한다.
 - Claude API 추천 연동 (FR-7)
 - Spotify로 실제 이동하는 딥링크 (FR-9) — 오늘은 더미 링크로 대체
 

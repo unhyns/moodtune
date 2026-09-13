@@ -5,7 +5,7 @@
 ## What Changes
 
 - Spotify OAuth(Authorization Code Flow) 로그인 추가
-- 로그인한 사용자의 저장한 곡(Liked Songs)·플레이리스트 조회 추가
+- 로그인한 사용자의 저장한 곡(Liked Songs) 및 본인이 생성한 플레이리스트 조회 추가 (팔로우한 플레이리스트는 제외)
 - 위치 기반 현재 날씨 자동 조회 추가
 - 기분·상황 퀵리플라이 단일 선택 입력 UI 추가
 - 기분·날씨·상황·라이브러리를 종합한 Claude 기반 AI 추천 생성 및 결과 표시 추가

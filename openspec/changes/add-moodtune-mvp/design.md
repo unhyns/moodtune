@@ -10,7 +10,7 @@
 
 **Non-Goals:**
 - 캐싱 전략 고도화(짧은 TTL 서버 캐시 등)는 이번 change에서 다루지 않는다 — 필요해지면 후속 change.
-- FR-10("다시 추천받기" 재요청), FR-6(자연어 입력의 실제 반영), FR-11(수동 도시 입력)의 구현은 이번 change 범위 밖이다 (proposal.md에서 Should/Could로 제외됨).
+- FR-10("다시 추천받기" 재요청)과 FR-6(자연어 입력의 실제 반영)의 구현은 이번 change 범위 밖이다. FR-10은 원본 입력 컨텍스트 전달 방식까지 포함해 다음 세션 이후 별도로 재설계하기로 의도적으로 보류한 것이며(충돌이 아닌 결정 — `planning/md-design/02_REQUIREMENTS_SPEC.md` Decisions Log 참고), FR-6은 Should로 제외됨. FR-11(수동 도시 입력)은 이번 MVP 범위에 포함되어 tasks.md에 반영한다.
 
 ## Decisions
 

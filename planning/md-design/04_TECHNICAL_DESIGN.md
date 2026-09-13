@@ -15,15 +15,17 @@ Next.js, React, TypeScript, Tailwind CSS, Spotify Web API, OpenWeather API, Clau
 | `/result` | Page | 추천 결과 표시. 필수 쿼리 파라미터(`uri`, `name`) 없이 진입 시 `/input`으로 리다이렉트 |
 | `/api/auth/spotify/login` | API | Spotify OAuth 인증 요청 시작 |
 | `/api/auth/spotify/callback` | API | OAuth 콜백 처리, 토큰 발급/세션 저장 |
-| `/api/spotify/library` | API | 로그인 사용자의 저장 곡/플레이리스트 조회 |
+| `/api/spotify/library` | API | 로그인 사용자의 저장 곡(Liked Songs) 및 본인이 생성한 플레이리스트 조회 (팔로우한 플레이리스트 제외) |
 | `/api/weather` | API | 위치(lat/lng) 또는 도시명 기반 날씨 조회 |
 | `/api/recommend` | API | 기분+상황+날씨+라이브러리 샘플 → Claude API 추천 요청 |
 
-<!-- TODO: FR-10 "다시 추천받기"가 `/api/recommend` 재호출인지 별도 엔드포인트인지 확정 (현재는 재호출로 가정). -->
+<!-- FR-10 "다시 추천받기"는 이번 MVP에서 의도적으로 보류되어 다음 세션 이후 재설계 예정이다 (재호출/별도 엔드포인트 여부도 그때 함께 확정). 02 Decisions Log 참고. -->
 
 ## 3. Source Structure
+**확정**: 실제 `create-next-app` 스캐폴딩이 `src/` 없이 생성되어, 이 구조를 그대로 채택한다 (`src/` 도입은 하지 않음).
+
 ```
-src/
+moodtune/                      # Next.js 프로젝트 루트
   app/
     page.tsx                # Landing (/)
     input/page.tsx           # /input
@@ -49,9 +51,9 @@ src/
     claude.ts                 # Claude API 호출 래퍼 (추천 프롬프트 조립)
   types/
     index.ts                  # 아래 Data Model 인터페이스 정의
-docs/                         session-1 경량 문서
-planning/md-design/           session-2 상세 설계 문서 (본 문서)
-tests/                         테스트 코드
+  tests/                      테스트 코드
+docs/                         session-1 경량 문서 (저장소 루트)
+planning/md-design/           session-2 상세 설계 문서 (저장소 루트, 본 문서)
 ```
 
 ## 4. Data Model (Draft)
@@ -91,7 +93,7 @@ RecommendationResult
   isFallback: boolean       // FR-12 폴백 경로로 선택된 경우 true (내부 로깅용, 사용자에게 노출 안 함)
 ```
 
-<!-- TODO: librarySample 선택 방식 확정 필요 — 전체 라이브러리를 프롬프트에 넣기 어려우므로 무작위/최근 좋아요/장르 다양성 기준 중 선택. Claude API 비용·응답 품질에 직접 영향. -->
+<!-- 확정: librarySample은 사용자가 최근에 좋아요한 곡 최대 50개로 구성한다. 소스가 되는 라이브러리 자체는 Liked Songs + 본인이 생성한 플레이리스트로 한정하며 팔로우한 플레이리스트는 제외한다 (01/02 라이브러리 범위 결정과 일치). 완전 무작위 샘플링은 "지금 이 순간"과의 관련성이 낮아 기각했고, 장르 다양성 샘플링은 추가 분류 로직이 필요해 이번 MVP 범위에는 과하다고 판단했다. -->
 
 ### 4.1 추천 결과 검증 (FR-12 — AI 환각 방지)
 `/api/recommend`는 Claude 응답을 그대로 반환하지 않고 아래 검증을 거친다.
@@ -109,11 +111,12 @@ RecommendationResult
   - `reason`은 짧은 한 줄 문구로 제한해 쿼리 길이 문제를 피한다 (03 UX 스펙과 일치).
   - 이 방식은 DB/서버 캐시/브라우저 저장소 없이도 동작하며, 새로고침·URL 직접 접근 시에도 파라미터만 있으면 동일하게 렌더링된다.
 - **Result**: 진입 시 `searchParams`에서 위 필드를 읽어 렌더링. 필수 파라미터(`uri`, `name`)가 없으면 잘못된 진입으로 간주해 `/input`으로 리다이렉트한다 (직접 URL 접근·공유 링크·파라미터 유실 케이스 처리). 그 외 로딩/에러 상태는 로컬로 관리.
+- **FR-10 관련 참고**: 위 전달 방식은 결과 표시에 필요한 최소 필드만 넘기므로, "다시 추천받기"(FR-10)에 필요한 원본 `UserContext`/`WeatherContext`는 포함하지 않는다. FR-10은 이번 MVP에서 의도적으로 보류되었으며(02 Decisions Log 참고), 다음 세션에서 원본 컨텍스트 전달 방식까지 포함해 이 State 설계를 재검토한다.
 - 페이지 새로고침 시 상태가 초기화되는 것은 MVP에서 허용 (별도 영속화 요구사항 없음, 02 NFR-5와 일치).
 
 ## 6. Storage
 - **영구 데이터베이스 없음** — MVP는 DB를 두지 않는다.
-- **Spotify 토큰**: 서버 사이드 세션(예: 암호화된 http-only 쿠키)에만 보관, 클라이언트 JS에서 직접 접근 불가하도록 처리.
+- **Spotify 토큰 (확정)**: 액세스·리프레시 토큰을 직접 담은 암호화·서명된 http-only 쿠키에 저장한다 (stateless — 별도 서버 세션 저장소를 두지 않음). 서버리스 배포에서는 인스턴스 간 메모리를 공유할 수 없어, 인스턴스 재시작·스케일 아웃 시에도 세션이 유실되지 않도록 이 방식을 채택한다. 클라이언트 JS에서는 직접 접근 불가하도록 처리한다.
 - **라이브러리/추천 결과**: 요청-응답 생명주기 동안만 메모리에 존재, 별도 캐시/DB 저장 없음 (MVP).
 - **localStorage/sessionStorage**: 사용하지 않음 (필요성이 생기면 별도 논의 후 결정).
 
