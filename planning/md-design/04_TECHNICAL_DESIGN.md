@@ -4,7 +4,7 @@
 > 다루지 않음: 왜 필요한지(01/02), 화면 디자인(03), 일정(05). 구현 코드는 포함하지 않음 (설계 단계).
 
 ## 1. Tech Stack
-Next.js, React, TypeScript, Tailwind CSS, Spotify Web API, OpenWeather API, Claude API.
+Next.js, React, TypeScript, Tailwind CSS, Spotify Web API, OpenWeather API, OpenAI API (gpt-4o-mini).
 
 ## 2. Route
 
@@ -17,7 +17,7 @@ Next.js, React, TypeScript, Tailwind CSS, Spotify Web API, OpenWeather API, Clau
 | `/api/auth/spotify/callback` | API | OAuth 콜백 처리, 토큰 발급/세션 저장 |
 | `/api/spotify/library` | API | 로그인 사용자의 저장 곡(Liked Songs) 및 본인이 생성한 플레이리스트 조회 (팔로우한 플레이리스트 제외) |
 | `/api/weather` | API | 위치(lat/lng) 또는 도시명 기반 날씨 조회 |
-| `/api/recommend` | API | 기분+상황+날씨+라이브러리 샘플 → Claude API 추천 요청 |
+| `/api/recommend` | API | 기분+상황+날씨+라이브러리 샘플 → OpenAI API 추천 요청 |
 
 <!-- FR-10 "다시 추천받기"는 이번 MVP에서 의도적으로 보류되어 다음 세션 이후 재설계 예정이다 (재호출/별도 엔드포인트 여부도 그때 함께 확정). 02 Decisions Log 참고. -->
 
@@ -48,7 +48,7 @@ moodtune/                      # Next.js 프로젝트 루트
   lib/
     spotify.ts               # Spotify API 클라이언트 래퍼
     weather.ts                # OpenWeather API 클라이언트 래퍼
-    claude.ts                 # Claude API 호출 래퍼 (추천 프롬프트 조립)
+    openai.ts                 # OpenAI API 호출 래퍼 (추천 프롬프트 조립)
   types/
     index.ts                  # 아래 Data Model 인터페이스 정의
   tests/                      테스트 코드
@@ -96,9 +96,9 @@ RecommendationResult
 <!-- 확정: librarySample은 사용자가 최근에 좋아요한 곡 최대 50개로 구성한다. 소스가 되는 라이브러리 자체는 Liked Songs + 본인이 생성한 플레이리스트로 한정하며 팔로우한 플레이리스트는 제외한다 (01/02 라이브러리 범위 결정과 일치). 완전 무작위 샘플링은 "지금 이 순간"과의 관련성이 낮아 기각했고, 장르 다양성 샘플링은 추가 분류 로직이 필요해 이번 MVP 범위에는 과하다고 판단했다. -->
 
 ### 4.1 추천 결과 검증 (FR-12 — AI 환각 방지)
-`/api/recommend`는 Claude 응답을 그대로 반환하지 않고 아래 검증을 거친다.
-1. Claude가 반환한 트랙을 `librarySample`과 `uri`(또는 `id`) 기준으로 대조.
-2. 불일치 시, "목록 안의 트랙만 선택하라"는 제약을 강조해 Claude를 **최대 1회 재호출**.
+`/api/recommend`는 OpenAI 응답을 그대로 반환하지 않고 아래 검증을 거친다.
+1. OpenAI가 반환한 트랙을 `librarySample`과 `uri`(또는 `id`) 기준으로 대조.
+2. 불일치 시, "목록 안의 트랙만 선택하라"는 제약을 강조해 OpenAI를 **최대 1회 재호출**.
 3. 재시도 후에도 불일치하면 `librarySample[0]`(또는 정해진 규칙)을 **결정론적 폴백**으로 사용하고 `reason`을 일반화된 문구로 대체, `isFallback: true` 설정.
 4. 클라이언트는 `isFallback` 값과 무관하게 항상 동일한 방식으로 `RecommendationResult`를 렌더링한다 (사용자에게 폴백 여부를 노출하지 않음).
 
@@ -128,19 +128,19 @@ SPOTIFY_CLIENT_ID
 SPOTIFY_CLIENT_SECRET
 SPOTIFY_REDIRECT_URI
 OPENWEATHER_API_KEY
-ANTHROPIC_API_KEY
+OPENAI_API_KEY
 ```
 
 ## 8. 에러 처리 전략
 - 날씨 API 실패 → `WeatherContext` 없이 추천 진행 (NFR-2).
-- Claude API 실패 → Result 페이지에서 재시도 액션 제공 (NFR-3).
+- OpenAI API 실패 → Result 페이지에서 재시도 액션 제공 (NFR-3).
 - Spotify 토큰 만료 → 재로그인 유도 (Landing으로 리다이렉트).
 
 ## 9. Explicit Non-Goals (기술)
 - 커스텀 인증 시스템 (Spotify OAuth 외 추가 인증 없음)
 - 실시간 기능 (websocket 등)
 - 대용량 파일 업로드/저장
-- Spotify, OpenWeather, Claude 이외 외부 서비스 연동
+- Spotify, OpenWeather, OpenAI 이외 외부 서비스 연동
 
 ## 10. Open Questions
 - [ ] TODO: 배포 대상 (Vercel 가정, 확정 필요).

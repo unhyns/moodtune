@@ -8,7 +8,7 @@
 - 로그인한 사용자의 저장한 곡(Liked Songs) 및 본인이 생성한 플레이리스트 조회 추가 (팔로우한 플레이리스트는 제외)
 - 위치 기반 현재 날씨 자동 조회 추가
 - 기분·상황 퀵리플라이 단일 선택 입력 UI 추가
-- 기분·날씨·상황·라이브러리를 종합한 Claude 기반 AI 추천 생성 및 결과 표시 추가
+- 기분·날씨·상황·라이브러리를 종합한 OpenAI 기반 AI 추천 생성 및 결과 표시 추가
 - 추천 결과 클릭 시 Spotify 앱/웹으로 이동하는 딥링크 추가
 - 추천 결과가 항상 사용자의 실제 라이브러리 트랙인지 검증하고, 아니면 결정론적으로 폴백하는 안전장치 추가 (AI 환각 방지)
 
@@ -32,6 +32,6 @@ Breaking change 없음 (그린필드 프로젝트, 기존 스펙 없음).
 - **영향받는 라우트**: `/`, `/input`, `/result`, `/api/auth/spotify/login`, `/api/auth/spotify/callback`, `/api/spotify/library`, `/api/weather`, `/api/recommend`
 - **영향받는 컴포넌트**: `PrimaryButton`, `SecondaryButton`, `QuickReplyChip`, `WeatherBadge`, `TrackCard`
 - **영향받는 데이터 모델**: `SpotifySession`, `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult`
-- **신규 외부 의존성**: Spotify Web API, OpenWeather API, Claude API
-- **신규 환경 변수**: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `ANTHROPIC_API_KEY`
+- **신규 외부 의존성**: Spotify Web API, OpenWeather API, OpenAI API (gpt-4o-mini)
+- **신규 환경 변수**: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `OPENAI_API_KEY`
 - **저장소 영향**: 없음 — 영구 데이터베이스를 추가하지 않음 (MVP는 요청-응답 생명주기 동안만 데이터를 메모리에 유지)

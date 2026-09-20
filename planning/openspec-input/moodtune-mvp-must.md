@@ -17,7 +17,7 @@
 - 사용자 라이브러리(저장한 곡 + 플레이리스트) 조회 추가 (FR-2)
 - 위치 기반 날씨 자동 조회 추가 (FR-3)
 - 기분·상황 퀵리플라이 입력 UI 추가 (FR-4, FR-5)
-- Claude 기반 AI 추천 생성 및 결과 표시 추가 (FR-7, FR-8)
+- OpenAI 기반 AI 추천 생성 및 결과 표시 추가 (FR-7, FR-8)
 - 추천 결과에서 Spotify로 이동하는 딥링크 추가 (FR-9)
 - 추천 결과가 실제 라이브러리 트랙인지 검증·폴백하는 로직 추가 (FR-12, 환각 방지)
 
@@ -25,7 +25,7 @@
 - **영향받는 라우트** (`04_TECHNICAL_DESIGN.md` §2): `/`, `/input`, `/result`, `/api/auth/spotify/login`, `/api/auth/spotify/callback`, `/api/spotify/library`, `/api/weather`, `/api/recommend`
 - **영향받는 컴포넌트**: `PrimaryButton`, `SecondaryButton`, `QuickReplyChip`, `WeatherBadge`, `TrackCard` (Must 흐름에 직접 관여하는 컴포넌트만. `TextField`/`LoadingIndicator`/`ErrorBanner`는 이 change의 Must 요구사항과 직접 연결되지 않음)
 - **영향받는 데이터 모델**: `SpotifySession`, `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult`(`isFallback` 포함)
-- **신규 환경 변수**: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `ANTHROPIC_API_KEY`
+- **신규 환경 변수**: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `OPENAI_API_KEY`
 - **DB 영향 없음** — MVP는 영구 데이터베이스를 두지 않음 (04 §6)
 
 ## 3. Spec 요구사항 (ADDED Requirements)
@@ -78,7 +78,7 @@
 - **THEN** "추천받기" 버튼은 비활성화 상태로 표시된다
 
 ### Requirement: AI-Generated Recommendation
-기분·날씨·상황·라이브러리를 종합해 Claude API로 추천을 생성하고 결과를 화면에 표시해야 한다. (FR-7, FR-8)
+기분·날씨·상황·라이브러리를 종합해 OpenAI API (gpt-4o-mini)로 추천을 생성하고 결과를 화면에 표시해야 한다. (FR-7, FR-8)
 
 #### Scenario: 추천 요청 및 결과 표시
 - **WHEN** 사용자가 기분·상황을 선택하고 "추천받기"를 제출한다
@@ -95,11 +95,11 @@
 AI 추천 결과가 사용자 라이브러리에 실제로 존재하는 트랙인지 검증하고, 아니면 결정론적으로 폴백해야 한다 (환각 방지). (FR-12)
 
 #### Scenario: 라이브러리 내 트랙으로 검증됨
-- **WHEN** Claude가 반환한 트랙이 `librarySample`의 URI/ID와 일치한다
+- **WHEN** OpenAI가 반환한 트랙이 `librarySample`의 URI/ID와 일치한다
 - **THEN** 시스템은 해당 트랙을 그대로 추천 결과로 사용한다
 
 #### Scenario: 불일치 후 재시도 성공
-- **WHEN** Claude가 반환한 트랙이 `librarySample`과 일치하지 않는다
+- **WHEN** OpenAI가 반환한 트랙이 `librarySample`과 일치하지 않는다
 - **THEN** 시스템은 "목록 안의 트랙만 선택하라"는 제약을 포함해 최대 1회 재시도한다
 
 #### Scenario: 재시도 후에도 불일치 — 결정론적 폴백
@@ -115,8 +115,8 @@ AI 추천 결과가 사용자 라이브러리에 실제로 존재하는 트랙�
 - **FR-12 검증 로직** (04 §4.1): 대조 → 최대 1회 재시도 → 결정론적 폴백(`librarySample[0]` 등) → `isFallback`과 무관하게 동일 방식으로 렌더링
 - **State/전달 방식** (04 §5): 전역 상태 라이브러리·브라우저 저장소 없이, Input→Result는 URL 쿼리 파라미터(`uri`, `name`, `artist`, `art`, `reason`)로 전달. Result는 필수 파라미터(`uri`, `name`) 없으면 `/input`으로 리다이렉트
 - **Storage** (04 §6): 영구 DB 없음. Spotify 토큰은 서버 사이드 세션(암호화된 http-only 쿠키)에만 보관. localStorage/sessionStorage 사용 안 함
-- **에러 처리 전략** (04 §8): 날씨 API 실패 → 날씨 없이 진행(NFR-2). Claude API 실패 → 재시도 액션 제공(NFR-3). 토큰 만료 → Landing으로 재로그인 유도
-- **환경 변수** (04 §7): `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `ANTHROPIC_API_KEY`
+- **에러 처리 전략** (04 §8): 날씨 API 실패 → 날씨 없이 진행(NFR-2). OpenAI API 실패 → 재시도 액션 제공(NFR-3). 토큰 만료 → Landing으로 재로그인 유도
+- **환경 변수** (04 §7): `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `OPENAI_API_KEY`
 
 ### 미정 — 착수 전 확정 필요
 - 기분(mood)/상황(situation) 퀵리플라이 옵션의 실제 값 (02, TODO 초안만 존재)
@@ -154,8 +154,8 @@ AI 추천 결과가 사용자 라이브러리에 실제로 존재하는 트랙�
 
 ### F. AI Recommendation (FR-7, FR-8, FR-12)
 - [ ] 6.1 `librarySample` 구성 로직 구현 (선택 방식은 "미정" 목록 확정 후 반영)
-- [ ] 6.2 `/api/recommend` 구현 — mood/situation/weather/librarySample을 Claude API에 전달
-- [ ] 6.3 Claude 응답을 `librarySample`과 URI/ID 대조 검증
+- [ ] 6.2 `/api/recommend` 구현 — mood/situation/weather/librarySample을 OpenAI API에 전달
+- [ ] 6.3 OpenAI 응답을 `librarySample`과 URI/ID 대조 검증
 - [ ] 6.4 불일치 시 제약을 강조해 최대 1회 재시도
 - [ ] 6.5 재시도 후에도 불일치하면 결정론적 폴백 + `isFallback` 내부 플래그 처리
 - [ ] 6.6 결과를 URL 쿼리 파라미터로 인코딩해 `/result`로 이동

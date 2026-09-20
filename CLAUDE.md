@@ -15,7 +15,7 @@ This app helps users who want to quickly decide what to listen to before heading
 -GitHub
 -Spotify Web API
 -Weather API (OpenWeather)
--Claude API
+-OpenAI API (gpt-4o-mini)
 
 ## Current Stage
 Session 1: 기획 문서 작성 및 프로젝트 컨텍스트 설계
@@ -34,7 +34,7 @@ Do not add:
 -complex authentication
 -real-time collaboration
 -large file upload
--external API integrations beyond Spotify, weather, and Claude — no additional third-party services without explicit approval
+-external API integrations beyond Spotify, weather, and OpenAI — no additional third-party services without explicit approval
 
 ## References
 -Follow docs/DESIGN.md for UI direction.

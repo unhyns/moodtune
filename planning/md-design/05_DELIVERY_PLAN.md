@@ -5,7 +5,7 @@
 
 ## 1. 전체 범위 대비 오늘의 범위 (20~30%)
 전체 MVP는 01의 5개 핵심 기능(Spotify 연동 / 날씨 반영 / 기분·상황 입력 / AI 추천 / Spotify 이동)이다.
-외부 API(Spotify OAuth, OpenWeather, Claude) 연동은 다음 세션 이후로 미루고, **오늘은 API 키 없이 검증 가능한 정적 UI 뼈대 + 로컬 상태 인터랙션**만 구현한다.
+외부 API(Spotify OAuth, OpenWeather, OpenAI) 연동은 다음 세션 이후로 미루고, **오늘은 API 키 없이 검증 가능한 정적 UI 뼈대 + 로컬 상태 인터랙션**만 구현한다.
 
 ### 오늘 구현 항목
 1. Next.js 라우트 3개 스캐폴딩: `/`, `/input`, `/result` (정적 레이아웃, 실제 라우팅 동작 확인)
@@ -17,7 +17,7 @@
 - Spotify OAuth 로그인 (FR-1)
 - 실제 라이브러리 조회 (FR-2)
 - 날씨 API 연동 (FR-3) 및 수동 도시 입력 (FR-11) — FR-11은 02_REQUIREMENTS_SPEC.md에서 Must로 격상되었지만, 날씨 API 실패 상태와 묶여 있는 기능이라 오늘의 mock-only 범위에는 포함하지 않는다. 다음 세션에 날씨 API 연동과 함께 구현한다.
-- Claude API 추천 연동 (FR-7)
+- OpenAI API (gpt-4o-mini) 추천 연동 (FR-7)
 - Spotify로 실제 이동하는 딥링크 (FR-9) — 오늘은 더미 링크로 대체
 
 ## 2. 작업 체크리스트 (10~20분 단위)
@@ -75,7 +75,7 @@
 - [ ] 위 수동 QA 체크리스트 10개 항목이 모두 통과한다.
 
 ## 5. 다음 세션 예고 (참고용, 상세 계획 아님)
-Spotify OAuth 연동 → 실제 라이브러리 조회 → 날씨 API 연동 → Claude 추천 연동 → Spotify 딥링크 연결 순으로 진행 (근거는 04_TECHNICAL_DESIGN.md 참고).
+Spotify OAuth 연동 → 실제 라이브러리 조회 → 날씨 API 연동 → OpenAI 추천 연동 → Spotify 딥링크 연결 순으로 진행 (근거는 04_TECHNICAL_DESIGN.md 참고).
 
 ## 6. Open Questions
 - [ ] TODO: 오늘 구현 완료 후, 실제 Spotify Developer 앱 등록을 다음 세션 전에 미리 해둘지 여부.

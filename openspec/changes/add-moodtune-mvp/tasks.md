@@ -1,6 +1,6 @@
 ## 1. Setup & Environment
 
-- [ ] 1.1 Add environment variables (`SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `ANTHROPIC_API_KEY`) and verify the app reads them without throwing at startup
+- [ ] 1.1 Add environment variables (`SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `OPENAI_API_KEY`) and verify the app reads them without throwing at startup
 - [ ] 1.2 Register a Spotify Developer app and configure the redirect URI, and verify the OAuth authorize URL loads without a `redirect_uri_mismatch` error
 - [ ] 1.3 Define shared types (`SpotifySession`, `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult`) and verify the project type-checks with no errors
 
@@ -31,7 +31,7 @@
 ## 6. AI Recommendation (ai-recommendation)
 
 - [ ] 6.1 Build `librarySample` from the user's most recently liked tracks, capped at 50 (design.md Decision 2), and verify the sample size never exceeds 50
-- [ ] 6.2 Implement `/api/recommend` to call Claude with mood, situation, weather (when available), and the library sample, and verify a valid request returns exactly one track with a reason
+- [ ] 6.2 Implement `/api/recommend` to call OpenAI with mood, situation, weather (when available), and the library sample, and verify a valid request returns exactly one track with a reason
 - [ ] 6.3 Validate the returned track against `librarySample` by URI/ID and retry once with an explicit "select only from this list" instruction on mismatch, and verify a mismatched first response triggers exactly one retry
 - [ ] 6.4 On a second mismatch, select a deterministic fallback track from `librarySample` with a generic reason and `isFallback: true`, and verify the client renders identically regardless of `isFallback`
 - [ ] 6.5 Pass the result to `/result` via URL query parameters (`uri`, `name`, `artist`, `art`, `reason`) (design.md Decision 4), and verify `/result` renders correctly from a directly-constructed URL
