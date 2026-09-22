@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import QuickReplyChip from "@/components/QuickReplyChip";
 import PrimaryButton from "@/components/PrimaryButton";
+import WeatherBadge from "@/components/WeatherBadge";
+import type { LibraryResponse } from "@/types";
 
 // 02_REQUIREMENTS_SPEC.md Decisions Log에서 확정된 값.
 const MOOD_OPTIONS = ["신남", "차분함", "우울함", "집중", "설렘"];
@@ -23,7 +25,24 @@ export default function InputPage() {
   const [mood, setMood] = useState<string | null>(null);
   const [situation, setSituation] = useState<string | null>(null);
 
-  const canSubmit = mood !== null && situation !== null;
+  const [library, setLibrary] = useState<
+    { status: "loading" } | { status: "ready"; total: number } | { status: "error" }
+  >({ status: "loading" });
+
+  // 만료·무효 세션이면 Landing으로 보내 재인증시킨다 (spotify-auth: Session Expiry Handling).
+  useEffect(() => {
+    fetch("/api/spotify/library")
+      .then(async (res) => {
+        if (res.status === 401) return router.replace("/");
+        if (!res.ok) return setLibrary({ status: "error" });
+        const data = (await res.json()) as LibraryResponse;
+        setLibrary({ status: "ready", total: data.tracks.length });
+      })
+      .catch(() => setLibrary({ status: "error" }));
+  }, [router]);
+
+  const libraryEmpty = library.status === "ready" && library.total === 0;
+  const canSubmit = mood !== null && situation !== null && !libraryEmpty;
 
   const handleSubmit = () => {
     if (!canSubmit) return;
@@ -43,9 +62,7 @@ export default function InputPage() {
 
       <section aria-label="날씨">
         <h2 className="mb-3 text-sm font-medium text-zinc-500">날씨</h2>
-        <div className="rounded-xl border border-dashed border-zinc-300 p-4 text-sm text-zinc-400 dark:border-zinc-700">
-          날씨 표시 영역 (다음 세션에서 연동)
-        </div>
+        <WeatherBadge />
       </section>
 
       <section aria-label="기분">
@@ -77,6 +94,12 @@ export default function InputPage() {
           ))}
         </div>
       </section>
+
+      {libraryEmpty && (
+        <p role="alert" className="text-sm text-zinc-500">
+          Spotify 라이브러리가 비어 있어요. 좋아요한 곡을 추가하거나 플레이리스트를 만든 뒤 다시 와주세요.
+        </p>
+      )}
 
       <PrimaryButton disabled={!canSubmit} onClick={handleSubmit}>
         추천받기
