@@ -1,26 +1,26 @@
 ## 1. Setup & Environment
 
-- [ ] 1.1 Add environment variables (`SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `OPENAI_API_KEY`) and verify the app reads them without throwing at startup
-- [ ] 1.2 Register a Spotify Developer app and configure the redirect URI, and verify the OAuth authorize URL loads without a `redirect_uri_mismatch` error
-- [ ] 1.3 Define shared types (`SpotifySession`, `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult`) and verify the project type-checks with no errors
+- [x] 1.1 Add environment variables (`SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REDIRECT_URI`, `OPENWEATHER_API_KEY`, `OPENAI_API_KEY`) and verify the app reads them without throwing at startup
+- [x] 1.2 Register a Spotify Developer app and configure the redirect URI, and verify the OAuth authorize URL loads without a `redirect_uri_mismatch` error
+- [x] 1.3 Define shared types (`SpotifySession`, `LibraryTrack`, `WeatherContext`, `UserContext`, `RecommendationRequest`, `RecommendationResult`) and verify the project type-checks with no errors
 
 ## 2. Spotify Auth (spotify-auth)
 
-- [ ] 2.1 Implement `/api/auth/spotify/login` to redirect to Spotify's authorize endpoint with read-only scopes only, and verify the requested scope list contains no write/modify scopes
-- [ ] 2.2 Implement `/api/auth/spotify/callback` to exchange the auth code for tokens and store them in an encrypted, signed http-only cookie (design.md Decision 1), and verify a successful login sets the cookie and advances to the input step
-- [ ] 2.3 Show an error state with a retry action on the Landing page when login is denied or fails, and verify denying consent triggers that state
-- [ ] 2.4 Detect an expired/invalid token on an API call and redirect to Landing to re-authenticate, and verify a simulated expired token redirects correctly
+- [x] 2.1 Implement `/api/auth/spotify/login` to redirect to Spotify's authorize endpoint with read-only scopes only, and verify the requested scope list contains no write/modify scopes
+- [x] 2.2 Implement `/api/auth/spotify/callback` to exchange the auth code for tokens and store them in an encrypted, signed http-only cookie (design.md Decision 1), and verify a successful login sets the cookie and advances to the input step
+- [x] 2.3 Show an error state with a retry action on the Landing page when login is denied or fails, and verify denying consent triggers that state
+- [x] 2.4 Detect an expired/invalid token on an API call and redirect to Landing to re-authenticate, and verify a simulated expired token redirects correctly
 
 ## 3. Library Retrieval (spotify-library)
 
-- [ ] 3.1 Implement `/api/spotify/library` to fetch saved tracks and the user's own playlists (excluding followed playlists) using the session cookie, and verify it returns at least one track for a seeded test account
-- [ ] 3.2 Show a dedicated empty-library message instead of attempting a recommendation when the library is empty, and verify an account with no saved tracks sees that message
+- [x] 3.1 Implement `/api/spotify/library` to fetch saved tracks and the user's own playlists (excluding followed playlists) using the session cookie, and verify it returns at least one track for a seeded test account
+- [x] 3.2 Show a dedicated empty-library message instead of attempting a recommendation when the library is empty, and verify an account with no saved tracks sees that message
 
 ## 4. Weather Context (weather-context)
 
-- [ ] 4.1 Request browser geolocation permission on the input step and call `/api/weather` with the coordinates, and verify the weather badge shows condition and temperature when permission is granted
-- [ ] 4.2 Continue the recommendation flow without weather context when retrieval fails or permission is denied, and verify a recommendation still succeeds in that case
-- [ ] 4.3 Show a manual city input field when geolocation permission is denied or retrieval fails, and call `/api/weather` with the entered city name (FR-11), and verify submitting a city updates the weather badge with condition and temperature
+- [x] 4.1 Request browser geolocation permission on the input step and call `/api/weather` with the coordinates, and verify the weather badge shows condition and temperature when permission is granted
+- [x] 4.2 Continue the recommendation flow without weather context when retrieval fails or permission is denied, and verify a recommendation still succeeds in that case
+- [x] 4.3 Show a manual city input field when geolocation permission is denied or retrieval fails, and call `/api/weather` with the entered city name (FR-11), and verify submitting a city updates the weather badge with condition and temperature
 
 ## 5. Mood & Situation Input (mood-context-input)
 
