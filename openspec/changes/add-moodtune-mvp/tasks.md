@@ -24,9 +24,9 @@
 
 ## 5. Mood & Situation Input (mood-context-input)
 
-- [ ] 5.1 Add the confirmed mood options (신남/차분함/우울함/집중/설렘) and situation options (출근길/산책/카페/운동/드라이브) as constant arrays (design.md Decision 3) and render them as `QuickReplyChip` groups
+- [ ] 5.1 Add the confirmed mood options (Excited/Calm/Depressed/Focusing/Romantic) and situation options (💼 Way to Work/🚶 Just Walking/☕️ In the Cafe/🏃 Exercising/🚙 Driving) as constant arrays (design.md Decision 3) and render them as `QuickReplyChip` groups
 - [ ] 5.2 Implement single-select toggle behavior within each group, and verify selecting a new option deselects the previously selected one in the same group
-- [ ] 5.3 Disable the recommendation request action until both a mood and a situation are selected, and verify the button's enabled/disabled state toggles correctly
+- [ ] 5.3 Disable the recommendation request action until at least one of mood or situation is selected, and verify the button's enabled/disabled state toggles correctly
 
 ## 6. AI Recommendation (ai-recommendation)
 

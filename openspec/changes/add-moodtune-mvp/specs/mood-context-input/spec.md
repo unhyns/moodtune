@@ -12,12 +12,12 @@ The system SHALL let the user select exactly one mood option and one situation o
 - **THEN** that option SHALL become selected and any previously selected option in the same group SHALL become unselected
 
 ### Requirement: Submission Gated on Required Selections
-The system SHALL disable the recommendation request action until both a mood and a situation are selected.
+The system SHALL disable the recommendation request action until at least one of mood or situation is selected.
 
-#### Scenario: Incomplete selection
-- **WHEN** either mood or situation has not been selected
+#### Scenario: No selection
+- **WHEN** neither mood nor situation has been selected
 - **THEN** the recommendation request action SHALL remain disabled
 
-#### Scenario: Complete selection
-- **WHEN** both mood and situation are selected
+#### Scenario: At least one selection
+- **WHEN** mood or situation (or both) is selected
 - **THEN** the recommendation request action SHALL become enabled
