@@ -20,6 +20,7 @@ export type WeatherContext = {
   condition: string;
   temperatureC: number;
   city?: string;
+  icon?: string;
 };
 
 export type UserContext = {
@@ -38,6 +39,9 @@ export type RecommendationResult = {
   track: LibraryTrack;
   reason: string;
   isFallback: boolean;
+  // Result 화면에서 "Artist" 자리에 아티스트명(track) 또는 생성자명(playlist)을 구분해 보여주기 위한 필드.
+  type: "track" | "playlist";
+  creator?: string;
 };
 
 export type LibraryResponse = {

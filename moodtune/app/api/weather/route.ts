@@ -4,7 +4,7 @@ import type { WeatherContext } from "@/types";
 
 type OpenWeatherResponse = {
   name?: string;
-  weather?: { description: string }[];
+  weather?: { description: string; icon: string }[];
   main?: { temp: number };
 };
 
@@ -45,6 +45,7 @@ export async function GET(request: NextRequest) {
       condition: data.weather[0].description,
       temperatureC: Math.round(data.main.temp),
       city: data.name,
+      icon: data.weather[0].icon,
     };
     return NextResponse.json(weather);
   } catch {

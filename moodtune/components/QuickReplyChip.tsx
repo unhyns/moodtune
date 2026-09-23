@@ -1,24 +1,32 @@
+const DIMMED_COLOR = "#AFAFAF";
+
 type QuickReplyChipProps = {
   label: string;
   selected: boolean;
+  dimmed: boolean;
+  borderColor: string;
+  textColor: string;
   onClick: () => void;
 };
 
 export default function QuickReplyChip({
   label,
   selected,
+  dimmed,
+  borderColor,
+  textColor,
   onClick,
 }: QuickReplyChipProps) {
+  const color = dimmed ? DIMMED_COLOR : textColor;
+  const border = dimmed ? DIMMED_COLOR : borderColor;
+
   return (
     <button
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition ${
-        selected
-          ? "border-black bg-black text-white dark:border-white dark:bg-white dark:text-black"
-          : "border-zinc-300 bg-white text-zinc-700 dark:border-zinc-700 dark:bg-black dark:text-zinc-200"
-      }`}
+      style={{ borderColor: border, color }}
+      className="inline-flex items-center justify-center whitespace-nowrap border border-solid bg-white px-[10px] py-[4px] font-['Helvetica'] text-[20px] font-bold transition-colors"
     >
       {label}
     </button>

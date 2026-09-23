@@ -1,3 +1,5 @@
+import VinylRecord from "@/components/VinylRecord";
+
 const ERROR_MESSAGES: Record<string, string> = {
   denied: "Spotify 연동이 취소되었어요. 다시 시도해 주세요.",
   failed: "Spotify 로그인에 실패했어요. 다시 시도해 주세요.",
@@ -13,28 +15,55 @@ export default async function LandingPage({
   const errorMessage = error ? (ERROR_MESSAGES[error] ?? ERROR_MESSAGES.failed) : null;
 
   return (
-    <main className="flex min-h-dvh flex-1 flex-col items-center justify-center gap-6 px-6 text-center">
-      <div>
-        <h1 className="text-3xl font-bold">MoodTune</h1>
-        <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
-          내 손 안의 DJ, 무드튠
-        </p>
+    <main className="flex min-h-dvh flex-1 justify-center bg-[#fafafa]">
+      <div className="relative flex w-full max-w-[393px] flex-col items-start gap-[10px]">
+        <header className="flex w-full flex-col items-center border-b-[2px] border-[rgba(228,60,152,0.2)] bg-[#fafafa] py-[10px]">
+          <div className="flex items-start gap-[2px]">
+            <p className="whitespace-nowrap font-['Helvetica'] text-[20px] font-bold text-black">
+              MoodTune
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element -- tiny decorative Figma asset, no benefit from next/image */}
+            <img src="/landing/logo-dot.svg" alt="" className="mt-0.5 size-[10px]" />
+          </div>
+        </header>
+
+        <div className="relative flex w-full flex-col items-start justify-center gap-[10px] px-[16px] py-[12px]">
+          {/* eslint-disable-next-line @next/next/no-img-element -- decorative background asset */}
+          <img
+            src="/landing/stars.svg"
+            alt=""
+            aria-hidden="true"
+            className="absolute left-[16px] top-[17px] h-[666px] w-[349px]"
+          />
+
+          <h1 className="relative whitespace-nowrap font-['Helvetica'] text-[64px] font-bold leading-normal text-black">
+            <span className="block">Music</span>
+            <span className="block">Does</span>
+            <span className="block">Matter.</span>
+          </h1>
+
+          <p className="relative whitespace-nowrap font-['Helvetica'] text-[20px] font-normal leading-normal text-black">
+            <span className="block">How’s going?</span>
+            <span className="block">Tune Now.</span>
+          </p>
+
+          <VinylRecord className="left-[166px] top-[198px]" />
+
+          <div className="relative flex flex-col items-start gap-[10px] pt-[280px]">
+            {errorMessage && (
+              <p role="alert" className="max-w-[280px] text-sm text-red-600">
+                {errorMessage}
+              </p>
+            )}
+            <a
+              href="/api/auth/spotify/login"
+              className="inline-flex items-center justify-center rounded-[30px] bg-[#1ed760] px-[24px] py-[10px] font-['Helvetica'] text-[20px] font-bold text-black"
+            >
+              Start with Spotify
+            </a>
+          </div>
+        </div>
       </div>
-      <p className="max-w-xs text-sm text-zinc-600 dark:text-zinc-300">
-        기분·날씨·상황에 맞춰 내 라이브러리 안에서 지금 들을 곡을 추천해드려요.
-      </p>
-      {errorMessage && (
-        <p role="alert" className="max-w-xs text-sm text-red-600 dark:text-red-400">
-          {errorMessage}
-        </p>
-      )}
-      {/* 인증은 서버 리다이렉트이므로 링크로 이동한다. */}
-      <a
-        href="/api/auth/spotify/login"
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white dark:bg-white dark:text-black"
-      >
-        {errorMessage ? "다시 시도" : "Spotify로 시작하기"}
-      </a>
     </main>
   );
 }
