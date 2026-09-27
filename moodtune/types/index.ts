@@ -24,8 +24,9 @@ export type WeatherContext = {
 };
 
 export type UserContext = {
-  mood: string;
-  situation: string;
+  // 02_REQUIREMENTS_SPEC.md Decisions Log: 기분 또는 상황 중 하나 이상 선택.
+  mood?: string;
+  situation?: string;
   freeText?: string;
 };
 

@@ -24,19 +24,19 @@
 
 ## 5. Mood & Situation Input (mood-context-input)
 
-- [ ] 5.1 Add the confirmed mood options (Excited/Calm/Depressed/Focusing/Romantic) and situation options (💼 Way to Work/🚶 Just Walking/☕️ In the Cafe/🏃 Exercising/🚙 Driving) as constant arrays (design.md Decision 3) and render them as `QuickReplyChip` groups
-- [ ] 5.2 Implement single-select toggle behavior within each group, and verify selecting a new option deselects the previously selected one in the same group
-- [ ] 5.3 Disable the recommendation request action until at least one of mood or situation is selected, and verify the button's enabled/disabled state toggles correctly
+- [x] 5.1 Add the confirmed mood options (Excited/Calm/Depressed/Focusing/Romantic) and situation options (💼 Way to Work/🚶 Just Walking/☕️ In the Cafe/🏃 Exercising/🚙 Driving) as constant arrays (design.md Decision 3) and render them as `QuickReplyChip` groups
+- [x] 5.2 Implement single-select toggle behavior within each group, and verify selecting a new option deselects the previously selected one in the same group
+- [x] 5.3 Disable the recommendation request action until at least one of mood or situation is selected, and verify the button's enabled/disabled state toggles correctly
 
 ## 6. AI Recommendation (ai-recommendation)
 
-- [ ] 6.1 Build `librarySample` from the user's most recently liked tracks, capped at 50 (design.md Decision 2), and verify the sample size never exceeds 50
-- [ ] 6.2 Implement `/api/recommend` to call OpenAI with mood, situation, weather (when available), and the library sample, and verify a valid request returns exactly one track with a reason
-- [ ] 6.3 Validate the returned track against `librarySample` by URI/ID and retry once with an explicit "select only from this list" instruction on mismatch, and verify a mismatched first response triggers exactly one retry
-- [ ] 6.4 On a second mismatch, select a deterministic fallback track from `librarySample` with a generic reason and `isFallback: true`, and verify the client renders identically regardless of `isFallback`
-- [ ] 6.5 Pass the result to `/result` via URL query parameters (`uri`, `name`, `artist`, `art`, `reason`) (design.md Decision 4), and verify `/result` renders correctly from a directly-constructed URL
-- [ ] 6.6 Redirect to `/input` when required query parameters (`uri`, `name`) are missing on `/result`, and verify visiting `/result` with no parameters redirects
+- [x] 6.1 Build `librarySample` from the user's most recently liked tracks, capped at 50 (design.md Decision 2), and verify the sample size never exceeds 50
+- [x] 6.2 Implement `/api/recommend` to call OpenAI with mood, situation, weather (when available), and the library sample, and verify a valid request returns exactly one track with a reason
+- [x] 6.3 Validate the returned track against `librarySample` by URI/ID and retry once with an explicit "select only from this list" instruction on mismatch, and verify a mismatched first response triggers exactly one retry
+- [x] 6.4 On a second mismatch, select a deterministic fallback track from `librarySample` with a generic reason and `isFallback: true`, and verify the client renders identically regardless of `isFallback`
+- [x] 6.5 Pass the result to `/result` via URL query parameters (`uri`, `name`, `artist`, `art`, `reason`) (design.md Decision 4), and verify `/result` renders correctly from a directly-constructed URL
+- [x] 6.6 Redirect to `/input` when required query parameters (`uri`, `name`) are missing on `/result`, and verify visiting `/result` with no parameters redirects
 
 ## 7. Spotify Playback Redirect (spotify-playback-redirect)
 
-- [ ] 7.1 Replace the placeholder Spotify link with the real track URI/web URL on the recommendation card, and verify tapping it opens the correct Spotify track in a new tab or app deep link
+- [x] 7.1 Replace the placeholder Spotify link with the real track URI/web URL on the recommendation card, and verify tapping it opens the correct Spotify track in a new tab or app deep link

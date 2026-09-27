@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pixelify_Sans } from "next/font/google";
 
 // DungGeunMo(둥근모)는 Google Fonts에 없는 한국 인디 폰트라 next/font/google로 바로 못 불러온다.
@@ -15,12 +15,17 @@ const STEP_MS = 600;
 const HOLD_MS = 900;
 
 type Props = {
+  // 실제 추천 결과가 준비됐는지. 애니메이션이 먼저 끝나도 이게 true가 되기 전까진 완료 처리하지 않는다
+  // (반대로 추천이 먼저 끝나도 애니메이션이 끝날 때까지는 기다린다 — 체감 신뢰도).
+  ready: boolean;
   onComplete: () => void;
 };
 
-export default function LoadingPopup({ onComplete }: Props) {
+export default function LoadingPopup({ ready, onComplete }: Props) {
   const [dotStep, setDotStep] = useState(0);
   const [faceCount, setFaceCount] = useState(0);
+  const [animationDone, setAnimationDone] = useState(false);
+  const firedRef = useRef(false);
 
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
@@ -33,14 +38,20 @@ export default function LoadingPopup({ onComplete }: Props) {
       timers.push(setTimeout(() => setFaceCount(i), dotsDoneAt + STEP_MS * i));
     }
     const allDoneAt = dotsDoneAt + STEP_MS * 3 + HOLD_MS;
-    timers.push(setTimeout(onComplete, allDoneAt));
+    timers.push(setTimeout(() => setAnimationDone(true), allDoneAt));
 
     return () => {
       timers.forEach(clearTimeout);
     };
     // 마운트 시 한 번만 시퀀스를 예약한다.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (animationDone && ready && !firedRef.current) {
+      firedRef.current = true;
+      onComplete();
+    }
+  }, [animationDone, ready, onComplete]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">

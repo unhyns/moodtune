@@ -27,6 +27,13 @@ type ResultSearchParams = {
 
 type Badge = { label: string; border: string; text: string };
 
+// spotify:track:{id} 형태의 URI에서 웹 URL을 만든다. 앱이 설치돼 있으면 OS가 딥링크로 가로채고,
+// 없으면 새 탭에서 웹 플레이어로 열린다 (spotify-playback-redirect: new tab or app deep link).
+function spotifyWebUrl(uri: string): string {
+  const id = uri.split(":").pop() ?? "";
+  return `https://open.spotify.com/track/${id}`;
+}
+
 export default async function ResultPage({
   searchParams,
 }: {
@@ -158,7 +165,9 @@ export default async function ResultPage({
         ))}
 
         <a
-          href={uri}
+          href={spotifyWebUrl(uri)}
+          target="_blank"
+          rel="noopener noreferrer"
           className="absolute left-1/2 top-[1066px] -translate-x-1/2 whitespace-nowrap border border-solid border-black bg-[#1ed760] px-[24px] py-[12px] font-['Helvetica'] text-[20px] font-bold text-black"
         >
           Listen in Spotify!

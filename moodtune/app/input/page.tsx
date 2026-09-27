@@ -7,23 +7,16 @@ import WeatherBadge from "@/components/WeatherBadge";
 import LiveClock from "@/components/LiveClock";
 import LoadingPopup from "@/components/LoadingPopup";
 import { MOOD_OPTIONS, SITUATION_OPTIONS } from "@/lib/chipColors";
-import type { LibraryResponse, WeatherContext } from "@/types";
-
-// 오늘은 API 연동 없이 mock 데이터로 Result 화면 흐름만 확인한다.
-const MOCK_RESULT = {
-  uri: "spotify:track:mock",
-  name: "Mock Song",
-  artist: "Mock Artist",
-  art: "",
-  reason: "지금 기분과 상황에 잘 어울리는 곡이에요.",
-};
+import type { LibraryResponse, RecommendationResult, WeatherContext } from "@/types";
 
 export default function InputPage() {
   const router = useRouter();
   const [mood, setMood] = useState<string | null>(null);
   const [situation, setSituation] = useState<string | null>(null);
   const [weather, setWeather] = useState<WeatherContext | null>(null);
-  const [resultUrl, setResultUrl] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null);
+  const [submitError, setSubmitError] = useState(false);
 
   const [library, setLibrary] = useState<
     { status: "loading" } | { status: "ready"; total: number } | { status: "error" }
@@ -42,18 +35,52 @@ export default function InputPage() {
   }, [router]);
 
   const libraryEmpty = library.status === "ready" && library.total === 0;
-  const canSubmit = (mood !== null || situation !== null) && !libraryEmpty;
+  const canSubmit = (mood !== null || situation !== null) && !libraryEmpty && !isSubmitting;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!canSubmit) return;
+    setSubmitError(false);
+    setRecommendation(null);
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          mood: mood ?? undefined,
+          situation: situation ?? undefined,
+          weather: weather ?? undefined,
+        }),
+      });
+      if (res.status === 401) {
+        router.replace("/");
+        return;
+      }
+      if (!res.ok) {
+        setIsSubmitting(false);
+        setSubmitError(true);
+        return;
+      }
+      setRecommendation((await res.json()) as RecommendationResult);
+      // isSubmitting은 그대로 true — LoadingPopup이 ready=true를 감지하면 onComplete를 부른다.
+    } catch {
+      setIsSubmitting(false);
+      setSubmitError(true);
+    }
+  };
+
+  // 로딩 팝업 애니메이션이 끝나고(ready) 실제 추천도 준비된 뒤에만 호출된다.
+  const handlePopupComplete = () => {
+    if (!recommendation) return;
     const params = new URLSearchParams({
-      uri: MOCK_RESULT.uri,
-      name: MOCK_RESULT.name,
-      artist: MOCK_RESULT.artist,
-      art: MOCK_RESULT.art,
-      reason: MOCK_RESULT.reason,
-      type: "track",
+      uri: recommendation.track.uri,
+      name: recommendation.track.name,
+      artist: recommendation.track.artist,
+      art: recommendation.track.albumArtUrl,
+      reason: recommendation.reason,
+      type: recommendation.type,
     });
+    if (recommendation.creator) params.set("creator", recommendation.creator);
     if (mood) params.set("mood", mood);
     if (situation) params.set("situation", situation);
     if (weather) {
@@ -61,8 +88,8 @@ export default function InputPage() {
       if (weather.icon) params.set("weatherIcon", weather.icon);
       params.set("weatherTempC", String(weather.temperatureC));
     }
-    // 추천이 이미 준비돼 있어도 로딩 팝업 시퀀스가 끝날 때까지는 이동하지 않는다 (체감 신뢰도).
-    setResultUrl(`/result?${params.toString()}`);
+    setIsSubmitting(false);
+    router.push(`/result?${params.toString()}`);
   };
 
   return (
@@ -204,6 +231,14 @@ export default function InputPage() {
             Spotify 라이브러리가 비어 있어요. 좋아요한 곡을 추가하거나 플레이리스트를 만든 뒤 다시 와주세요.
           </p>
         )}
+        {!libraryEmpty && submitError && (
+          <p
+            role="alert"
+            className="absolute left-1/2 top-[1190px] w-[280px] -translate-x-1/2 border border-solid border-black bg-white px-3 py-2 text-center text-xs text-black"
+          >
+            추천을 가져오지 못했어요. 다시 시도해 주세요.
+          </p>
+        )}
 
         <button
           type="button"
@@ -215,7 +250,7 @@ export default function InputPage() {
         </button>
       </div>
 
-      {resultUrl && <LoadingPopup onComplete={() => router.push(resultUrl)} />}
+      {isSubmitting && <LoadingPopup ready={recommendation !== null} onComplete={handlePopupComplete} />}
     </main>
   );
 }
