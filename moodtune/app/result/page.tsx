@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Pixelify_Sans } from "next/font/google";
 import IpodPlayer from "@/components/IpodPlayer";
@@ -164,6 +165,12 @@ export default async function ResultPage({
           </div>
         ))}
 
+        {params.reason && (
+          <div className="absolute left-[200px] top-[910px] inline-flex items-center justify-center border border-solid border-[#e43c98] bg-white px-[10px] py-[4px]">
+            <p className="w-[153px] font-['Helvetica'] text-[12px] text-black">{params.reason}</p>
+          </div>
+        )}
+
         <a
           href={spotifyWebUrl(uri)}
           target="_blank"
@@ -172,6 +179,13 @@ export default async function ResultPage({
         >
           Listen in Spotify!
         </a>
+
+        <Link
+          href="/input"
+          className="absolute left-1/2 top-[1137px] -translate-x-1/2 border border-solid border-[#e43c98] bg-white px-[10px] py-[4px]"
+        >
+          <span className={`${pixelFont.className} whitespace-nowrap text-[22px] text-[#ea7eb9]`}>Tune Again?</span>
+        </Link>
       </div>
     </main>
   );
