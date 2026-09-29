@@ -1,3 +1,5 @@
+> 보류 (2026-09-28): 이번 확장 범위에서 DB를 도입하지 않기로 결정했습니다(개인화 저장은 localStorage). 기기 간 동기화가 필요해질 때 재검토하며, 그때까지 /opsx:apply 하지 않습니다.
+
 ## Why
 
 현재 MoodTune은 추천을 받을 때마다 결과 화면만 보여주고 끝나며, 사용자가 과거에 어떤 추천을 받았는지 다시 확인할 방법이 없다. 예전에 마음에 들었던 추천을 다시 찾거나, 특정 기분·날짜의 추천 이력을 돌아보고 싶은 사용자를 위해 추천 히스토리 기능을 추가한다.
@@ -19,7 +21,7 @@ Breaking change 없음 — 기존 추천 흐름(`add-moodtune-mvp`)에 추가되
 - `recommendation-history`: 사용자가 받은 추천 기록을 생성·조회·상태 변경·필터링하는 기능
 
 ### Modified Capabilities
-(없음 — 추천 생성 시점에 히스토리 항목이 함께 만들어지지만, 이는 `recommendation-history` capability의 요구사항으로 정의하며 기존 `ai-recommendation`의 요구사항 자체는 변경하지 않는다. `ai-recommendation`은 아직 별도 change(`add-moodtune-mvp`)에 속해 있고 `openspec/specs/`에 아카이브되지 않았으므로 이 change에서 델타 대상으로 삼지 않는다.)
+(없음 — 추천 생성 시점에 히스토리 항목이 함께 만들어지지만, 이는 `recommendation-history` capability의 요구사항으로 정의하며 기존 `ai-recommendation`의 요구사항 자체는 변경하지 않는다. `ai-recommendation`은 `add-moodtune-mvp`가 archive(2026-09-29)되면서 `openspec/specs/`에 반영되었지만, 이 change는 그 요구사항을 변경하지 않으므로 델타 대상으로 삼지 않는다.)
 
 ## Impact
 
