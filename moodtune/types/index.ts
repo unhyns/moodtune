@@ -56,6 +56,20 @@ export type LibraryResponse = {
   playlists: { id: string; name: string; trackCount: number }[];
 };
 
+// localStorage("moodtune:signals")에 URI별로 저장하는 개인 신호. 브라우저 전용이며 서버로 보내지 않는다.
+export type PersonalSignal = {
+  feedback?: "liked" | "disliked";
+  // ISO 8601
+  feedbackAt?: string;
+  // add-personal-signals에서 추가 예정: pinned?: boolean; excluded?: boolean;
+};
+
+export type PersonalSignalsStore = {
+  version: 1;
+  // key: spotify:(track|album|playlist):{id}
+  items: Record<string, PersonalSignal>;
+};
+
 // fetchLibrary() 반환값. /api/spotify/library는 library만 응답한다.
 export type LibraryFetchResult = {
   library: LibraryResponse;

@@ -106,7 +106,7 @@ RecommendationResult
 - 별도 전역 상태 라이브러리(Redux 등) 없이 React 로컬 상태 + URL/세션 기반으로 관리 (MVP 범위에 맞춰 최소화).
 - **Landing**: 로그인 진행 상태(idle/connecting/error)만 로컬 상태로 관리.
 - **Input**: `UserContext`(mood, situation, freeText) + `WeatherContext` + 제출 상태(loading/error)를 페이지 로컬 상태로 관리.
-- **Input → Result 전달 (확정)**: 전역 상태 라이브러리도, 브라우저 저장소(localStorage/sessionStorage, 6장 Storage 원칙)도 쓰지 않는다. 대신 `/api/recommend` 응답에서 화면 표시에 필요한 최소 필드만 뽑아 **URL 쿼리 파라미터**로 인코딩하고, `router.push`로 `/result`에 client-side 이동한다.
+- **Input → Result 전달 (확정)**: 전역 상태 라이브러리도, 브라우저 저장소(localStorage/sessionStorage)도 결과 전달에는 쓰지 않는다(6장 Storage 원칙). 대신 `/api/recommend` 응답에서 화면 표시에 필요한 최소 필드만 뽑아 **URL 쿼리 파라미터**로 인코딩하고, `router.push`로 `/result`에 client-side 이동한다.
   - 예: `/result?uri=<encodeURIComponent>&name=...&artist=...&art=...&reason=...`
   - `reason`은 짧은 한 줄 문구로 제한해 쿼리 길이 문제를 피한다 (03 UX 스펙과 일치).
   - 이 방식은 DB/서버 캐시/브라우저 저장소 없이도 동작하며, 새로고침·URL 직접 접근 시에도 파라미터만 있으면 동일하게 렌더링된다.
@@ -118,7 +118,7 @@ RecommendationResult
 - **영구 데이터베이스 없음** — MVP는 DB를 두지 않는다.
 - **Spotify 토큰 (확정)**: 액세스·리프레시 토큰을 직접 담은 암호화·서명된 http-only 쿠키에 저장한다 (stateless — 별도 서버 세션 저장소를 두지 않음). 서버리스 배포에서는 인스턴스 간 메모리를 공유할 수 없어, 인스턴스 재시작·스케일 아웃 시에도 세션이 유실되지 않도록 이 방식을 채택한다. 클라이언트 JS에서는 직접 접근 불가하도록 처리한다.
 - **라이브러리/추천 결과**: 요청-응답 생명주기 동안만 메모리에 존재, 별도 캐시/DB 저장 없음 (MVP).
-- **localStorage/sessionStorage**: 사용하지 않음 (필요성이 생기면 별도 논의 후 결정).
+- **localStorage**: 개인 신호에 한해 사용한다. 키 `moodtune:signals` 하나에 Spotify URI별 레코드(`{ version: 1, items: { [uri]: { feedback?, feedbackAt? } } }`)를 저장하며, 현재는 Result 화면의 만족도 피드백(`liked`/`disliked`)만 쓰고 이후 핀/제외 신호가 같은 레코드에 필드로 추가된다. 서버로 보내지 않는다. 근거: 2026-09-28 결정(개인화 저장은 DB 대신 localStorage). 그 외 용도(결과 전달, 캐시 등)와 sessionStorage는 사용하지 않는다.
 
 <!-- TODO: 라이브러리 조회가 매 요청마다 Spotify API를 호출하기엔 느릴 경우, 짧은 TTL의 서버 메모리 캐시 도입 여부 검토 (DB 도입 아님). -->
 

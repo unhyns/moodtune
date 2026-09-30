@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { Pixelify_Sans } from "next/font/google";
 import IpodPlayer from "@/components/IpodPlayer";
 import LiveClock from "@/components/LiveClock";
+import SatisfactionFeedback from "@/components/SatisfactionFeedback";
+import { isSignalUri } from "@/lib/personalSignals";
 import { weatherEmoji } from "@/lib/weatherEmoji";
 import { MOOD_OPTIONS, SITUATION_OPTIONS } from "@/lib/chipColors";
 
@@ -69,14 +71,14 @@ export default async function ResultPage({
 
   return (
     <main className="relative min-h-dvh w-full overflow-x-hidden bg-[#ea7eb9]">
-      <div className="relative mx-auto min-h-[1330px] w-full max-w-[393px] overflow-x-hidden">
-        {/* 순수 장식용 배경 이미지 — Input 화면과 동일한 에셋을 그대로 재사용 (클릭/기능 없음) */}
+      <div className="relative mx-auto min-h-[1592px] w-full max-w-[393px] overflow-x-hidden">
+        {/* 순수 장식용 배경 이미지 (클릭/기능 없음). 피드백 영역만큼 길어진 Figma result(node 97:1333) 별 배경. */}
         {/* eslint-disable-next-line @next/next/no-img-element -- 장식용 배경 SVG */}
         <img
-          src="/input/stars.svg"
+          src="/result/stars.svg"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-[22px] top-[70px] h-[1201.337px] w-[350.337px]"
+          className="pointer-events-none absolute left-[22px] top-[70px] h-[1446.337px] w-[350.337px]"
         />
         {/* eslint-disable-next-line @next/next/no-img-element -- 장식용 스티커 */}
         <img
@@ -189,6 +191,22 @@ export default async function ResultPage({
         >
           <span className={`${pixelFont.className} whitespace-nowrap text-[22px] text-[#ea7eb9]`}>Tune Again?</span>
         </Link>
+
+        {/* 만족도 피드백 — Figma result(node 121:52). 응답 전후로 높이가 달라져도 중심(y=1288)이 유지되도록 가운데 기준으로 배치한다. */}
+        {isSignalUri(uri) && (
+          <div className="absolute left-[calc(50%+0.5px)] top-[1288px] -translate-x-1/2 -translate-y-1/2">
+            <SatisfactionFeedback uri={uri} />
+          </div>
+        )}
+
+        {/* 장식용 스티커 — Figma node 121:68. 피드백 박스 위에 겹치므로 클릭을 통과시킨다. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- 장식용 스티커 */}
+        <img
+          src="/result/boombox.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute left-[178px] top-[1326px] size-[259px] object-cover"
+        />
       </div>
     </main>
   );
