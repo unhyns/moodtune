@@ -1,7 +1,7 @@
 import type { PersonalSignal, PersonalSignalsStore } from "@/types";
 
 // URI별 개인 신호(만족도 피드백, 이후 핀/제외) 저장소. 브라우저 localStorage 전용.
-// (openspec/changes/add-satisfaction-feedback/design.md Decision 1·2)
+// (openspec/changes/archive/2026-09-30-add-satisfaction-feedback/design.md Decision 1·2)
 const STORAGE_KEY = "moodtune:signals";
 
 const SIGNAL_URI = /^spotify:(track|album|playlist):[A-Za-z0-9]+$/;
