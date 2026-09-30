@@ -26,7 +26,7 @@ For a non-fallback recommendation, the reason SHALL explicitly reference at leas
 - **AND** the reason SHALL NOT describe any weather condition
 
 ### Requirement: No Unfounded Claims About the Track
-The reason SHALL NOT state facts about the track's sound, genre, tempo, instrumentation, or lyrics unless they are reliably known from the track title and artist alone. When such facts are not reliably known, the reason SHALL NOT assert the track's mood or atmosphere as fact, and SHALL instead ground the recommendation in the user's input and, when available, the track's source playlist.
+The reason SHALL NOT describe the track itself, including its sound, genre, tempo, instrumentation, lyrics, mood, atmosphere, or any impression of it, and SHALL NOT link the track to the user's input with expressions such as "fits" or "is good for". The reason MAY name the track title or artist. The reason SHALL be grounded only in the user's input and, when available, the track's source playlist.
 
 #### Scenario: Unfamiliar track
 - **WHEN** the recommended track is one whose sound or lyrics cannot be reliably known from its title and artist
@@ -34,15 +34,19 @@ The reason SHALL NOT state facts about the track's sound, genre, tempo, instrume
 - **AND** the reason SHALL justify the pick using the user's input or source playlist instead
 
 #### Scenario: Well-known characteristic
-- **WHEN** a characteristic of the track is reliably known from its title and artist
-- **THEN** the reason MAY mention that characteristic
+- **WHEN** a characteristic of the track, such as its genre or tempo, is reliably known from its title and artist
+- **THEN** the reason SHALL NOT mention that characteristic
+
+#### Scenario: Linking the track to input
+- **WHEN** the reason is generated for any input
+- **THEN** the reason SHALL NOT state that the track fits or suits the user's mood, situation, or weather
 
 ### Requirement: Source Playlist as Grounding
-The system SHALL retain, for each track retrieved from the user's library, the names of the user's own playlists that contain it, including tracks that are also in Liked Songs. When the recommended track has one or more source playlists, the reason MAY cite a playlist name as grounding. When the track has no source playlist (Liked Songs only), recommendation and reason generation SHALL work normally without it, and the reason SHALL NOT mention any playlist.
+The system SHALL retain, for each track retrieved from the user's library, the names of the user's own playlists that contain it, including tracks that are also in Liked Songs. For a non-fallback recommendation whose track has one or more source playlists, the system SHALL include the name of one of those playlists in the reason as grounding; a very long name MAY be shortened to a bounded length. When the track has no source playlist (Liked Songs only), recommendation and reason generation SHALL work normally without it, and the reason SHALL NOT mention any playlist.
 
 #### Scenario: Track found in a user playlist
 - **WHEN** the recommended track is in Liked Songs and also in the user's own playlist named "출근길"
-- **THEN** the reason MAY refer to the track being in the "출근길" playlist
+- **THEN** the returned reason SHALL state that the track is in the "출근길" playlist
 
 #### Scenario: Liked-only track
 - **WHEN** the recommended track appears only in Liked Songs and in none of the user's own playlists

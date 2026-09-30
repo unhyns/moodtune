@@ -30,10 +30,14 @@ export type UserContext = {
   freeText?: string;
 };
 
+// 트랙 ID → 그 곡이 들어 있는 본인 플레이리스트 이름 목록. 서버 내부 전용이며 응답에 포함하지 않는다.
+export type SourcesByTrackId = Record<string, string[]>;
+
 export type RecommendationRequest = {
   context: UserContext;
   weather?: WeatherContext;
   librarySample: LibraryTrack[];
+  sourcesByTrackId?: SourcesByTrackId;
 };
 
 export type RecommendationResult = {
@@ -50,4 +54,10 @@ export type LibraryResponse = {
   tracks: LibraryTrack[];
   likedCount: number;
   playlists: { id: string; name: string; trackCount: number }[];
+};
+
+// fetchLibrary() 반환값. /api/spotify/library는 library만 응답한다.
+export type LibraryFetchResult = {
+  library: LibraryResponse;
+  sourcesByTrackId: SourcesByTrackId;
 };

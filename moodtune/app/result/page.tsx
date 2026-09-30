@@ -167,7 +167,10 @@ export default async function ResultPage({
 
         {params.reason && (
           <div className="absolute left-[200px] top-[910px] inline-flex items-center justify-center border border-solid border-[#e43c98] bg-white px-[10px] py-[4px]">
-            <p className="w-[153px] font-['Helvetica'] text-[12px] text-black">{params.reason}</p>
+            {/* 최대 5줄(18px × 5). 넘치면 말풍선 안에서 스크롤해 iPod 그림 아래로 넘어가지 않게 한다. */}
+            <p className="max-h-[90px] w-[153px] overflow-y-auto font-['Helvetica'] text-[12px] text-black">
+              {params.reason}
+            </p>
           </div>
         )}
 

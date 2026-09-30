@@ -1,4 +1,10 @@
-import type { LibraryResponse, LibraryTrack, SpotifySession } from "@/types";
+import type {
+  LibraryFetchResult,
+  LibraryResponse,
+  LibraryTrack,
+  SourcesByTrackId,
+  SpotifySession,
+} from "@/types";
 import { requireEnv } from "@/lib/env";
 
 const AUTH_URL = "https://accounts.spotify.com/authorize";
@@ -144,7 +150,7 @@ async function fetchPlaylistTracks(token: string, id: string): Promise<LibraryTr
   return out;
 }
 
-export async function fetchLibrary(token: string): Promise<LibraryResponse> {
+export async function fetchLibrary(token: string): Promise<LibraryFetchResult> {
   const me = await api<{ id: string; display_name: string | null }>(token, "/me");
   const liked = await fetchLiked(token);
 
@@ -158,6 +164,7 @@ export async function fetchLibrary(token: string): Promise<LibraryResponse> {
   const playlists: LibraryResponse["playlists"] = [];
   const seen = new Set(liked.map((t) => t.id));
   const tracks = [...liked];
+  const sourcesByTrackId: SourcesByTrackId = {};
   for (const p of own) {
     let list: LibraryTrack[] = [];
     try {
@@ -168,6 +175,9 @@ export async function fetchLibrary(token: string): Promise<LibraryResponse> {
     }
     playlists.push({ id: p.id, name: p.name, trackCount: list.length });
     for (const t of list) {
+      // 출처는 중복 여부와 관계없이 기록한다 — 좋아요 곡도 본인 플레이리스트 출처를 갖는다.
+      const sources = (sourcesByTrackId[t.id] ??= []);
+      if (!sources.includes(p.name)) sources.push(p.name);
       if (!seen.has(t.id)) {
         seen.add(t.id);
         tracks.push(t);
@@ -176,9 +186,12 @@ export async function fetchLibrary(token: string): Promise<LibraryResponse> {
   }
 
   return {
-    user: { id: me.id, displayName: me.display_name ?? me.id },
-    tracks,
-    likedCount: liked.length,
-    playlists,
+    library: {
+      user: { id: me.id, displayName: me.display_name ?? me.id },
+      tracks,
+      likedCount: liked.length,
+      playlists,
+    },
+    sourcesByTrackId,
   };
 }

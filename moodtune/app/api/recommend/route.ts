@@ -2,7 +2,13 @@ import { NextResponse } from "next/server";
 import { fetchLibrary, refreshSession, SpotifyAuthError } from "@/lib/spotify";
 import { getRecommendation } from "@/lib/openai";
 import { clearSession, readSession, writeSession } from "@/lib/session";
-import type { LibraryResponse, RecommendationResult, UserContext, WeatherContext } from "@/types";
+import type {
+  LibraryFetchResult,
+  RecommendationResult,
+  SourcesByTrackId,
+  UserContext,
+  WeatherContext,
+} from "@/types";
 
 // design.md Decision 2: 최근 좋아요 우선, 최대 50곡. fetchLibrary()는 liked를 먼저 담고
 // 부족하면 본인 플레이리스트 트랙으로 채우므로, 앞에서 50개만 잘라도 그 우선순위가 유지된다.
@@ -35,15 +41,24 @@ export async function POST(request: Request) {
       await writeSession(activeSession);
     }
 
-    let library: LibraryResponse;
+    let fetched: LibraryFetchResult;
     try {
-      library = await fetchLibrary(activeSession.accessToken);
+      fetched = await fetchLibrary(activeSession.accessToken);
     } catch (e) {
       console.error("[recommend] library fetch failed:", e);
       throw e;
     }
+    const { library } = fetched;
     if (library.tracks.length === 0) {
       return NextResponse.json({ error: "empty_library" }, { status: 422 });
+    }
+
+    const librarySample = library.tracks.slice(0, LIBRARY_SAMPLE_SIZE);
+    // 추천 후보에 해당하는 출처만 넘긴다 (add-richer-reasons design.md Decision 1).
+    const sourcesByTrackId: SourcesByTrackId = {};
+    for (const t of librarySample) {
+      const sources = fetched.sourcesByTrackId[t.id];
+      if (sources) sourcesByTrackId[t.id] = sources;
     }
 
     const context: UserContext = { mood: body.mood, situation: body.situation };
@@ -52,7 +67,8 @@ export async function POST(request: Request) {
       result = await getRecommendation({
         context,
         weather: body.weather,
-        librarySample: library.tracks.slice(0, LIBRARY_SAMPLE_SIZE),
+        librarySample,
+        sourcesByTrackId,
       });
     } catch (e) {
       console.error("[recommend] OpenAI recommendation failed:", e);

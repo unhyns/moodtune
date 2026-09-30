@@ -16,7 +16,9 @@ export async function GET() {
       session = await refreshSession(session);
       await writeSession(session);
     }
-    return NextResponse.json(await fetchLibrary(session.accessToken));
+    // 곡별 출처(sourcesByTrackId)는 서버 내부 전용이라 응답에 넣지 않는다.
+    const { library } = await fetchLibrary(session.accessToken);
+    return NextResponse.json(library);
   } catch (e) {
     if (e instanceof SpotifyAuthError) {
       await clearSession();
