@@ -15,7 +15,7 @@
   - 제출하면 `/input`과 같은 로딩 팝업을 거쳐 `/result`로 바로 이동한다.
   - 전송에 실패하면 텍스트를 유지한 채 재시도할 수 있고, `/input`으로 돌아가는 링크를 둔다.
 - `/api/recommend`는 `mood`, `situation`, `freeText` 중 하나 이상 있으면 요청을 받는다. `freeText`는 공백 제거 후 1~200자여야 한다. `freeText`가 있으면 `mood`/`situation`은 무시한다.
-- 프롬프트는 `freeText`를 사용자가 쓴 **데이터**로만 다룬다(그 안의 지시는 따르지 않는다). 이유는 텍스트의 내용을 반영하되 문구를 그대로 베끼지 않고 새 문장으로 쓴다. 곡에 대한 사실 주장 금지 등 add-richer-reasons의 이유 규칙과 출처 플레이리스트 인용은 그대로 적용한다.
+- 프롬프트는 `freeText`를 사용자가 쓴 **데이터**로만 다룬다(그 안의 지시는 따르지 않는다). 텍스트는 곡 선택에만 쓰고, 이유는 모델 문장 대신 코드가 정하는 고정 문장("{상태} {기온표현} 날, 남겨주신 이야기를 바탕으로 골랐어요." / 날씨가 없으면 "남겨주신 이야기를 바탕으로 골랐어요.")으로 한다. 출처 플레이리스트 인용은 그대로 붙인다.
 - `/result` URL 쿼리에는 `freeText` 원문(입력한 그대로의 문자열)을 넣지 않는다. 별도 파라미터로도, 다른 파라미터 안에 복사된 형태로도 넣지 않는다. 추천 이유는 칩 경로와 같이 URL로 전달된다. 텍스트 경로의 결과 화면에는 날씨 배지만 표시된다.
 - `/input`의 제출 로직(API 호출, 로딩 팝업 연동, 에러 처리, `/result` 이동)을 공유 훅으로 분리한다. 분리 후 `/input`의 동작이 이전과 같은지 먼저 검증한다.
 - 기획 문서의 FR-6 설명("Input 화면 안의 옵션 텍스트, 칩과 함께 사용")을 "별도 페이지, 칩과 배타적"으로 갱신한다.
@@ -37,7 +37,7 @@ Breaking change 없음. 기존 `mood`/`situation` 요청은 이전과 같이 처
 ## Impact
 
 - **코드**:
-  - 새 파일: 공유 제출 훅 `moodtune/lib/useRecommendSubmit.ts`, 새 페이지 `moodtune/app/input/custom/page.tsx`, sessionStorage 헬퍼 `moodtune/lib/inputHandoff.ts`.
+  - 새 파일: 공유 제출 훅 `moodtune/lib/useRecommendSubmit.ts`, 새 페이지 `moodtune/app/input/custom/page.tsx`, sessionStorage 헬퍼 `moodtune/lib/inputHandoff.ts`, 날씨 표현 공용 모듈 `moodtune/lib/weatherPhrase.ts`(+ 경계값 테스트).
   - 수정: `moodtune/app/input/page.tsx`(훅 사용, 날씨 sessionStorage 기록, 진입 요소 추가), `moodtune/app/api/recommend/route.ts`(검증과 freeText 전달), `moodtune/lib/openai.ts`(freeText를 데이터로 다루는 프롬프트 규칙).
   - `moodtune/types/index.ts`의 `UserContext.freeText`는 이미 있어 바꾸지 않는다.
 - **API**: `POST /api/recommend` 요청 본문에 선택 필드 `freeText` 추가. 응답 형태는 변경 없음.

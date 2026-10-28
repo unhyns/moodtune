@@ -84,7 +84,7 @@ Submission SHALL happen only through the explicit submit action. Pressing Enter 
 - **THEN** exactly one recommendation request SHALL be sent
 
 ### Requirement: Submission Flow to Result
-Submitting from the free text page SHALL show the same loading popup as the input page and, once the recommendation is ready, SHALL navigate directly to the result page without returning to the input page. The result page URL SHALL NOT carry the free text as the user entered it, neither as a parameter of its own nor copied verbatim inside another parameter. The recommendation reason SHALL still be passed to the result page in the URL, as for chip input; the reason reflects the free text's content in newly written wording, as defined by the ai-recommendation capability, so its presence in the URL is expected. The result page SHALL show weather when it was sent and SHALL NOT show mood or situation badges.
+Submitting from the free text page SHALL show the same loading popup as the input page and, once the recommendation is ready, SHALL navigate directly to the result page without returning to the input page. The result page URL SHALL NOT carry the free text as the user entered it, neither as a parameter of its own nor copied verbatim inside another parameter. The recommendation reason SHALL still be passed to the result page in the URL, as for chip input; for free text the reason is the fixed sentence defined by the ai-recommendation capability and contains no part of the free text, so its presence in the URL is expected. The result page SHALL show weather when it was sent and SHALL NOT show mood or situation badges.
 
 #### Scenario: Successful submission
 - **WHEN** the user submits valid text and the recommendation succeeds
@@ -95,10 +95,10 @@ Submitting from the free text page SHALL show the same loading popup as the inpu
 - **THEN** the result page URL SHALL NOT contain a parameter carrying the submitted text
 - **AND** no parameter value in the URL SHALL contain the submitted text as the user typed it
 
-#### Scenario: Reason in URL reflects text in new wording
-- **WHEN** the user submits "야근 끝나고 지하철 타는 중" and the recommendation succeeds
-- **THEN** the result page URL SHALL contain the recommendation reason as for chip input
-- **AND** the reason MAY reflect that the user is on the subway after working late, but SHALL NOT contain the sentence "야근 끝나고 지하철 타는 중" as typed
+#### Scenario: Reason in URL is the fixed sentence
+- **WHEN** the user submits "야근 끝나고 지하철 타는 중" with weather icon "01d" and 18°C, and the recommendation succeeds with a track that is in no user playlist
+- **THEN** the result page URL SHALL contain the reason "맑고 따뜻한 날, 남겨주신 이야기를 바탕으로 골랐어요." as for chip input
+- **AND** no parameter value SHALL contain the sentence "야근 끝나고 지하철 타는 중" as typed
 
 ### Requirement: Failure Keeps Text and Allows Retry
 When a recommendation request from the free text page fails, the system SHALL close the loading popup, keep the typed text, show a human-readable error message, and let the user submit again. The page SHALL always provide a link back to the input page. When the session is no longer valid, the system SHALL send the user to the landing page to sign in again, as the input page does.
