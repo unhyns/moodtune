@@ -15,6 +15,7 @@
 ## Main Screens
 - **Landing Page**: 로고 + 핑크 구분선 헤더, 큰 헤드라인("Music Does Matter."), 계속 회전하는 LP판(CSS 애니메이션, `prefers-reduced-motion` 대응), Spotify 연동 CTA(초록 `#1ed760` 알약 버튼). 에러 메시지는 CTA 버튼 바로 위에 표시.
 - **Mood & Context Input Page**: 핑크 배경 위에 실시간 글래스 시계, Y2K 장식 스티커, 날씨 상태 박스(위치 실패 시 빨간 테두리 + 수동 입력창, 성공 시 핑크 테두리 + 이모지 아이콘 + 기온), 기분/상황 색상별 태그(하나 선택 시 나머지는 회색 `#AFAFAF`로 비활성 처리), "Tune Mine!" 제출 버튼(핫핑크 `#f91e96`).
+- **Free Text Input Page** (`/input/custom`): Input의 "Tune Mine!" 아래 '직접 입력' 링크(흰 배경, 핑크 `#e43c98` 테두리)로 진입. 같은 핑크 배경에 Figma 없이 세로 흐름 레이아웃으로, 검정 테두리 흰 태그(제목·Weather?·How are you now?), 읽기 전용 날씨 배지, 흰 텍스트 영역(최대 200자, 글자 수·안내 문구), 핫핑크 "Tune Mine!" 버튼, Input으로 돌아가는 링크. 장식 스티커는 없음.
 - **Recommendation Result Page**: *(미리디자인 상태)* 흰 카드 + 앨범아트 + 곡명/아티스트 + 추천 이유 + 검정 알약 모양 "Spotify에서 재생하기" 버튼.
   - **만족도 피드백 영역**: "Tune Again?" 아래, 보라(`#8d29f2`) 테두리 흰 박스에 Pixelify Sans로 "( ᵕ·̮ᵕ )♩ Did You Enjoy?" + "Well-Tuned!"(핫핑크 `#f91e96` 배경) / "Not Enough"(흰 배경, 파랑 `#0a46c7` 테두리) 버튼. 응답하면 버튼이 회색(`#8793a0`) 감사 문구로 바뀐다 (Figma node 121:52 / 121:149).
 

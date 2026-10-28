@@ -14,9 +14,13 @@ import type {
 // 부족하면 본인 플레이리스트 트랙으로 채우므로, 앞에서 50개만 잘라도 그 우선순위가 유지된다.
 const LIBRARY_SAMPLE_SIZE = 50;
 
+// 자유 텍스트 최대 길이 (add-free-text-input). trim 후 UTF-16 길이로 센다 — 클라이언트 textarea maxLength와 같은 기준.
+const MAX_FREE_TEXT_LENGTH = 200;
+
 type RequestBody = {
   mood?: string;
   situation?: string;
+  freeText?: unknown;
   weather?: WeatherContext;
 };
 
@@ -30,8 +34,22 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: "bad_request" }, { status: 400 });
   }
-  if (!body.mood && !body.situation) {
-    return NextResponse.json({ error: "bad_request" }, { status: 400 });
+  // freeText가 있으면 칩(mood/situation)은 무시한다 — 텍스트 경로는 칩과 함께 쓰지 않는다.
+  let context: UserContext;
+  if (body.freeText !== undefined) {
+    if (typeof body.freeText !== "string") {
+      return NextResponse.json({ error: "bad_request" }, { status: 400 });
+    }
+    const freeText = body.freeText.trim();
+    if (!freeText || freeText.length > MAX_FREE_TEXT_LENGTH) {
+      return NextResponse.json({ error: "bad_request" }, { status: 400 });
+    }
+    context = { freeText };
+  } else {
+    if (!body.mood && !body.situation) {
+      return NextResponse.json({ error: "bad_request" }, { status: 400 });
+    }
+    context = { mood: body.mood, situation: body.situation };
   }
 
   try {
@@ -61,7 +79,6 @@ export async function POST(request: Request) {
       if (sources) sourcesByTrackId[t.id] = sources;
     }
 
-    const context: UserContext = { mood: body.mood, situation: body.situation };
     let result: RecommendationResult;
     try {
       result = await getRecommendation({

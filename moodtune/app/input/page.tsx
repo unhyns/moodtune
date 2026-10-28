@@ -1,22 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import QuickReplyChip from "@/components/QuickReplyChip";
 import WeatherBadge from "@/components/WeatherBadge";
 import LiveClock from "@/components/LiveClock";
 import LoadingPopup from "@/components/LoadingPopup";
 import { MOOD_OPTIONS, SITUATION_OPTIONS } from "@/lib/chipColors";
-import type { LibraryResponse, RecommendationResult, WeatherContext } from "@/types";
+import { clearWeatherHandoff, writeWeatherHandoff } from "@/lib/inputHandoff";
+import { useRecommendSubmit } from "@/lib/useRecommendSubmit";
+import type { LibraryResponse, WeatherContext } from "@/types";
 
 export default function InputPage() {
   const router = useRouter();
   const [mood, setMood] = useState<string | null>(null);
   const [situation, setSituation] = useState<string | null>(null);
   const [weather, setWeather] = useState<WeatherContext | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null);
-  const [submitError, setSubmitError] = useState(false);
+  const { isSubmitting, recommendation, error: submitError, submit, handlePopupComplete } = useRecommendSubmit();
 
   const [library, setLibrary] = useState<
     { status: "loading" } | { status: "ready"; total: number } | { status: "error" }
@@ -34,67 +35,33 @@ export default function InputPage() {
       .catch(() => setLibrary({ status: "error" }));
   }, [router]);
 
+  // /input/custom으로 넘길 날씨. 이전 방문 값이 남지 않도록 마운트 시 지우고, WeatherBadge가 값을 줄 때마다 덮어쓴다.
+  // 자식(WeatherBadge) effect가 먼저 실행돼 값을 이미 썼을 수 있으므로, 이번 마운트에서 쓴 적이 없을 때만 지운다.
+  const weatherWrittenRef = useRef(false);
+  useEffect(() => {
+    if (!weatherWrittenRef.current) clearWeatherHandoff();
+  }, []);
+
+  const handleWeatherChange = (value: WeatherContext | null) => {
+    weatherWrittenRef.current = true;
+    setWeather(value);
+    writeWeatherHandoff(value);
+  };
+
   const libraryEmpty = library.status === "ready" && library.total === 0;
   const canSubmit = (mood !== null || situation !== null) && !libraryEmpty && !isSubmitting;
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (!canSubmit) return;
-    setSubmitError(false);
-    setRecommendation(null);
-    setIsSubmitting(true);
-    try {
-      const res = await fetch("/api/recommend", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          mood: mood ?? undefined,
-          situation: situation ?? undefined,
-          weather: weather ?? undefined,
-        }),
-      });
-      if (res.status === 401) {
-        router.replace("/");
-        return;
-      }
-      if (!res.ok) {
-        setIsSubmitting(false);
-        setSubmitError(true);
-        return;
-      }
-      setRecommendation((await res.json()) as RecommendationResult);
-      // isSubmitting은 그대로 true — LoadingPopup이 ready=true를 감지하면 onComplete를 부른다.
-    } catch {
-      setIsSubmitting(false);
-      setSubmitError(true);
-    }
-  };
-
-  // 로딩 팝업 애니메이션이 끝나고(ready) 실제 추천도 준비된 뒤에만 호출된다.
-  const handlePopupComplete = () => {
-    if (!recommendation) return;
-    const params = new URLSearchParams({
-      uri: recommendation.track.uri,
-      name: recommendation.track.name,
-      artist: recommendation.track.artist,
-      art: recommendation.track.albumArtUrl,
-      reason: recommendation.reason,
-      type: recommendation.type,
+    submit({
+      body: { mood: mood ?? undefined, situation: situation ?? undefined, weather: weather ?? undefined },
+      resultParams: { mood: mood ?? undefined, situation: situation ?? undefined },
     });
-    if (recommendation.creator) params.set("creator", recommendation.creator);
-    if (mood) params.set("mood", mood);
-    if (situation) params.set("situation", situation);
-    if (weather) {
-      if (weather.city) params.set("weatherCity", weather.city);
-      if (weather.icon) params.set("weatherIcon", weather.icon);
-      params.set("weatherTempC", String(weather.temperatureC));
-    }
-    setIsSubmitting(false);
-    router.push(`/result?${params.toString()}`);
   };
 
   return (
     <main className="relative min-h-dvh w-full overflow-x-hidden bg-[#ea7eb9]">
-      <div className="relative mx-auto min-h-[1360px] w-full max-w-[393px] overflow-x-hidden">
+      <div className="relative mx-auto min-h-[1420px] w-full max-w-[393px] overflow-x-hidden">
         <h1 className="sr-only">지금 기분과 상황을 알려주세요</h1>
 
         {/* 순수 장식용 배경 이미지 — 클릭/기능 없음 */}
@@ -188,7 +155,7 @@ export default function InputPage() {
           Weather?
         </h2>
         <div className="absolute left-[96px] top-[544px] w-[290px]">
-          <WeatherBadge onChange={setWeather} />
+          <WeatherBadge onChange={handleWeatherChange} />
         </div>
 
         <h2 className="absolute left-[32px] top-[662px] inline-flex items-center justify-center whitespace-nowrap border border-solid border-black bg-white px-[10px] py-[4px] font-['Helvetica'] text-[20px] font-normal text-black">
@@ -231,7 +198,7 @@ export default function InputPage() {
             Spotify 라이브러리가 비어 있어요. 좋아요한 곡을 추가하거나 플레이리스트를 만든 뒤 다시 와주세요.
           </p>
         )}
-        {!libraryEmpty && submitError && (
+        {!libraryEmpty && submitError !== null && (
           <p
             role="alert"
             className="absolute left-1/2 top-[1190px] w-[280px] -translate-x-1/2 border border-solid border-black bg-white px-3 py-2 text-center text-xs text-black"
@@ -248,6 +215,14 @@ export default function InputPage() {
         >
           Tune Mine!
         </button>
+
+        {/* 칩 대신 자유 텍스트로 입력하는 별도 페이지 (add-free-text-input). 칩 선택은 넘어가지 않는다. */}
+        <Link
+          href="/input/custom"
+          className="absolute left-1/2 top-[1350px] -translate-x-1/2 whitespace-nowrap border border-solid border-[#e43c98] bg-white px-[10px] py-[4px] font-['Helvetica'] text-[16px] text-[#e43c98]"
+        >
+          직접 입력
+        </Link>
       </div>
 
       {isSubmitting && <LoadingPopup ready={recommendation !== null} onComplete={handlePopupComplete} />}
