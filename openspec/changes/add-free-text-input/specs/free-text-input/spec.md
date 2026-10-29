@@ -70,7 +70,7 @@ The free text input page SHALL show, near the text input, a notice that the ente
 
 #### Scenario: Notice visible
 - **WHEN** the free text input page is displayed
-- **THEN** a notice stating that the entered text is used for generating the recommendation SHALL be visible near the input
+- **THEN** a notice stating that the entered text is used for generating the recommendation ("입력한 내용은 추천 생성에 사용돼요") SHALL be visible near the input
 
 ### Requirement: No Duplicate Submission During Composition
 Submission SHALL happen only through the explicit submit action. Pressing Enter in the text input, including while Korean (IME) composition is in progress, SHALL NOT submit. Only one recommendation request SHALL be in flight per submission.

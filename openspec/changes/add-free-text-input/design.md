@@ -68,8 +68,8 @@ useRecommendSubmit(): {
 - 여러 줄 입력이 자연스럽고, Enter는 줄바꿈이라 키 입력으로 제출되는 경로가 없다. 한글 조합 중 Enter 문제(`isComposing`)를 따로 처리할 필요가 없다. 혹시 Enter 제출을 추가하게 되면 `e.nativeEvent.isComposing` 확인을 함께 넣는다.
 - 길이는 `string.length`(UTF-16 단위)로 센다. 브라우저 `maxLength`와 같은 기준이고, 서버도 같은 기준으로 확인한다. 이모지는 2자로 세지만 클라이언트가 더 엄격한 쪽이라 문제없다.
 - 제출 가능 조건: `text.trim().length > 0 && !isSubmitting`. 보낼 때는 `text.trim()`을 보낸다.
-- `"{n}/200"` 글자 수 표시를 두고 입력창과 `aria-describedby`로 연결한다. 안내 문구 "입력한 내용은 추천 생성에 사용됩니다."도 함께 연결한다.
-- 에러 문구는 `role="alert"`로 둔다. `failed`면 "추천을 가져오지 못했어요. 다시 시도해 주세요.", `empty_library`면 `/input`과 같은 빈 라이브러리 문구를 쓴다. '기분·상황 버튼으로 돌아가기' 링크(`next/link` → `/input`)는 에러와 상관없이 항상 보인다.
+- `"{n}/200"` 글자 수 표시를 두고 입력창과 `aria-describedby`로 연결한다. 안내 문구 "입력한 내용은 추천 생성에 사용돼요"도 함께 연결한다(2026-10-28 Figma 반영 때 "사용됩니다."에서 바꿈).
+- 에러 문구는 `role="alert"`로 둔다. `failed`면 "추천을 가져오지 못했어요. 다시 시도해 주세요.", `empty_library`면 `/input`과 같은 빈 라이브러리 문구를 쓴다. 두 문구는 같은 자리에 하나만 나오고, 글을 고치거나 다시 제출하면 사라진다(배치는 Decision 7). '← Back to Choose' 링크(`next/link` → `/input`)는 에러와 상관없이 항상 보인다.
 
 ### Decision 5: 라우트에서 검증하고, freeText가 있으면 칩을 버린다
 `/api/recommend`의 본문 검증을 다음 순서로 바꾼다.
@@ -92,7 +92,34 @@ useRecommendSubmit(): {
 
 ### Decision 7: 레이아웃
 - `/input`: '직접 입력' 진입 요소는 `next/link`로 만든 텍스트 버튼으로, "Tune Mine!" 아래에 둔다(`SecondaryButton`과 같은 보조 스타일). 이를 위해 컨테이너 `min-h`를 늘린다. 기존 요소의 좌표는 바꾸지 않는다. Figma가 나오면 위치를 그에 맞춘다.
-- `/input/custom`: 같은 핑크 배경, `max-w-[393px]` 컨테이너를 쓴다. Figma가 없으므로 절대 좌표 대신 세로 흐름 레이아웃으로 그린다. 순서는 로고 → `h1`(sr-only 아님, 예: "지금 상태를 직접 적어주세요") → 날씨 배지 → textarea + 글자 수 + 안내 문구 → 에러 → "Tune Mine!" 버튼 → `/input` 링크. 장식 스티커는 넣지 않는다.
+- ~~`/input/custom`: Figma가 없으므로 세로 흐름 레이아웃~~ → **2026-10-28 Figma(156:586 빈 상태, 156:624 입력 상태) 반영.**
+  - **배경**: Figma의 PNG(`public/input/custom-phone.png`, 853×1844)를 프레임 y=42에 393×850 비율(`aspect-[393/850]`)로 깐다. 안테나·배터리·제목 바·메뉴/OK/보내기 키는 모두 이 그림의 일부라 `aria-hidden`·`pointer-events-none`으로 클릭·스크린리더 모두 무시된다. Figma에서 PNG 아래에 깔려 보이지 않는 로고·with Spotify·별은 그리지 않는다.
+  - **상태바(21:30)**: Landing·Input·Result와 같이 그리지 않고, 그 아래 요소의 Figma 좌표(PNG y=42)만 유지한다.
+  - **좌표**: PNG를 감싼 `@container` 안에서 PNG 기준 %로 배치하고, 글자 크기·간격은 `cqw`(393px 기준 px ÷ 3.93)로 둔다. 393px에서 Figma와 같고, 다른 폭에서도 PNG의 흰 영역과 같은 비율로 줄어든다.
+
+    | 요소 | Figma(px) | PNG 기준 |
+    |---|---|---|
+    | 흰 영역(측정) | x 15.2~377.8, y 145.7~815.9 | 좌 3.87%, 우 96.13%, 위 12.20%, 아래 91.05% |
+    | 인사 문구 | x34, y164 | left 8.651%, top 14.353% |
+    | 입력 글·메시지 영역 | 오른쪽 끝 x366, y230, 21줄 | left 8.651%, right 6.870%, top 22.118%, height 49.412% |
+    | 안내 문구·글자 수 줄 | y656 | top 72.235% |
+    | Tune Mine! | 가운데, y715, 148×48 | left 50%, top 79.176% |
+
+  - **글꼴**: 인사 문구·버튼·빈 상태 안내·메시지·링크는 Pixelify Sans Bold(`next/font/google`), 한글은 둥근모로 이어진다(`font-family: Pixelify, 둥근모`). 입력 글은 둥근모 `#f91e96`, 빈 상태 안내는 `#b0b0b6`, 인사 문구·메시지는 `#ea7eb9`.
+  - **둥근모**: `next/font/local`로 이 페이지에서만 불러온다. 원본 TTF(7,354,268 B, Public Domain)는 프로젝트 밖(`~/Documents/fonts/`)에 두고, 서브셋 woff2만 `moodtune/fonts/DungGeunMo-subset.woff2`(555,652 B, 원본의 7.6%)로 둔다. 변환은 fonttools + brotli(사용자 환경 도구, 프로젝트 의존성 아님):
+    ```bash
+    pyftsubset DungGeunMo.ttf --flavor=woff2 --output-file=fonts/DungGeunMo-subset.woff2 \
+      --unicodes="U+0020-007E,U+00A0-00FF,U+2000-206F,U+3000-303F,U+1100-11FF,U+3130-318F,U+AC00-D7A3,U+FF00-FFEF,U+03C9"
+    ```
+    라틴·문장부호·한글 자모·호환 자모(조합 중 표시)·한글 음절 11,172자 전체·전각 문자를 남기고 한자·가나 등은 뺀다.
+  - **입력 글**: 둥근모 20px에서 한글은 1em(20px), 라틴·숫자·공백은 반각(10px)이다. 폭을 한글 15자(302px = 300 + 반올림 여유)로 두고 우측 정렬, 글자 단위 줄바꿈(`break-all` + `overflow-wrap:anywhere`)을 해서 한글 15자 / 반각 30자에서 꺾인다.
+  - **입력창 구조**: textarea는 내부 스크롤 없이 JS로 글 길이만큼 높이를 맞춘다(`scrollHeight`, iOS Safari 포함 동작). textarea와 메시지를 감싼 영역이 21줄(y 230~650)을 넘으면 그 영역 전체가 스크롤된다(스크롤바 숨김). 높이를 맞출 때 영역의 `scrollTop`을 보존하고, 글 끝에서 입력 중이면 커서 줄이 보이도록 따라 내려간다. 메시지가 생기면 `scrollIntoView({ block: "nearest" })`로 보이게 한다.
+  - **시스템 메시지(실패·422)**: 채팅 말풍선처럼 입력 글 바로 아래, 인사 문구와 같은 x(34)·글꼴·크기·색으로 302px 폭 안에서 줄바꿈한다(`break-keep`). 간격은 Figma 인사 문구 아래 끝(y212)과 입력 첫 줄 위 끝(y230) 사이 18px = PNG 높이의 2.118%(= 4.580cqw). 같은 자리에 하나만 나오며, 제출한 글과 지금 글이 다르면 숨긴다(훅은 바꾸지 않음).
+  - **날씨**: 인사 문구 첫 줄과 같은 기준선, 오른쪽 끝 x366에 우측 정렬. "도시 아이콘 기온"(`weatherEmoji` 재사용) 또는 "날씨 정보 없음". 첫 줄 폭만큼 자리를 비우고 도시 이름은 말줄임(…)한다. `role="group"`, 이름 "현재 날씨".
+  - **14px 조정**: 날씨·안내 문구·글자 수는 처음 12px로 정했으나 1배율 스크린샷에서 숫자가 뭉개져(2/8/9, C/0 구분 어려움) 14px로 키웠다. 16px은 안내 문구와 글자 수가 한 줄에 들어가지 않는다.
+  - **안내 문구·글자 수**: 같은 줄 왼쪽 "입력한 내용은 추천 생성에 사용돼요"(둥근모), 오른쪽 `{n}/200`(Pixelify, 고정폭 숫자), 둘 다 `#b0b0b6`. 대비 조정은 하지 않았다(직접 확인 예정).
+  - **버튼·포커스**: 빈 입력이면 크기·위치 그대로 `#b0b0b6` 배경 + `cursor-not-allowed`. textarea 포커스 시 흰 영역 안쪽 1px 분홍 점선.
+  - **돌아가기**: PNG 아래 분홍 배경에 "← Back to Choose"(Pixelify Sans Bold 14px, 흰 배경, `#e43c98` 테두리).
 
 ### Decision 8: 결과 URL에서 금지하는 것은 "입력 원문"이고, 텍스트 경로의 reason은 코드가 정하는 고정 문장이다
 **발견된 충돌** (구현 중 5.2 검증에서 발견): 처음 쓴 free-text-input spec은 "결과 URL에 자유 텍스트나 그 일부도 실리면 안 된다"였다. 반면 ai-recommendation spec은 "이유가 사용자 텍스트를 다시 말하거나 바꿔 말할 수 있다"를 허용했다. 추천 이유는 add-richer-reasons 이래 `/result?reason=...`으로 전달된다. 그래서 2.5의 실제 출력("야근 끝나고 지하철 타는 중이라 이 곡을 골랐어요")처럼 모델이 텍스트를 그대로 옮기면, `freeText` 파라미터가 없어도 원문이 URL에 실렸다. "그 일부도"라는 표현은 원래 요구사항("freeText 원문을 싣지 않는다")보다 강하게 쓰인 것이었다.

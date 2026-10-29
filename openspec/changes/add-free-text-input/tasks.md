@@ -38,3 +38,13 @@
 
 - [x] 6.1 `planning/md-design/02_REQUIREMENTS_SPEC.md` FR-6 설명과 인수조건 FR-6 행을 "별도 페이지(`/input/custom`)의 자유 텍스트 입력, 칩과 배타적, 최대 200자, 비어 있으면 제출 불가"로 바꾼다. Decisions Log에 이 결정과 결과 URL 원문 금지 범위(Decision 8)를 기록한다. 같은 문서 안에 "칩과 함께 쓰는 옵션 입력"이라는 문장이 남지 않으면 완료
 - [x] 6.2 `planning/md-design/03_UX_UI_SPEC.md` §1.2 구성과 §3 상호작용 규칙에서 "자연어 텍스트 입력(옵션, 접힌 상태)"과 "비워도 제출 가능"을 '직접 입력' 진입 요소와 `/input/custom` 화면 설명으로 바꾼다. `docs/DESIGN.md` Main Screens에 Free Text Input Page 한 줄을 추가한다. 세 문서의 설명이 서로 맞으면 완료
+
+## 7. Figma 디자인 반영 (`/input/custom`, Figma 156:586·156:624)
+
+- [x] 7.1 Figma 배경 PNG를 `moodtune/public/input/custom-phone.png`로 저장하고, 둥근모를 서브셋 woff2(`moodtune/fonts/DungGeunMo-subset.woff2`)로 변환한다. 원본 TTF는 프로젝트 밖(`~/Documents/fonts/`)으로 옮긴다. 변환 명령과 원본·결과 크기(7,354,268 B → 555,652 B)를 design.md Decision 7에 기록하면 완료
+- [x] 7.2 `/input/custom`을 PNG 위 % 좌표 레이아웃으로 바꾼다(상태바 미구현, PNG top 42px, `@container` + cqw). 인사 문구는 Pixelify Sans Bold `#ea7eb9` 고정 텍스트(h1), Tune Mine!은 Figma 위치·스타일, 장식은 PNG뿐(`aria-hidden`·`pointer-events-none`). 제출 훅·sessionStorage·200자·Enter 동작은 바꾸지 않는다
+- [x] 7.3 입력 글: 둥근모(`next/font/local`, 이 페이지만) `#f91e96`, 빈 상태 안내 Pixelify Sans Bold `#b0b0b6`, 우측 정렬, 글자 단위 줄바꿈, 폭 = 한글 15자. textarea는 JS로 글 길이만큼 늘고, 입력 글·메시지 영역이 21줄을 넘으면 영역 전체가 스크롤(스크롤바 숨김, scrollTop 보존, 끝에서 입력 시 커서 따라감)
+- [x] 7.4 디자인에 없는 요소: 날씨(첫 줄 오른쪽 끝, 같은 기준선, `role="group"` "현재 날씨", 긴 도시 말줄임), 안내 문구 "입력한 내용은 추천 생성에 사용돼요"·글자 수(같은 줄), 비활성 버튼 `#b0b0b6`+`cursor-not-allowed`, 포커스 점선, 실패·422 시스템 메시지(입력 글 아래 18px = PNG 높이 2.118%, 글 수정·재제출 시 사라짐), "← Back to Choose" 링크. 12px로 정한 날씨·안내·글자 수는 1배율에서 뭉개져 14px로 조정
+- [x] 7.5 검증(OpenAI 호출 없음, `/api/recommend`는 CDP로 응답 대체): Figma 156:586·156:624와 겹쳐 흰 영역·인사 문구·입력 글·빈 상태 안내·버튼이 ±2px 안. 줄바꿈 경계(한글 15/16자, 반각 30/31자, 공백 없는 200자, 이모지, 줄바꿈 200개 영역 스크롤), 폭 360px, 짧은 글/15줄 이상/200자에서 실패·422 메시지 간격·버튼 비겹침, 날씨 있음/없음/긴 도시 이름과 접근성 트리 "현재 날씨", 장식 영역 클릭·접근성 트리, 둥근모가 이 페이지에서만 로드, 5.2~5.4 화면 회귀, `pnpm lint`·`pnpm build`
+- [x] 7.6 문서 갱신: design.md Decision 4·7, free-text-input spec(안내 문구), proposal, `docs/DESIGN.md`(화면·폰트), `03_UX_UI_SPEC.md` §1.2a
+- [ ] 7.7 실제 폰에서 키보드를 올린 상태로 Tune Mine! 버튼에 닿을 수 있는지, 입력 중 화면이 튀지 않는지 수현님이 직접 확인한다.
