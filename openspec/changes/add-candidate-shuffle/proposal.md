@@ -27,4 +27,4 @@
   - 수정: `moodtune/lib/openai.ts`(`getRecommendation`의 난수 인자, 섞은 목록을 프롬프트에 사용, 안내 한 줄). 라우트와 타입은 바꾸지 않는다.
 - **API**: 요청·응답 형태 변경 없음.
 - **외부 호출·의존성**: 추가 없음. 실제 OpenAI 확인은 사용자 승인 후 최대 6회.
-- **문서**: `planning/md-design/04_TECHNICAL_DESIGN.md` §4.1·§4.2, `planning/md-design/02_REQUIREMENTS_SPEC.md` Decisions Log(적용 시).
+- **문서**: `planning/md-design/04_TECHNICAL_DESIGN.md` §4.1·§4.2. `02_REQUIREMENTS_SPEC.md`는 사용자 판단으로 제외.

@@ -27,6 +27,6 @@
 
 ## 5. 마무리
 
-- [ ] 5.1 `pnpm lint`, `pnpm build`, `node --test lib/*.test.mjs`가 모두 통과한다
-- [ ] 5.2 문서 갱신: `04_TECHNICAL_DESIGN.md` §4.1(폴백은 원래 순서 첫 곡)·§4.2(후보 순서 무작위, 안내 한 줄, 난수 인자), `02_REQUIREMENTS_SPEC.md` Decisions Log 한 줄. 서로 맞으면 완료
-- [ ] 5.3 임시 스텁·스냅샷이 남지 않았는지 grep(`MOODTUNE_`, `PROMPT-SNAPSHOT`, `TEST_TOKEN`)과 `git status`로 확인하고, 변경 파일 목록을 정리하면 완료
+- [x] 5.1 `pnpm lint`, `pnpm build`, `node --test lib/*.test.mjs`가 모두 통과한다
+- [x] 5.2 문서 갱신: `04_TECHNICAL_DESIGN.md` §4.1(폴백은 원래 순서 첫 곡)·§4.2(후보 순서 무작위, 안내 한 줄, 난수 인자), `02_REQUIREMENTS_SPEC.md`는 사용자 판단으로 제외. 04가 구현과 맞으면 완료
+- [x] 5.3 임시 스텁·스냅샷이 남지 않았는지 grep(`MOODTUNE_`, `PROMPT-SNAPSHOT`, `TEST_TOKEN`)과 `git status`로 확인하고, 변경 파일 목록을 정리하면 완료

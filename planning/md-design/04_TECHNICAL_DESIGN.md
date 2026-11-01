@@ -51,6 +51,7 @@ moodtune/                      # Next.js 프로젝트 루트
     openai.ts                 # OpenAI API 호출 래퍼 (추천 프롬프트 조립)
     weatherPhrase.ts          # 날씨 아이콘·기온 → "{상태} {기온표현} 날" 문구
     contextHints.ts           # 날씨 범주·계절(Asia/Seoul)·경로 → 곡 선택용 힌트와 우선순위 문장
+    shuffle.ts                # 후보 순서를 섞는 순수 함수 (입력 배열은 바꾸지 않음)
   types/
     index.ts                  # 아래 Data Model 인터페이스 정의
   tests/                      테스트 코드
@@ -101,14 +102,15 @@ RecommendationResult
 `/api/recommend`는 OpenAI 응답을 그대로 반환하지 않고 아래 검증을 거친다.
 1. OpenAI가 반환한 트랙을 `librarySample`과 `uri`(또는 `id`) 기준으로 대조.
 2. 불일치 시, "목록 안의 트랙만 선택하라"는 제약을 강조해 OpenAI를 **최대 1회 재호출**.
-3. 재시도 후에도 불일치하면 `librarySample[0]`(또는 정해진 규칙)을 **결정론적 폴백**으로 사용하고 `reason`을 일반화된 문구로 대체, `isFallback: true` 설정.
+3. 재시도 후에도 불일치하면 섞기 전 원래 순서의 `librarySample[0]`을 **결정론적 폴백**으로 사용하고 `reason`을 일반화된 문구로 대체, `isFallback: true` 설정.
 4. 클라이언트는 `isFallback` 값과 무관하게 항상 동일한 방식으로 `RecommendationResult`를 렌더링한다 (사용자에게 폴백 여부를 노출하지 않음).
 
 ### 4.2 추천 프롬프트 구성 (FR-7)
 `lib/openai.ts`의 사용자 프롬프트는 `Context:` → `Hints` → `Track list (JSON):` 순서다.
 - **Context**: 칩 경로는 mood·situation, 자유 텍스트 경로는 JSON 인코딩한 note. 날씨는 `weather: {상태} {기온표현} 날`(`weatherDayPhrase`)이며 숫자 기온과 OpenWeather 원래 설명은 넣지 않는다. 칩 경로 reason은 이 문구를 그대로 쓰고, 자유 텍스트 경로 reason은 코드 고정 문장이다.
 - **Hints**: 칩·입력한 글보다 우선순위가 낮은 힌트. `weather feel`(날씨 아이콘 범주에 있을 때만), `season feel`(항상, 서버가 Asia/Seoul 기준으로 계산), `Priority`(칩 경로 `mood/situation > weather > season`, 자유 텍스트 경로 `note > weather > season`). Context 밖에 두어 reason에 쓰이지 않게 하고, 후보를 거르지 않는다.
-- **시각**: `getRecommendation(request, now = new Date())`의 인자로만 받으며 요청 본문으로 받지 않는다. 요청마다 한 번 계산해 재시도에도 같은 힌트를 쓴다.
+- **후보 순서**: `Track list`는 `librarySample`의 순서만 요청마다 무작위로 섞은 것이다(`lib/shuffle.ts`). 후보 집합은 그대로이고, 시스템 프롬프트에 순서에는 의미가 없다는 안내 한 줄을 둔다. 곡 대조와 폴백은 섞지 않은 원래 배열을 쓴다.
+- **시각·난수**: `getRecommendation(request, now = new Date(), random = Math.random)`의 인자로만 받으며 요청 본문으로 받지 않는다. 요청마다 한 번 계산해 재시도에도 같은 힌트와 같은 순서를 쓴다.
 
 ## 5. State (클라이언트 상태 관리)
 - 별도 전역 상태 라이브러리(Redux 등) 없이 React 로컬 상태 + URL/세션 기반으로 관리 (MVP 범위에 맞춰 최소화).
