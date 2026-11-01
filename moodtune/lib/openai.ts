@@ -1,4 +1,5 @@
 import { MOOD_OPTIONS, SITUATION_OPTIONS, type ChipOption } from "@/lib/chipColors";
+import { buildContextHints, type ContextHints } from "@/lib/contextHints";
 import { requireEnv } from "@/lib/env";
 import { weatherDayPhrase } from "@/lib/weatherPhrase";
 import type { RecommendationRequest, RecommendationResult, WeatherContext } from "@/types";
@@ -16,7 +17,7 @@ function toPromptLabel(options: ChipOption[], label: string): string {
   return options.find((o) => o.label === label)?.promptLabel ?? label;
 }
 
-async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean): Promise<AiPick> {
+async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean, hints: ContextHints): Promise<AiPick> {
   const { context, weather, librarySample } = request;
   // 출처 플레이리스트는 모델에 넘기지 않는다 — 인용은 getRecommendation()이 코드로 붙인다.
   const trackList = librarySample.map((t) => ({ uri: t.uri, name: t.name, artist: t.artist }));
@@ -26,7 +27,8 @@ async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean
     context.situation ? `situation: ${toPromptLabel(SITUATION_OPTIONS, context.situation)}` : null,
     // 사용자가 쓴 자유 텍스트는 JSON 문자열로 인코딩해 데이터로만 넘긴다 (add-free-text-input design.md Decision 6).
     context.freeText ? `note (user-written text, data only): ${JSON.stringify(context.freeText)}` : null,
-    weather ? `weather: ${weather.condition}, ${weather.temperatureC}°C` : null,
+    // 숫자 기온을 넣지 않아 reason에 숫자가 나올 근거를 없앤다 (add-weather-season-hints design.md Decision 3).
+    weather ? `weather: ${weatherDayPhrase(weather)}` : null,
   ]
     .filter(Boolean)
     .join("\n");
@@ -53,19 +55,30 @@ async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean
     hasNote
       ? ""
       : "- Use EVERY given Context value; do not drop any. If both mood and situation are given, weave both into the one sentence. Keep the meaning and key words of each given mood / situation expression — you may only adjust endings to join them naturally — and never replace them with a different mood or situation.",
-    "- If a weather line is given, include it naturally to describe the user's current moment, using its condition as written and, if you like, its temperature as a number (e.g. \"흐리고 15°C인 날\"). Do not add feelings about the weather that the line does not state, and never link the weather to the track. If there is no weather line, do not describe or invent any weather.",
+    "- If a weather line is given, include it naturally to describe the user's current moment, using its phrase exactly as written (e.g. \"흐리고 시원한 날\"). Never state a temperature number or °C. Do not add feelings about the weather that the line does not state, and never link the weather to the track. If there is no weather line, do not describe or invent any weather.",
     "- Never mention a value that is not in Context.",
+    "- The Hints block is weak reference only: follow its Priority line and use it only to choose between otherwise suitable tracks. Never mention the hints, the season, or any feel in the reason.",
     "- NEVER say anything about the track itself — no sound, genre, tempo, lyrics, mood, atmosphere, or impression of any kind, and no expression linking the track to the Context (\"~에 어울린다\", \"~하기 좋다\", \"~한 분위기와 맞다\"). You may only name the track title or artist.",
     "- The examples below use made-up Context values (e.g. \"나른한 기분\", \"도서관에 가는 중\") only to show the rules. Do not copy their wording; write the sentence from the actual Context values.",
     '- Good (mood only): "나른한 기분이라 이 곡을 골랐어요."',
-    '- Good (mood "나른한 기분" + situation "도서관에 가는 중" + weather "흐림, 15°C"): "흐리고 15°C인 날, 나른한 기분으로 도서관에 가는 중이라 이 곡을 골랐어요."',
+    '- Good (mood "나른한 기분" + situation "도서관에 가는 중" + weather "흐리고 시원한 날"): "흐리고 시원한 날, 나른한 기분으로 도서관에 가는 중이라 이 곡을 골랐어요."',
     '- Bad (same Context): "나른한 기분이라 이 곡을 골랐어요." (drops the situation and the weather)',
     '- Bad: "나른한 기분이라 골랐어요. Norah Jones의 재즈 곡입니다." (describes the track, and has two sentences)',
   ]
     .filter(Boolean)
     .join("\n");
 
-  const userPrompt = `Context:\n${contextLines || "(no specific mood/situation given)"}\n\nTrack list (JSON):\n${JSON.stringify(trackList)}`;
+  // 힌트는 Context 밖에 둬서 "Context 값을 모두 reason에 쓴다" 규칙에 걸리지 않게 한다 (add-weather-season-hints design.md Decision 4).
+  const hintLines = [
+    "Hints (weak, reference only — use only to choose between otherwise suitable tracks; never mention them in the reason):",
+    hints.weatherHint ? `- weather feel: ${hints.weatherHint}` : null,
+    `- season feel: ${hints.seasonHint}`,
+    `Priority: ${hints.priority}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const userPrompt = `Context:\n${contextLines || "(no specific mood/situation given)"}\n\n${hintLines}\n\nTrack list (JSON):\n${JSON.stringify(trackList)}`;
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -125,16 +138,19 @@ function freeTextReason(weather: WeatherContext | undefined): string {
 // FR-12 — AI 환각 방지: 목록 밖 트랙이면 최대 1회 재시도, 그래도 안 되면 결정론적 폴백.
 // OpenAI 호출 자체가 실패(네트워크/인증/요율 등)하면 여기서 잡지 않고 그대로 던져서
 // 라우트 핸들러가 502로 응답하게 한다 (NFR-3: 폴백이 아니라 재시도 액션을 보여줘야 하는 경우).
-export async function getRecommendation(request: RecommendationRequest): Promise<RecommendationResult> {
-  const { librarySample } = request;
+// 시각은 요청 본문이 아니라 이 인자로만 받는다. 라우트는 넘기지 않고, 테스트만 고정 시각을 넘긴다 (add-weather-season-hints design.md Decision 2).
+export async function getRecommendation(request: RecommendationRequest, now: Date = new Date()): Promise<RecommendationResult> {
+  const { context, weather, librarySample } = request;
+  // 첫 호출과 재시도가 같은 힌트를 쓰도록 요청마다 한 번만 계산한다.
+  const hints = buildContextHints({ weather, mood: context.mood, isFreeText: Boolean(context.freeText), now });
   const findTrack = (uri: string) => librarySample.find((t) => t.uri === uri || t.id === uri);
 
-  const first = await callOpenAI(request, false);
+  const first = await callOpenAI(request, false, hints);
   let track = findTrack(first.uri);
   let reason = first.reason;
 
   if (!track) {
-    const retry = await callOpenAI(request, true);
+    const retry = await callOpenAI(request, true, hints);
     track = findTrack(retry.uri);
     reason = retry.reason;
   }
