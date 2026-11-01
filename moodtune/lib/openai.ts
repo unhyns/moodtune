@@ -1,8 +1,9 @@
 import { MOOD_OPTIONS, SITUATION_OPTIONS, type ChipOption } from "@/lib/chipColors";
 import { buildContextHints, type ContextHints } from "@/lib/contextHints";
 import { requireEnv } from "@/lib/env";
+import { shuffled } from "@/lib/shuffle";
 import { weatherDayPhrase } from "@/lib/weatherPhrase";
-import type { RecommendationRequest, RecommendationResult, WeatherContext } from "@/types";
+import type { LibraryTrack, RecommendationRequest, RecommendationResult, WeatherContext } from "@/types";
 
 const MODEL = "gpt-4o-mini";
 const GENERIC_FALLBACK_REASON = "지금 라이브러리에서 골라봤어요.";
@@ -17,10 +18,15 @@ function toPromptLabel(options: ChipOption[], label: string): string {
   return options.find((o) => o.label === label)?.promptLabel ?? label;
 }
 
-async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean, hints: ContextHints): Promise<AiPick> {
-  const { context, weather, librarySample } = request;
+async function callOpenAI(
+  request: RecommendationRequest,
+  forceListOnly: boolean,
+  hints: ContextHints,
+  candidates: LibraryTrack[],
+): Promise<AiPick> {
+  const { context, weather } = request;
   // 출처 플레이리스트는 모델에 넘기지 않는다 — 인용은 getRecommendation()이 코드로 붙인다.
-  const trackList = librarySample.map((t) => ({ uri: t.uri, name: t.name, artist: t.artist }));
+  const trackList = candidates.map((t) => ({ uri: t.uri, name: t.name, artist: t.artist }));
 
   const contextLines = [
     context.mood ? `mood: ${toPromptLabel(MOOD_OPTIONS, context.mood)}` : null,
@@ -40,6 +46,7 @@ async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean
   const systemPrompt = [
     "You are a music curator picking exactly one track from the user's own Spotify library that fits their current mood, situation, and weather.",
     'You MUST pick a track whose "uri" appears EXACTLY as given in the provided track list — never invent, modify, or guess a uri.',
+    "The order of the track list has no meaning; never favor a track because of its position.",
     forceListOnly
       ? "IMPORTANT: Your previous pick was invalid because its uri was not in the list. You MUST select only from the exact uri values given below."
       : "",
@@ -139,18 +146,25 @@ function freeTextReason(weather: WeatherContext | undefined): string {
 // OpenAI 호출 자체가 실패(네트워크/인증/요율 등)하면 여기서 잡지 않고 그대로 던져서
 // 라우트 핸들러가 502로 응답하게 한다 (NFR-3: 폴백이 아니라 재시도 액션을 보여줘야 하는 경우).
 // 시각은 요청 본문이 아니라 이 인자로만 받는다. 라우트는 넘기지 않고, 테스트만 고정 시각을 넘긴다 (add-weather-season-hints design.md Decision 2).
-export async function getRecommendation(request: RecommendationRequest, now: Date = new Date()): Promise<RecommendationResult> {
+// 난수도 요청 본문이 아니라 이 인자로만 받는다 (add-candidate-shuffle design.md Decision 2).
+export async function getRecommendation(
+  request: RecommendationRequest,
+  now: Date = new Date(),
+  random: () => number = Math.random,
+): Promise<RecommendationResult> {
   const { context, weather, librarySample } = request;
   // 첫 호출과 재시도가 같은 힌트를 쓰도록 요청마다 한 번만 계산한다.
   const hints = buildContextHints({ weather, mood: context.mood, isFreeText: Boolean(context.freeText), now });
+  // 첫 호출과 재시도가 같은 순서를 쓰도록 요청마다 한 번만 섞는다. 곡 대조와 폴백은 원래 librarySample을 그대로 쓴다.
+  const candidates = shuffled(librarySample, random);
   const findTrack = (uri: string) => librarySample.find((t) => t.uri === uri || t.id === uri);
 
-  const first = await callOpenAI(request, false, hints);
+  const first = await callOpenAI(request, false, hints, candidates);
   let track = findTrack(first.uri);
   let reason = first.reason;
 
   if (!track) {
-    const retry = await callOpenAI(request, true, hints);
+    const retry = await callOpenAI(request, true, hints, candidates);
     track = findTrack(retry.uri);
     reason = retry.reason;
   }
