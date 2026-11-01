@@ -77,6 +77,18 @@
   ]
  },
  {
+  "id": "07xGlLwmzOF1YFogQyfSeJ",
+  "name": "RudE TaLK",
+  "artist": "NMIXX",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "086myS9r57YsLbJpU0TgK9",
   "name": "Why'd You Only Call Me When You're High?",
   "artist": "Arctic Monkeys",
@@ -87,6 +99,18 @@
   "countries": [
    "us_uk",
    "world"
+  ]
+ },
+ {
+  "id": "08PdFBcXzpkn1cWNgmKqhn",
+  "name": "Promise",
+  "artist": "Laufey",
+  "genres": [
+   "Pop",
+   "Jazz"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -136,6 +160,17 @@
   ],
   "countries": [
    "us_uk"
+  ]
+ },
+ {
+  "id": "0BA0Gdyz3UK8PJC7c44lK7",
+  "name": "PANGEA",
+  "artist": "Dominic Fike",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -216,6 +251,20 @@
   ]
  },
  {
+  "id": "0FTmksd2dxiE5e3rWyJXs6",
+  "name": "back to friends",
+  "artist": "sombr",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "0Fscl5Gt6r9UfJR6OWG1wI",
   "name": "Melatonin",
   "artist": "Tinashe",
@@ -249,6 +298,17 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "0HnLhPc4Vdg2HS1p6fJblv",
+  "name": "The Fountain",
+  "artist": "DIIV",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -420,6 +480,18 @@
   ]
  },
  {
+  "id": "0WaaPFt4Qy8sVfxKz43bCD",
+  "name": "Re:Re:",
+  "artist": "ASIAN KUNG-FU GENERATION",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "0WbMK4wrZ1wFSty9F7FCgu",
   "name": "Good Luck, Babe!",
   "artist": "Chappell Roan",
@@ -431,6 +503,17 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "0WiMJIxYYEex2AqhRqzV3u",
+  "name": "For the First Time",
+  "artist": "Mac DeMarco",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "us_uk"
   ]
  },
  {
@@ -561,6 +644,30 @@
   ]
  },
  {
+  "id": "0eTzMGetnDvA6G3QpQc2d4",
+  "name": "Next Chapter",
+  "artist": "Hearts2Hearts",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
+  "id": "0egnEp0o8eFEP77NLid6lr",
+  "name": "Glow Motion",
+  "artist": "IVE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
   "id": "0f8eRy9A0n6zXpKSHSCAEp",
   "name": "Infrunami",
   "artist": "Steve Lacy",
@@ -570,6 +677,18 @@
   ],
   "countries": [
    "us_uk"
+  ]
+ },
+ {
+  "id": "0fVAQZYuk63KjPtkarkkHs",
+  "name": "Mirror Mirror",
+  "artist": "IVE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -596,6 +715,18 @@
   ]
  },
  {
+  "id": "0hcFnrQNGplPcAS2OLVVtB",
+  "name": "SNAKESKIN",
+  "artist": "IVE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
   "id": "0hta2Lb2zKJ7kEnAEZEE3G",
   "name": "Nope your too late i already died",
   "artist": "wifiskeleton, i wanna be a jack-o-lantern",
@@ -617,6 +748,17 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "0jjygW2mhgfVT8OOgEyp7U",
+  "name": "AIYOU",
+  "artist": "Eve",
+  "genres": [
+   "Hip-Hop"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -676,6 +818,18 @@
   ]
  },
  {
+  "id": "0mN6XsKQFx35weDeN8wSJZ",
+  "name": "In My Mind, Yeah",
+  "artist": "syrup16g",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "0myRViRgmQ3J8izICXEAVO",
   "name": "I Thought I Saw Your Face Today",
   "artist": "She & Him",
@@ -703,6 +857,20 @@
   "artist": "Slowdive",
   "genres": [
    "Indie"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
+  "id": "0pMoUGdpD8nupNP1mSdZUn",
+  "name": "You’re Under Arrest",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
   ],
   "countries": [
    "kr",
@@ -745,6 +913,17 @@
   ],
   "countries": [
    "us_uk"
+  ]
+ },
+ {
+  "id": "0r2JVOjI7H1jhXzXBOorKu",
+  "name": "Bloody Paradise",
+  "artist": "ENHYPEN",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -793,6 +972,29 @@
   ]
  },
  {
+  "id": "0tOS64UB7jjGG5dWBgoubg",
+  "name": "i miss ㅠ",
+  "artist": "SYSTEM SEOUL, sn7, ycs",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "0tygvOInRGuzGDDepZAQcA",
+  "name": "Kerosene",
+  "artist": "NMIXX",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "0uukw2CgEIApv4IWAjXrBC",
   "name": "Dead!",
   "artist": "My Chemical Romance",
@@ -813,6 +1015,18 @@
   "countries": [
    "kr",
    "us_uk"
+  ]
+ },
+ {
+  "id": "0vE1WglBbhmd5wDO49lcih",
+  "name": "lulu.",
+  "artist": "Mrs. GREEN APPLE",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -930,6 +1144,41 @@
   ]
  },
  {
+  "id": "12tWYSmupB8x0B4HyalBAm",
+  "name": "Glow Up",
+  "artist": "RESCENE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "16VomaSiUmaRdubMxh4FyY",
+  "name": "paw, paw!",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "172fMG26G2OoEzzg0wn26r",
+  "name": "白日",
+  "artist": "King Gnu",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
   "id": "190jyVPHYjAqEaOGmMzdyk",
   "name": "Beauty And A Beat",
   "artist": "Justin Bieber, Nicki Minaj",
@@ -952,6 +1201,30 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "19Hg1UCZaCdpHB37L7x63X",
+  "name": "EVERYTHING",
+  "artist": "검정치마",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "19XtWJTyMKMfLYUec3FlHx",
+  "name": "雲を抜け風下へ私だけ",
+  "artist": "ヨルシカ",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -986,6 +1259,42 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "1CB7xt4rCsyh0RY2eKA2oH",
+  "name": "ROSE (feat. Skinny Brown, Homeboy)",
+  "artist": "양홍원, Skinny Brown, Homeboy",
+  "genres": [
+   "Hip-Hop"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "1CKmKYaUfNLY2Z503gwUdb",
+  "name": "1994",
+  "artist": "syrup16g",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "1D5L58KLBbceOynTP4DQnY",
+  "name": "It's Me",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
   ]
  },
  {
@@ -1027,6 +1336,18 @@
   ]
  },
  {
+  "id": "1J0NAemu98Bg5y39sqqfMI",
+  "name": "거리에서",
+  "artist": "성시경",
+  "genres": [
+   "Ballad",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "1JSTJqkT5qHq8MDJnJbRE1",
   "name": "Every Breath You Take",
   "artist": "The Police",
@@ -1053,6 +1374,18 @@
   ]
  },
  {
+  "id": "1KKc8f9ZiKFzOeRJJ3SYn7",
+  "name": "STAY TUNE",
+  "artist": "Suchmos",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "1KKuoYESWoUGsau6YYoEMl",
   "name": "only shallow",
   "artist": "my bloody valentine",
@@ -1061,6 +1394,18 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "1KLg01cjnRsENoFhJWUTSd",
+  "name": "Plazma",
+  "artist": "米津玄師",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -1122,6 +1467,19 @@
   ],
   "countries": [
    "us_uk"
+  ]
+ },
+ {
+  "id": "1PdN2pC5LYxnapVB8h6C6r",
+  "name": "ICONIC BY MISTAKE",
+  "artist": "LE SSERAFIM, ILLIT, KATSEYE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
   ]
  },
  {
@@ -1259,6 +1617,19 @@
   ]
  },
  {
+  "id": "1VWiDyYTrqQhhmnWANWkFa",
+  "name": "SaWaDiKa",
+  "artist": "LISA",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "1VXu0l60UkpybzcyX38pzc",
   "name": "Jane!",
   "artist": "The Long Faces",
@@ -1286,6 +1657,20 @@
   ]
  },
  {
+  "id": "1WYrTfvKjQYaYfVziGG1ET",
+  "name": "Linger - Remastered 2026",
+  "artist": "The Cranberries",
+  "genres": [
+   "Rock"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "1WmBVbFmLt0w6zPP37TeCG",
   "name": "Illegal",
   "artist": "PinkPantheress",
@@ -1297,6 +1682,18 @@
    "kr",
    "us_uk",
    "world"
+  ]
+ },
+ {
+  "id": "1YXot2MLAG9sttepCtBRM7",
+  "name": "踊り子",
+  "artist": "Vaundy",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -1480,6 +1877,20 @@
   ]
  },
  {
+  "id": "1mre3HoVD50XwY02NvxKZZ",
+  "name": "Pop",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "1nSF7mrf2Wt4VKsN3cemM2",
   "name": "Voz Do Brasil",
   "artist": "Urias, Major RD",
@@ -1502,6 +1913,28 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "1pBUzZE9PoKLoPxo6QxsG6",
+  "name": "Deja Vu",
+  "artist": "RESCENE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "1pU7ywmV4nJsgJcnuPMLyw",
+  "name": "CRASH",
+  "artist": "ALLDAY PROJECT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -1607,6 +2040,17 @@
   ]
  },
  {
+  "id": "1x0mG2CyQW5mjBX17ZfTUG",
+  "name": "Runaway",
+  "artist": "RESCENE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "1xaTREM89RbIxkcjlpf4Uw",
   "name": "Heaven Knows I'm Miserable Now - 2011 Remaster",
   "artist": "The Smiths",
@@ -1655,6 +2099,17 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "1zFbBrZmJr1Z49HYe84dBg",
+  "name": "Harvey",
+  "artist": "Her's",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -1750,11 +2205,37 @@
   ]
  },
  {
+  "id": "2262bWmqomIaJXwCRHr13j",
+  "name": "Sailor Song",
+  "artist": "Gigi Perez",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "us_uk"
+  ]
+ },
+ {
   "id": "22NHkFYbgxB2Zirj29Gbp8",
   "name": "oh yeah?",
   "artist": "Steve Lacy",
   "genres": [
    "Indie"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
+  "id": "22l7ocwYpEYGvYpM9T2C5K",
+  "name": "maggots for brains",
+  "artist": "Olivia Rodrigo",
+  "genres": [
+   "Pop",
+   "Rock"
   ],
   "countries": [
    "kr",
@@ -1806,6 +2287,30 @@
    "Pop"
   ],
   "countries": [
+   "world"
+  ]
+ },
+ {
+  "id": "26GehcyfHwgzfS0ok9yDYk",
+  "name": "Pretty Girl",
+  "artist": "RESCENE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "27WHoTrALtoDyQAWCbshq3",
+  "name": "Looks Can Kill",
+  "artist": "IVE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp",
    "world"
   ]
  },
@@ -1920,6 +2425,32 @@
   ]
  },
  {
+  "id": "2IgbYlOlFpiSFYnsqB39lM",
+  "name": "Jasmine",
+  "artist": "DPR LIVE",
+  "genres": [
+   "Hip-Hop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "2JXQjdWdKhpdYYs48QEc2j",
+  "name": "Sunglasses",
+  "artist": "Tinashe",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "2JiDi0qAXsPwhPqA2qaKGt",
   "name": "Bohemian Rhapsody",
   "artist": "Queen",
@@ -1929,6 +2460,17 @@
   "countries": [
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "2JilnrJ7iF1Bkf7zzanVtr",
+  "name": "Plan B",
+  "artist": "Dakshood, YANGHONGWON, Lil Gnar, Shyboiitobii, BIG 9ULPO, Costa Cashman",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -2001,6 +2543,17 @@
   ]
  },
  {
+  "id": "2LfIvkV7kBvqo3tx1H9sqw",
+  "name": "Can't Get Over Losing You (feat. Portraits Of Tracy)",
+  "artist": "The Avalanches, Portraits Of Tracy",
+  "genres": [
+   "EDM"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "2LlOeW5rVcvl3QcPNPcDus",
   "name": "Always",
   "artist": "Daniel Caesar",
@@ -2039,6 +2592,17 @@
   ]
  },
  {
+  "id": "2N9miXnewVmUrgl6JSK1FI",
+  "name": "SPAGHETTI",
+  "artist": "LE SSERAFIM, j-hope",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "2O9bMJticxbQ8FH3NiQ7Xh",
   "name": "Catch Catch",
   "artist": "YENA",
@@ -2048,6 +2612,18 @@
   "countries": [
    "kr",
    "jp"
+  ]
+ },
+ {
+  "id": "2P9AVxACR93BZDs3l79cfl",
+  "name": "Hot & talking",
+  "artist": "Say Now",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "us_uk"
   ]
  },
  {
@@ -2122,6 +2698,18 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "2STg9cZHHqoslKF6M3Oz9P",
+  "name": "Perfect Voice",
+  "artist": "syrup16g",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -2246,6 +2834,17 @@
   ]
  },
  {
+  "id": "2aL4lMGhWdPpyPL6COPou7",
+  "name": "Soft Spot",
+  "artist": "keshi",
+  "genres": [
+   "R&B"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "2adYJ0qJw5Io8nhtQ9KjHq",
   "name": "Heavy Serenade",
   "artist": "NMIXX",
@@ -2255,6 +2854,29 @@
   "countries": [
    "kr",
    "jp"
+  ]
+ },
+ {
+  "id": "2bAQsNqdo62T8akkIvWzGl",
+  "name": "RUDE!",
+  "artist": "Hearts2Hearts",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
+  "id": "2cxcqKwQtfKq7giphxjzOu",
+  "name": "晩餐歌 - Bansanka",
+  "artist": "tuki.",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -2367,6 +2989,28 @@
   ]
  },
  {
+  "id": "2mEbsYCcE59D4WfFgLaCXg",
+  "name": "Indestructible",
+  "artist": "MEOVV",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "2mWfVxEo4xZYDaz0v7hYrN",
+  "name": "Juna",
+  "artist": "Clairo",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "us_uk"
+  ]
+ },
+ {
   "id": "2nLtzopw4rPReszdYBJU6h",
   "name": "Numb",
   "artist": "Linkin Park",
@@ -2417,6 +3061,43 @@
   ]
  },
  {
+  "id": "2qmmnbJ9JR3f7vofbyje5r",
+  "name": "Slow Dance",
+  "artist": "Clairo",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "us_uk"
+  ]
+ },
+ {
+  "id": "2rlrGp2OSaOwaWWI4BGs7t",
+  "name": "Feel Dead",
+  "artist": "syrup16g",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "2sFepQNyl1WjpROruP8bJ0",
+  "name": "Housewife",
+  "artist": "Tate McRae",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "2t0wwvR15fc3K1ey8OiOaN",
   "name": "Selfless",
   "artist": "The Strokes",
@@ -2425,6 +3106,18 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "2wNsXxFKjKfiffzEK1RHqs",
+  "name": "Slidin",
+  "artist": "HANA",
+  "genres": [
+   "Pop",
+   "EDM"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -2531,6 +3224,28 @@
   "artist": "ROSÉ",
   "genres": [
    "Pop"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "318Irz9qyCcwS0teqsaNcg",
+  "name": "Moonride",
+  "artist": "Hearts2Hearts",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "31UtyhPu6vu9LJBzoygDiQ",
+  "name": "IYKYK (If You Know You Know)",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
   ],
   "countries": [
    "kr"
@@ -2696,6 +3411,30 @@
   "countries": [
    "kr",
    "jp"
+  ]
+ },
+ {
+  "id": "3B4cjvGlPvyBLNG3AzEgkZ",
+  "name": "E85",
+  "artist": "Don Toliver",
+  "genres": [
+   "Hip-Hop"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "3BnMfPPWs59CVfcQ8CcdfR",
+  "name": "begged",
+  "artist": "Olivia Rodrigo",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "us_uk",
+   "world"
   ]
  },
  {
@@ -2926,6 +3665,18 @@
   ]
  },
  {
+  "id": "3VpPQbvLb354cZ3XK54zrs",
+  "name": "GO HARD",
+  "artist": "MEOVV",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
   "id": "3WC5FPpPuiU8eauNnyY8dK",
   "name": "Extraordinária",
   "artist": "Ebony",
@@ -2951,6 +3702,29 @@
   ]
  },
  {
+  "id": "3WvM2dIR9iIxMGNMP7WsNw",
+  "name": "사랑하게 될 거야",
+  "artist": "HANRORO",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "3XJCMkEWhd8xwHx6UGGa7C",
+  "name": "Looping the Rooms",
+  "artist": "rusino, Hatsune Miku",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "3XcBnNDlch48NLxfPTl4ju",
   "name": "I'm The Man",
   "artist": "ADÉLA",
@@ -2959,6 +3733,21 @@
    "R&B"
   ],
   "countries": [
+   "world"
+  ]
+ },
+ {
+  "id": "3XmwAZpIMNpTJy8faw3ajD",
+  "name": "expectations (feat. Chappell Roan)",
+  "artist": "Olivia Rodrigo, Chappell Roan",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
    "world"
   ]
  },
@@ -2973,6 +3762,18 @@
    "kr",
    "us_uk",
    "world"
+  ]
+ },
+ {
+  "id": "3Z8NMM7IRu4YKDHBo6vmX3",
+  "name": "Brand New",
+  "artist": "Mrs. GREEN APPLE",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -2996,6 +3797,19 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "3bgnrHHwyYRtz3ykzAVImy",
+  "name": "Tarantino",
+  "artist": "LISA",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
   ]
  },
  {
@@ -3056,6 +3870,17 @@
   ]
  },
  {
+  "id": "3e0Td8QexmD5l3DJzXbbcC",
+  "name": "Tokimeki",
+  "artist": "Vaundy",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "3eXYltBvZSCOs6fM1La6ho",
   "name": "KGB",
   "artist": "ADÉLA",
@@ -3092,6 +3917,18 @@
   ]
  },
  {
+  "id": "3fuyYaLhZ2RoP9eWpvfP1H",
+  "name": "A New Kind Of Love - Demo",
+  "artist": "Frou Frou, Imogen Heap, Guy Sigsworth",
+  "genres": [
+   "Indie",
+   "EDM"
+  ],
+  "countries": [
+   "us_uk"
+  ]
+ },
+ {
   "id": "3gPYoFtn70aTgl546XVSET",
   "name": "Chest Pain (I Love)",
   "artist": "Malcolm Todd",
@@ -3104,6 +3941,18 @@
   ]
  },
  {
+  "id": "3ga7J4qgOlL0YcSgmQ371w",
+  "name": "If you wanna come down",
+  "artist": "Fine",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
   "id": "3gjHnylel3PTRpjS44ocqr",
   "name": "Zombie - 2025 Remastered",
   "artist": "The Cranberries",
@@ -3112,6 +3961,17 @@
   ],
   "countries": [
    "world"
+  ]
+ },
+ {
+  "id": "3h0ghWPVT1SzCgZnHPqp8b",
+  "name": "Masterpiece",
+  "artist": "LNGSHOT",
+  "genres": [
+   "Hip-Hop"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -3149,14 +4009,39 @@
   ]
  },
  {
+  "id": "3kcGkOmFXtaFjVdz7ge1WL",
+  "name": "I SPY",
+  "artist": "NCT WISH",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "3khEEPRyBeOUabbmOPJzAG",
   "name": "KICK BACK",
   "artist": "Kenshi Yonezu",
   "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
+  "id": "3l6K3CclAllSl4mR5DreUx",
+  "name": "My Voice, My Life",
+  "artist": "milet",
+  "genres": [
    "Pop"
   ],
   "countries": [
-   "kr"
+   "jp"
   ]
  },
  {
@@ -3204,6 +4089,18 @@
   "countries": [
    "us_uk",
    "world"
+  ]
+ },
+ {
+  "id": "3mSVDCCfGjxoQCt4KqGjMO",
+  "name": "Season Echo",
+  "artist": "syrup16g",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -3272,6 +4169,18 @@
   ]
  },
  {
+  "id": "3sOAwRg5esaxDcWnUigWPv",
+  "name": "0+0",
+  "artist": "HANRORO",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "3siwsiaEoU4Kuuc9WKMUy5",
   "name": "No One Noticed",
   "artist": "The Marías",
@@ -3283,6 +4192,17 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "3tbHqU6PKS2bIGWx9cn082",
+  "name": "영원은 그렇듯",
+  "artist": "Redoor",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -3302,6 +4222,44 @@
   "artist": "Mitski",
   "genres": [
    "Indie"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
+  "id": "3vrhVpKV6fGLkhVJVtLyxl",
+  "name": "Goodbye brain",
+  "artist": "Fine",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "3wJHCry960drNlAUGrJLmz",
+  "name": "ただ君に晴れ",
+  "artist": "ヨルシカ",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
+  "id": "3wKYDzdwr2ZylKUqVw6yXk",
+  "name": "Too Easy",
+  "artist": "Tinashe",
+  "genres": [
+   "Pop",
+   "R&B"
   ],
   "countries": [
    "kr",
@@ -3352,6 +4310,17 @@
   ]
  },
  {
+  "id": "40OzW0BjMGaPeM2rYJg5Pk",
+  "name": "Ever2Late!",
+  "artist": "KiiiKiii",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "41P6Tnd8KIHqON0QIydx6a",
   "name": "the perfect pair",
   "artist": "beabadoobee",
@@ -3364,6 +4333,17 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "41d2WjuL0ikRKVjxmL7ZFz",
+  "name": "BOOMPALA",
+  "artist": "LE SSERAFIM",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -3456,6 +4436,18 @@
   ]
  },
  {
+  "id": "49JeKZqejPtqJKpK7x9Ew4",
+  "name": "Patient Zero",
+  "artist": "Taylor Swift",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "world"
+  ]
+ },
+ {
   "id": "4BBL8YQ1SUhSbcsEguX8kL",
   "name": "Do It",
   "artist": "underscores",
@@ -3518,6 +4510,18 @@
   ]
  },
  {
+  "id": "4FMz2RFrbDGzJO7K4D0vS3",
+  "name": "HAPPY BIRTHDAY",
+  "artist": "back number",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "4GKJALTXTwhZgLPp0usd5C",
   "name": "Roman Holiday",
   "artist": "Fontaines D.C.",
@@ -3526,6 +4530,18 @@
   ],
   "countries": [
    "us_uk",
+   "world"
+  ]
+ },
+ {
+  "id": "4HCOHRCSQelz2GPX8iTamO",
+  "name": "Flower In A Hurricane (feat. Tame Impala, SZA, King Gizzard & the Lizard Wizard) [from GTAVI]",
+  "artist": "Justice, Tame Impala, SZA, Grand Theft Auto VI, King Gizzard & The Lizard Wizard",
+  "genres": [
+   "EDM"
+  ],
+  "countries": [
+   "kr",
    "world"
   ]
  },
@@ -3541,6 +4557,18 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "4Jsus7N4d8hFB2G9gcRdBv",
+  "name": "NOBLE",
+  "artist": "F3miii",
+  "genres": [
+   "Indie",
+   "EDM"
+  ],
+  "countries": [
+   "us_uk"
   ]
  },
  {
@@ -3602,6 +4630,20 @@
   "countries": [
    "kr",
    "jp"
+  ]
+ },
+ {
+  "id": "4MWodKBTAsRNWm5axHLxLR",
+  "name": "Hootie Frutti",
+  "artist": "KATSEYE",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
   ]
  },
  {
@@ -3767,6 +4809,18 @@
   ]
  },
  {
+  "id": "4ZXGrwziSkZg7vu9MojiYn",
+  "name": "SPIN",
+  "artist": "Kroi",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "4ZnkygoWLzcGbQYCm3lkae",
   "name": "Rush",
   "artist": "Troye Sivan",
@@ -3817,6 +4871,40 @@
   ]
  },
  {
+  "id": "4bjFq0GBM3UxCortwNuDEg",
+  "name": "사계",
+  "artist": "양홍원",
+  "genres": [
+   "Hip-Hop"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "4bjNOhOMvqFPflwHIaS7Fw",
+  "name": "한시 오분 (1:05)",
+  "artist": "검정치마",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "4dR11SE6eYy2hUTC0TbHaW",
+  "name": "너",
+  "artist": "SYSTEM SEOUL, ycs",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "4e9eGQYsOiBcftrWXwsVco",
   "name": "Aerials",
   "artist": "System Of A Down",
@@ -3825,6 +4913,17 @@
   ],
   "countries": [
    "world"
+  ]
+ },
+ {
+  "id": "4fOAYaOQ2F5dC9O8u4GVyt",
+  "name": "Girls Girls Girls",
+  "artist": "IVE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -3917,10 +5016,13 @@
   "name": "JANE DOE",
   "artist": "Kenshi Yonezu, Hikaru Utada",
   "genres": [
+   "Pop",
+   "Rock",
    "Jazz"
   ],
   "countries": [
-   "kr"
+   "kr",
+   "jp"
   ]
  },
  {
@@ -3944,6 +5046,18 @@
   ],
   "countries": [
    "us_uk"
+  ]
+ },
+ {
+  "id": "4oyisOTxuisbiXkAvfbrlr",
+  "name": "Pretender",
+  "artist": "OFFICIAL HIGE DANDISM",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -3999,6 +5113,18 @@
   ]
  },
  {
+  "id": "4xeugB5MqWh0jwvXZPxahq",
+  "name": "Drowning",
+  "artist": "WOODZ",
+  "genres": [
+   "Rock",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "4zmXWmILSBkn7gTvIyCiNi",
   "name": "bad thing (bunny hop)",
   "artist": "Ariana Grande",
@@ -4034,6 +5160,30 @@
   ]
  },
  {
+  "id": "5204mF69iUqPlC9E2hPmtk",
+  "name": "Crescendo",
+  "artist": "NMIXX",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "53CV4cXgvGsThfPwnDrQmB",
+  "name": "Twentyfive Eight",
+  "artist": "Tinashe",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "53iuhJlwXhSER5J2IYYv1W",
   "name": "The Fate of Ophelia",
   "artist": "Taylor Swift",
@@ -4056,6 +5206,18 @@
   ]
  },
  {
+  "id": "54kwD19pq6ea4yGiiX84QB",
+  "name": "GO GHOST",
+  "artist": "King Gnu",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "55UDXtbNJBAdTdUdbRu8T3",
   "name": "BAD",
   "artist": "ATEEZ",
@@ -4065,6 +5227,19 @@
   "countries": [
    "kr",
    "jp"
+  ]
+ },
+ {
+  "id": "55lijDD6OAjLFFUHU9tcDm",
+  "name": "WHERE IS MY HUSBAND!",
+  "artist": "RAYE",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
+   "world"
   ]
  },
  {
@@ -4118,6 +5293,18 @@
   ]
  },
  {
+  "id": "57XG0kZLyKKihepR5BmEVj",
+  "name": "Variety",
+  "artist": "Mrs. GREEN APPLE",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "58Q3FZFs1YXPpliWQB5kXB",
   "name": "Right Now",
   "artist": "NewJeans",
@@ -4159,10 +5346,23 @@
   "name": "IRIS OUT",
   "artist": "Kenshi Yonezu",
   "genres": [
+   "Pop",
+   "Rock",
    "Jazz"
   ],
   "countries": [
    "kr",
+   "jp"
+  ]
+ },
+ {
+  "id": "59wwkq0Un56qOQVa3MZOpz",
+  "name": "I Got Your Back (Korean Ver.)",
+  "artist": "ILLIT, HANA",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
    "jp"
   ]
  },
@@ -4213,6 +5413,18 @@
   ]
  },
  {
+  "id": "5BGxDtIEw8zxoP29Fid69a",
+  "name": "Ling Ling",
+  "artist": "검정치마",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "5BKKy9fIJL5uM9fz1SnqyP",
   "name": "Chicago",
   "artist": "Michael Jackson",
@@ -4223,6 +5435,56 @@
   ],
   "countries": [
    "us_uk"
+  ]
+ },
+ {
+  "id": "5BZsQlgw21vDOAjoqkNgKb",
+  "name": "DAISIES",
+  "artist": "Justin Bieber",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "5BqwC9kOBbqYkzdOKeXFFk",
+  "name": "주저하는 연인들을 위해",
+  "artist": "잔나비",
+  "genres": [
+   "Rock",
+   "Indie",
+   "Ballad",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "5Ctzx0mMiUPAu9JqbAOY9n",
+  "name": "Be Like a Woman",
+  "artist": "Chris Rainbow",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "us_uk"
+  ]
+ },
+ {
+  "id": "5DZOKNtaoVEssXu9ltcMjx",
+  "name": "oh well",
+  "artist": "Ariana Grande",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
+   "world"
   ]
  },
  {
@@ -4265,6 +5527,20 @@
   ]
  },
  {
+  "id": "5Fdj0DtH4ZhymltyN5xEv2",
+  "name": "Camera",
+  "artist": "Charli xcx",
+  "genres": [
+   "Pop",
+   "EDM"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "world"
+  ]
+ },
+ {
   "id": "5GUYJTQap5F3RDQiCOJhrS",
   "name": "Self Control",
   "artist": "Frank Ocean",
@@ -4284,6 +5560,17 @@
   ],
   "countries": [
    "world"
+  ]
+ },
+ {
+  "id": "5GiLV4qHyjEQHq2sscbDYE",
+  "name": "Almond Chocolate",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -4324,6 +5611,18 @@
   ]
  },
  {
+  "id": "5JaMKAodzzLdFM2ARRTXb9",
+  "name": "Drip",
+  "artist": "ATEEZ",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
   "id": "5KCIrYoBUmQbW2FBoOL4Q0",
   "name": "Delulu",
   "artist": "KiiiKiii",
@@ -4347,6 +5646,29 @@
    "kr",
    "us_uk",
    "world"
+  ]
+ },
+ {
+  "id": "5MOIAV008posdOGmxiJBsi",
+  "name": "Made My Night",
+  "artist": "LE SSERAFIM",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
+  "id": "5NxmDq0yXBYGfCbMqvIXuv",
+  "name": "UNDEAD",
+  "artist": "YOASOBI",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -4410,6 +5732,28 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "5R56hCdQMPGW4XXNoCqMK9",
+  "name": "The thing",
+  "artist": "Fine",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "5RhWszHMSKzb7KiXk4Ae0M",
+  "name": "One Last Kiss",
+  "artist": "宇多田ヒカル",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "jp"
   ]
  },
  {
@@ -4497,6 +5841,18 @@
   ],
   "countries": [
    "world"
+  ]
+ },
+ {
+  "id": "5cCiqtYFbUNVknlcnjyk8V",
+  "name": "Hysteric",
+  "artist": "Yves",
+  "genres": [
+   "R&B",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -4595,6 +5951,17 @@
   ]
  },
  {
+  "id": "5jC3lBWBcVdby76sqWwqAE",
+  "name": "Insomnia",
+  "artist": "RIIZE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "5jPEZ4PLNd1NxXEBLfsYjm",
   "name": "I could",
   "artist": "Fine",
@@ -4614,6 +5981,17 @@
   ],
   "countries": [
    "jp"
+  ]
+ },
+ {
+  "id": "5kaHfldTiM58rL3yOpBqfO",
+  "name": "퇴사할게여 (Narr. 기안84)",
+  "artist": "소연",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -4638,6 +6016,18 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "5ocSQW5sIUIOFojwXEz9Ki",
+  "name": "Supernatural",
+  "artist": "NewJeans",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -4728,6 +6118,19 @@
   ]
  },
  {
+  "id": "5ukcdW4MPdIVbda5IXed1d",
+  "name": "Cloud 9",
+  "artist": "Tinashe",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
+   "world"
+  ]
+ },
+ {
   "id": "5vHLwhxxlGzmClMcxRRFPr",
   "name": "Lithium",
   "artist": "Nirvana",
@@ -4747,6 +6150,18 @@
   ],
   "countries": [
    "us_uk"
+  ]
+ },
+ {
+  "id": "5vVqC0RXSfNYKgtpU3Eh5g",
+  "name": "Flashbacks",
+  "artist": "Tinashe",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -4786,6 +6201,19 @@
   ]
  },
  {
+  "id": "5z0WfWNStLBySkiEayH4zn",
+  "name": "스트로베리 쇼트케이크",
+  "artist": "Ghvstclub",
+  "genres": [
+   "Hip-Hop",
+   "Rock",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "60a0Rd6pjrkxjPbaKzXjfq",
   "name": "In the End",
   "artist": "Linkin Park",
@@ -4808,6 +6236,18 @@
   ],
   "countries": [
    "us_uk",
+   "jp"
+  ]
+ },
+ {
+  "id": "61UOoqGI1B9qdeD5Dzupyb",
+  "name": "GOOD DAY",
+  "artist": "Mrs. GREEN APPLE",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
    "jp"
   ]
  },
@@ -4841,6 +6281,17 @@
   ]
  },
  {
+  "id": "63gCdrDtZlt1PMIGrzYEqt",
+  "name": "연애의 조건 (LOVE OPTIONS)",
+  "artist": "베스티",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "64yajM6CxtLghmgB53VeXT",
   "name": "インフェルノ",
   "artist": "Mrs. GREEN APPLE",
@@ -4865,6 +6316,18 @@
   ]
  },
  {
+  "id": "65X2koe1LhDgQmRkNdJFv9",
+  "name": "AIZO",
+  "artist": "King Gnu",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "68UrZQUuO3O6eUiD226xHg",
   "name": "The Chase",
   "artist": "Hearts2Hearts",
@@ -4875,6 +6338,19 @@
   "countries": [
    "kr",
    "jp"
+  ]
+ },
+ {
+  "id": "68lbSrXDORS51pmyjZv712",
+  "name": "SWIM",
+  "artist": "BTS",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
   ]
  },
  {
@@ -4897,6 +6373,19 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "6CpYN9MxjHzzvcn71aQdMD",
+  "name": "Super in Love",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
   ]
  },
  {
@@ -4925,6 +6414,18 @@
   ]
  },
  {
+  "id": "6F0vhKF4fy9WQi39JPQnCv",
+  "name": "긴 소원 (Birthday Wish)",
+  "artist": "NMIXX",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "6FFHObl8rAxig1QZewCTXN",
   "name": "Wink Wink",
   "artist": "Charli xcx",
@@ -4932,6 +6433,31 @@
    "Rock"
   ],
   "countries": [
+   "world"
+  ]
+ },
+ {
+  "id": "6H67gFuycHyTOROX2M4bbs",
+  "name": "bad",
+  "artist": "wave to earth",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "6HHCf0DrccfgC3GlbfmXgH",
+  "name": "Empty Stadium",
+  "artist": "Tinashe",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
    "world"
   ]
  },
@@ -5027,6 +6553,18 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "6K8B3NvbUIc7FoooqXmmi9",
+  "name": "Billyeoon Goyangi (Do the Dance) (Japanese Ver.)",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -5139,6 +6677,32 @@
   ]
  },
  {
+  "id": "6Qyc6fS4DsZjB2mRW9DsQs",
+  "name": "Iris",
+  "artist": "The Goo Goo Dolls",
+  "genres": [
+   "Rock"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
+  "id": "6Ruz3p5vLVj6PWXhGIgjc6",
+  "name": "Hot 'n Unbothered (SULLYOON, BAE)",
+  "artist": "NMIXX",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "6UO72VSXEONxdfLyABihs9",
   "name": "Black Star",
   "artist": "Radiohead",
@@ -5147,6 +6711,20 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "6UeSC8jEhf9XmUL8EX2rni",
+  "name": "FIRESTARTER",
+  "artist": "K/DA, League of Legends, i-dle, Mimi Webb, Sophie Powers, MIYEON, SOYEON",
+  "genres": [
+   "Pop",
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp",
+   "world"
   ]
  },
  {
@@ -5185,6 +6763,17 @@
   ]
  },
  {
+  "id": "6btmjh1p327BMAJAczq9Lf",
+  "name": "MISS ME",
+  "artist": "keshi",
+  "genres": [
+   "R&B"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "6dBUzqjtbnIa1TwYbyw5CM",
   "name": "Lovers Rock",
   "artist": "TV Girl",
@@ -5195,6 +6784,20 @@
   "countries": [
    "kr",
    "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
+  "id": "6dOtVTDdiauQNBQEDOtlAB",
+  "name": "BIRDS OF A FEATHER",
+  "artist": "Billie Eilish",
+  "genres": [
+   "Pop",
+   "Indie"
+  ],
+  "countries": [
+   "kr",
    "jp",
    "world"
   ]
@@ -5295,6 +6898,31 @@
   ]
  },
  {
+  "id": "6oBDhkYQDhFS2q0wQ6xZLO",
+  "name": "Pretty Please",
+  "artist": "Hearts2Hearts",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "6oTEeofndrgN1q7et4xypc",
+  "name": "More",
+  "artist": "ILLIT",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "6qmfxmtoNEzqucF1FWeXl8",
   "name": "I DO ME",
   "artist": "KiiiKiii",
@@ -5318,6 +6946,21 @@
   ]
  },
  {
+  "id": "6rY5FAWxCdAGllYEOZMbjW",
+  "name": "SLOW DANCING IN THE DARK",
+  "artist": "Joji",
+  "genres": [
+   "Hip-Hop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
   "id": "6rdkCkjk6D12xRpdMXy0I2",
   "name": "New Jeans",
   "artist": "NewJeans",
@@ -5327,6 +6970,17 @@
   "countries": [
    "kr",
    "jp"
+  ]
+ },
+ {
+  "id": "6rxI9oyEVFOuD2pCaVCAK5",
+  "name": "SWEET SOUR",
+  "artist": "KiiiKiii",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -5400,6 +7054,42 @@
    "kr",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "6wm3t4VpTxSFfOUgTMlHZM",
+  "name": "The Peace",
+  "artist": "underscores",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp"
+  ]
+ },
+ {
+  "id": "6xugCaKQQzLo0xnD3dZfjy",
+  "name": "Bd-R",
+  "artist": "The Avalanches",
+  "genres": [
+   "EDM"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "6z1kLsntE7FuzKZHZWrXYN",
+  "name": "instagram",
+  "artist": "DEAN",
+  "genres": [
+   "R&B",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -5496,6 +7186,31 @@
   ]
  },
  {
+  "id": "73TEyhGLxixHAwzOdoamgV",
+  "name": "Aoi",
+  "artist": "サカナクション",
+  "genres": [
+   "Pop",
+   "Rock",
+   "EDM"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "745W6tNeXVKjskHoCsMJvV",
+  "name": "Antifreeze",
+  "artist": "검정치마",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "74X2u8JMVooG2QbjRxXwR8",
   "name": "Perfect Night",
   "artist": "LE SSERAFIM",
@@ -5567,6 +7282,41 @@
   ]
  },
  {
+  "id": "76oCvJj6LRoed2754GybpH",
+  "name": "mosi mosi?",
+  "artist": "楽音",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
+  "id": "77lmDcPPyY6kK907gdgC6i",
+  "name": "HANABI",
+  "artist": "Mr.Children",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "79IgD1wf3xltQdDK3l5Why",
+  "name": "In My Room",
+  "artist": "Julia Wolf",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "us_uk",
+   "world"
+  ]
+ },
+ {
   "id": "7B3BwNecBhKvNwSMOOl7Gk",
   "name": "Fame is a Gun",
   "artist": "Addison Rae",
@@ -5578,6 +7328,19 @@
    "us_uk",
    "jp",
    "world"
+  ]
+ },
+ {
+  "id": "7Cd17G3oNQ34OWUwS8ZxfR",
+  "name": "Lemon",
+  "artist": "Kenshi Yonezu",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -5655,6 +7418,17 @@
   ]
  },
  {
+  "id": "7FzDMnwPhj6qdTT2PRaSYi",
+  "name": "Pinball",
+  "artist": "RESCENE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
+  ]
+ },
+ {
   "id": "7GF92haKwJg9WUdnkTxRtr",
   "name": "Magnolias",
   "artist": "ROSALÍA",
@@ -5674,6 +7448,20 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "7It5Iy4mnJWMhESt7qfipt",
+  "name": "DESERVE",
+  "artist": "BABYMONSTER",
+  "genres": [
+   "Pop",
+   "EDM",
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
   ]
  },
  {
@@ -5712,6 +7500,31 @@
   "countries": [
    "us_uk",
    "world"
+  ]
+ },
+ {
+  "id": "7JIuqL4ZqkpfGKQhYlrirs",
+  "name": "The Only Exception",
+  "artist": "Paramore",
+  "genres": [
+   "Rock"
+  ],
+  "countries": [
+   "us_uk",
+   "jp",
+   "world"
+  ]
+ },
+ {
+  "id": "7JQH2lBMZ10ztDnpoeq6Ki",
+  "name": "yours",
+  "artist": "데이먼스 이어 Damons year",
+  "genres": [
+   "Indie",
+   "K-POP"
+  ],
+  "countries": [
+   "kr"
   ]
  },
  {
@@ -5779,6 +7592,17 @@
   ]
  },
  {
+  "id": "7MZHqgTVTnN6xZGYAcEEAf",
+  "name": "Rein Me In (with Olivia Dean)",
+  "artist": "Sam Fender, Olivia Dean",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "us_uk"
+  ]
+ },
+ {
   "id": "7MnT7msJZg3XBAS0OTfGrB",
   "name": "Tempo Perdido",
   "artist": "Legião Urbana",
@@ -5786,6 +7610,19 @@
    "Rock"
   ],
   "countries": [
+   "world"
+  ]
+ },
+ {
+  "id": "7aF0puGulyEEJkOQZNKNyu",
+  "name": "Popstar",
+  "artist": "Tinashe",
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
    "world"
   ]
  },
@@ -5818,6 +7655,18 @@
   ]
  },
  {
+  "id": "7ahB1ea9N3SHIvoYQe245z",
+  "name": "CRUMBS",
+  "artist": "IVE",
+  "genres": [
+   "K-POP"
+  ],
+  "countries": [
+   "kr",
+   "jp"
+  ]
+ },
+ {
   "id": "7cgu4JBW3hq1GwTM1ilkKQ",
   "name": "Talking Body",
   "artist": "Tove Lo",
@@ -5843,6 +7692,19 @@
   ]
  },
  {
+  "id": "7eqoqGkKwgOaWNNHx90uEZ",
+  "name": "Nights",
+  "artist": "Frank Ocean",
+  "genres": [
+   "Hip-Hop",
+   "R&B"
+  ],
+  "countries": [
+   "kr",
+   "us_uk"
+  ]
+ },
+ {
   "id": "7fBv7CLKzipRk6EC6TWHOB",
   "name": "The Hills",
   "artist": "The Weeknd",
@@ -5853,6 +7715,18 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "7ghKr0pCYyPPyp7t1FH8k4",
+  "name": "Les",
+  "artist": "Childish Gambino",
+  "genres": [
+   "Hip-Hop"
+  ],
+  "countries": [
+   "us_uk",
+   "world"
   ]
  },
  {
@@ -5938,6 +7812,29 @@
   ]
  },
  {
+  "id": "7pkveAvxwTizWCylSQ31sg",
+  "name": "TAIDADA",
+  "artist": "ずっと真夜中でいいのに。",
+  "genres": [
+   "Pop"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "7qXIWBGtLLHIhWCmjgLJFB",
+  "name": "Soranji",
+  "artist": "Mrs. GREEN APPLE",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
   "id": "7rbECVPkY5UODxoOUVKZnA",
   "name": "I Wonder",
   "artist": "Kanye West",
@@ -5970,6 +7867,32 @@
   ],
   "countries": [
    "kr"
+  ]
+ },
+ {
+  "id": "7wnOPAiqvIG4dTvEInj0YT",
+  "name": "Teenager Forever",
+  "artist": "King Gnu",
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "countries": [
+   "jp"
+  ]
+ },
+ {
+  "id": "7yNf9YjeO5JXUE3JEBgnYc",
+  "name": "Babydoll",
+  "artist": "Dominic Fike",
+  "genres": [
+   "Indie"
+  ],
+  "countries": [
+   "kr",
+   "us_uk",
+   "jp",
+   "world"
   ]
  }
 ]
