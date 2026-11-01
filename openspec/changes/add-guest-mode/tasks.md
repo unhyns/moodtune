@@ -1,0 +1,44 @@
+## 0. 착수 전 확인 (사용자)
+
+- [ ] 0.1 약관 확인: design.md Risks의 Last.fm(비상업 한정, 저장·삭제·표기)과 Spotify(메타데이터의 AI 입력, 다른 서비스 결합, 단독 제공) 조항 원문을 사용자가 확인하고 진행 여부를 정한다. 진행 결정을 받기 전에는 1.2 이후의 곡 목록 빌드를 하지 않는다. 결정 내용을 기록하면 완료
+- [ ] 0.2 `LASTFM_API_KEY`를 사용자가 발급해 `.env.local`에 넣고, 배포 환경에는 넣지 않는다. 키 값을 출력하지 않고 존재 여부만 확인하면 완료
+- [ ] 0.3 **로그인 경로 기준선 저장**(코드를 고치기 전에 수행). 임시 worktree에 스텁을 넣고 칩 입력 (a)~(e)의 프롬프트와 재시도·폴백 응답, `/input` 흐름의 `/result` URL을 저장한다. OpenAI를 호출하지 않고 작업 트리에 변경이 없으면 완료
+
+## 1. 곡 목록
+
+- [ ] 1.1 `moodtune/scripts/build-guest-catalog.mjs`를 작성한다(Decision 2·3): 장르 매핑 표, 제목·아티스트 정규화와 일치 판정, 요청 간격, 임시 폴더 재개, 빌드 게이트. 외부 호출 없는 함수(정규화, 매핑, 필드 제한)를 `node --test`로 확인하면 완료
+- [ ] 1.2 소량 시험: 국가 하나에 후보 20곡으로 돌려 Last.fm 국가 이름, 태그, Spotify 일치율을 확인하고 결과를 보고한다. 파일을 커밋하지 않으면 완료
+- [ ] 1.3 전체 빌드로 `moodtune/data/guest-catalog.json`을 만든다. 국가×장르 곡 수 표를 보고하고 사용자가 게이트 숫자를 확인하면 완료
+- [ ] 1.4 파일 검사: 항목의 키가 `id`, `name`, `artist`, `genres`, `countries`뿐이고, 라벨이 정해진 값이며, 순위·재생 수·태그 원본·앨범 아트·임시 응답이 저장소에 없다. 임시 폴더를 지우면 완료
+
+## 2. 서버 로직
+
+- [ ] 2.1 `moodtune/lib/guestCatalog.ts`의 `pickGuestCandidates`와 테스트: 국가·장르 필터, 50곡 상한, 맞는 곡 15곡 경계(14/15), 15~39곡은 그대로, 15곡 미만은 맞는 곡을 모두 포함해 같은 국가로 40곡까지, 다른 국가 곡 없음, 중복 없음, 입력 불변, 고정 난수 재현. `node --test` 통과 시 완료
+- [ ] 2.2 `moodtune/lib/guestLimit.ts`의 판정 함수와 테스트(Decision 7): 브라우저·주소·전체 한도 경계, Asia/Seoul 날짜 경계, 위조 쿠키는 0회로 처리. 쿠키는 `seal`/`unseal`을 쓴다. `node --test` 통과 시 완료
+- [ ] 2.3 `moodtune/lib/spotify.ts`에 앱 토큰과 트랙 조회를 더한다(Decision 6). 기존 함수는 바꾸지 않는다. 2초 제한과 실패 시 빈 값을 스텁으로 확인하면 완료
+- [ ] 2.4 `moodtune/app/api/guest/recommend/route.ts`: 허용 목록 검증(Decision 8) → 제한 확인 → 후보 선택 → `getRecommendation` → 아트 조회. `readSession`과 사용자 API를 호출하지 않고 선택값을 로그에 남기지 않는다. `pnpm build`가 통과하면 완료
+
+## 3. 화면
+
+- [ ] 3.1 `moodtune/lib/useRecommendSubmit.ts`에 `endpoint`, `guest`, `guest_limit`을 더한다. 기본값에서 로그인 경로의 요청·URL이 같음을 0.3 기준선으로 확인하면 완료
+- [ ] 3.2 `moodtune/app/guest/input/page.tsx`: 기분·상황·날씨 재사용, 장르(1~3개, 4번째 선택 안 됨), 국가(단일), 제출 조건, 한도 문구, 출처 링크, 로그인으로 돌아가는 경로. 393px에서 가로 스크롤이 없으면 완료
+- [ ] 3.3 `moodtune/app/page.tsx`에 "로그인 없이 체험하기" 링크를, `moodtune/app/result/page.tsx`에 `guest=1` 처리(다시 하기 링크, 출처)를 넣는다. `guest=1`이 없을 때 결과 화면이 같으면 완료
+
+## 4. 스텁 검증 (OpenAI 호출 없음)
+
+- [ ] 4.1 게스트 API: 잘못된 mood·situation·장르 개수·국가·weather는 400이고 AI 호출 없음. 본문의 `freeText`, `librarySample`, `candidates`, `now`, `random`은 프롬프트에 닿지 않음. 프롬프트에 장르·국가가 없고 힌트는 있음. 세션 쿠키가 있어도 읽지 않음. 재시도와 폴백(후보 첫 곡)이 동작하고 출처 문구가 없음
+- [ ] 4.2 호출 제한: 브라우저 6번째 요청, 주소 분당 4번째, 전체 한도 초과가 429이고 AI 호출 없음. 400은 세지 않음. 화면에 한도 문구가 나옴. 고정 시각으로 다음 날 초기화 확인
+- [ ] 4.3 화면 흐름(headless Chrome): 랜딩 → 게스트 입력 → 제출 → `/result?guest=1`, 다시 하기가 `/guest/input`, 출처 링크, 👍/👎 동작, 아트 실패 시 표시. 실행 중 Last.fm 요청 0건을 네트워크 기록으로 확인
+- [ ] 4.4 **로그인 경로 회귀 게이트**: 0.3 기준선과 프롬프트·재시도·폴백 응답·`/input` 결과 URL이 모두 같고, `git diff`에 `openai.ts`, `/api/recommend`, `/input`이 없으면 완료
+
+## 5. 실제 호출 확인 (사용자 승인 후)
+
+- [ ] 5.1 OpenAI 호출 입력과 횟수를 제안해 승인받는다(최대 6회, 재시도 포함, 7초 간격, 429·재시도 시 중단, 로그는 확인 전까지 유지). 하루 한도를 고려한다. 승인 전에는 호출하지 않는다
+- [ ] 5.2 승인된 횟수만 호출해 기존 판정 기준과 곡의 장르·국가 라벨 일치를 표로 보고한다. 앱 토큰 아트 조회가 실제로 동작하는지 함께 본다
+
+## 6. 마무리
+
+- [ ] 6.1 `pnpm lint`, `pnpm build`, `node --test lib/*.test.mjs`가 모두 통과한다
+- [ ] 6.2 문서 갱신: `CLAUDE.md` Boundaries(Last.fm 빌드 전용), `planning/md-design/03`·`04`, `docs/DESIGN.md`, 환경 변수 목록. `02_REQUIREMENTS_SPEC.md`를 직접 고칠지 사용자에게 확인한다
+- [ ] 6.3 배포 전 사용자 작업을 안내한다: OpenAI 대시보드 사용 한도 설정, 배포 환경에 `LASTFM_API_KEY`를 넣지 않기
+- [ ] 6.4 임시 스텁·파일이 남지 않았는지 grep과 `git status`로 확인하고 변경 파일 목록을 정리하면 완료
