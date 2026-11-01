@@ -57,7 +57,7 @@ async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean
       : "- Use EVERY given Context value; do not drop any. If both mood and situation are given, weave both into the one sentence. Keep the meaning and key words of each given mood / situation expression — you may only adjust endings to join them naturally — and never replace them with a different mood or situation.",
     "- If a weather line is given, include it naturally to describe the user's current moment, using its phrase exactly as written (e.g. \"흐리고 시원한 날\"). Never state a temperature number or °C. Do not add feelings about the weather that the line does not state, and never link the weather to the track. If there is no weather line, do not describe or invent any weather.",
     "- Never mention a value that is not in Context.",
-    "- The Hints block is weak reference only: follow its Priority line and use it only to choose between otherwise suitable tracks. Never mention the hints, the season, or any feel in the reason.",
+    "- The Hints block: if a candidate fits the hints, prefer it; but if the hints conflict with the mood/situation or the note, follow the mood/situation or the note. Never mention the hints, the season, or any feel in the reason.",
     "- NEVER say anything about the track itself — no sound, genre, tempo, lyrics, mood, atmosphere, or impression of any kind, and no expression linking the track to the Context (\"~에 어울린다\", \"~하기 좋다\", \"~한 분위기와 맞다\"). You may only name the track title or artist.",
     "- The examples below use made-up Context values (e.g. \"나른한 기분\", \"도서관에 가는 중\") only to show the rules. Do not copy their wording; write the sentence from the actual Context values.",
     '- Good (mood only): "나른한 기분이라 이 곡을 골랐어요."',
@@ -70,7 +70,7 @@ async function callOpenAI(request: RecommendationRequest, forceListOnly: boolean
 
   // 힌트는 Context 밖에 둬서 "Context 값을 모두 reason에 쓴다" 규칙에 걸리지 않게 한다 (add-weather-season-hints design.md Decision 4).
   const hintLines = [
-    "Hints (weak, reference only — use only to choose between otherwise suitable tracks; never mention them in the reason):",
+    "Hints (lower priority than the mood/situation or the note; never mention them in the reason):",
     hints.weatherHint ? `- weather feel: ${hints.weatherHint}` : null,
     `- season feel: ${hints.seasonHint}`,
     `Priority: ${hints.priority}`,

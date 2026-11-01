@@ -39,7 +39,7 @@ For mood and situation input, the reason is written by the AI from the provided 
 ## ADDED Requirements
 
 ### Requirement: Weather and Season Hints
-For every recommendation request, the system SHALL give the AI weather and season hints as weak, reference-only guidance for choosing the track. The hints SHALL NOT filter or reorder the library sample offered to the AI, and no candidate filtering by weather, season, release date, or track length SHALL be applied. The system SHALL also state the priority of the inputs to the AI: for mood and situation input, "mood and situation > weather > season"; for free text, "the user's text > weather > season".
+For every recommendation request, the system SHALL give the AI weather and season hints as guidance for choosing the track that has lower priority than the mood and situation selection or the user's text. The hints SHALL NOT filter or reorder the library sample offered to the AI, and no candidate filtering by weather, season, release date, or track length SHALL be applied. The system SHALL also state the priority of the inputs to the AI: for mood and situation input, "mood and situation > weather > season"; for free text, "the user's text > weather > season".
 
 The weather hint SHALL be chosen from the weather icon category: 01 or 02 "밝고 경쾌한 느낌", 03, 04, or 50 "차분한 느낌", 09, 10, or 11 "잔잔한 느낌", 13 "따뜻하고 설레는 느낌". When weather is unavailable or its icon is not in these categories, no weather hint SHALL be given.
 

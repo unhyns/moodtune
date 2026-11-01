@@ -57,7 +57,7 @@ Context:
 mood: 차분한 기분
 weather: 비 오고 쌀쌀한 날
 
-Hints (weak, reference only — use only to choose between otherwise suitable tracks; never mention them in the reason):
+Hints (lower priority than the mood/situation or the note; never mention them in the reason):
 - weather feel: 잔잔한 느낌
 - season feel: 차분하고 서정적인 느낌
 Priority: mood/situation > weather > season
@@ -66,7 +66,7 @@ Track list (JSON):
 [...]
 ```
 - 힌트를 `Context:` 밖에 두면 "Use EVERY given Context value"가 힌트를 reason에 넣으라는 지시가 되지 않고, "Never mention a value that is not in Context"가 힌트 언급을 막는 규칙이 된다.
-- 시스템 프롬프트에 규칙 한 줄을 더한다: Hints는 Priority 순서를 따라 비슷하게 맞는 곡 중에서 고를 때만 약하게 참고하고, reason에는 힌트·계절·느낌을 쓰지 않는다. 기존 "곡에 대한 주장 금지" 규칙은 그대로다.
+- 시스템 프롬프트에 규칙 한 줄을 더한다: 힌트와 어울리는 후보가 있으면 그쪽을 우선하되, 칩·입력한 글과 충돌하면 칩·입력한 글을 따르고, reason에는 힌트·계절·느낌을 쓰지 않는다(2026-11-01 실제 호출 비교 후 강화). 후보를 거르지는 않는다. 기존 "곡에 대한 주장 금지" 규칙은 그대로다.
 - 첫 줄("fits their current mood, situation, and weather")은 그대로 둔다.
 - 날씨 힌트가 null이면 `weather feel` 줄을 빼고, 계절 줄과 Priority는 항상 넣는다.
 
