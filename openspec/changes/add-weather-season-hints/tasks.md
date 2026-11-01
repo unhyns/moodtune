@@ -31,6 +31,7 @@
 
 ## 5. 마무리
 
-- [ ] 5.1 `pnpm lint`, `pnpm build`, `node --test lib/*.test.mjs`가 모두 통과한다
-- [ ] 5.2 문서 갱신: `planning/md-design/04_TECHNICAL_DESIGN.md`의 프롬프트 구성 설명(날씨 문구, Hints 블록, 우선순위)과 필요 시 `02_REQUIREMENTS_SPEC.md` FR-7 설명. Decisions Log의 2026-10-29 항목과 서로 맞으면 완료
-- [ ] 5.3 임시 스텁·로그·스냅샷이 남지 않았는지 grep(`MOODTUNE_`, `PROMPT-SNAPSHOT`, `TEST_TOKEN`)과 `git status`로 확인하고, 변경 파일 목록을 정리하면 완료
+- [x] 5.1 `pnpm lint`, `pnpm build`, `node --test lib/*.test.mjs`가 모두 통과한다
+- [x] 5.2 문서 갱신: `planning/md-design/04_TECHNICAL_DESIGN.md`의 프롬프트 구성 설명(날씨 문구, Hints 블록, 우선순위)과 필요 시 `02_REQUIREMENTS_SPEC.md` FR-7 설명. Decisions Log의 2026-10-29 항목과 서로 맞으면 완료
+  - `04_TECHNICAL_DESIGN.md`를 갱신했다. `02_REQUIREMENTS_SPEC.md` FR-7의 "참고만 하는 약한 힌트" 표현은 사용자가 직접 고치기로 해서 이 작업에서 건드리지 않았다
+- [x] 5.3 임시 스텁·로그·스냅샷이 남지 않았는지 grep(`MOODTUNE_`, `PROMPT-SNAPSHOT`, `TEST_TOKEN`)과 `git status`로 확인하고, 변경 파일 목록을 정리하면 완료
