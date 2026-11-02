@@ -26,9 +26,9 @@
 ## Decisions
 
 ### Decision 1: 게스트 전용 화면과 API를 따로 둔다
-- 화면은 `/guest/input`, API는 `POST /api/guest/recommend`다. 요구사항의 "게스트 /input"을 별도 경로로 구현한다.
+- 진입은 랜딩 위 바텀시트(`components/GuestModeSheet.tsx`, 네이티브 `<dialog>`)이고, 화면은 `/guest/input`, API는 `POST /api/guest/recommend`다. 시트의 선택은 `sessionStorage`(`moodtune:guestSelection`)로 넘기고, 값이 없거나 형식이 틀리면 `/guest/input`이 랜딩으로 돌려보낸다. 선택 요약은 `/?guest=1`로 돌아가 시트를 현재 선택과 함께 연다.
 - `/input`은 절대 좌표 레이아웃에 라이브러리 확인과 401 이동이 묶여 있어 분기를 넣으면 로그인 경로 회귀 위험이 크다. 칩 옵션(`chipColors`), `QuickReplyChip`, `WeatherBadge`, `LoadingPopup`은 재사용한다.
-- 게스트 화면은 상세 디자인 전까지 세로 흐름 레이아웃으로 둔다.
+- 시트는 Figma 좌표(393×485)를 따르고, 칩 모양은 그대로 둔 채 `::before`로 누를 수 있는 영역을 40px 이상으로 넓힌다. 줄 간격이 36px이라 위아래 칩의 영역이 2px씩 겹친다. "아티스트 출신 국가 기준"은 Figma의 8px 대신 12px로 쓴다. 3개 선택 후 나머지 장르 칩은 `#b1b1b0`으로 흐리게 하고 비활성화한다. `/guest/input`은 Figma가 없어 `/input` 디자인을 재사용한다.
 - `useRecommendSubmit`의 `SubmitInput`에 `endpoint?`와 `guest?`를 더한다. 기본값은 기존과 같아 로그인 경로의 요청과 URL이 바뀌지 않는다. `guest`이면 `/result` 쿼리에 `guest=1`을 더한다.
 - `/result`는 `guest=1`일 때 다시 하기 링크를 `/guest/input`으로 바꾸고 출처 문구를 보인다. 그 외 표시는 같다.
 
@@ -94,7 +94,7 @@
 - `readSession`을 호출하지 않는다. 로그에 선택값을 남기지 않는다.
 
 ### Decision 9: 출처 표시
-`/guest/input`과 `guest=1`인 `/result`에 "곡 선정 참고: Last.fm"을 https://www.last.fm 링크로 둔다. 로그인 화면에는 넣지 않는다. 약관이 요구하는 표기 형식은 tasks 0.1에서 확인한다.
+바텀시트, `/guest/input`, `guest=1`인 `/result`에 "곡 선정 참고: Last.fm"을 https://www.last.fm 링크로 둔다. 로그인 화면에는 넣지 않는다. 약관이 요구하는 표기 형식은 tasks 0.1에서 확인한다.
 
 ## Risks / Trade-offs
 
@@ -109,7 +109,6 @@
 - [호출 제한 우회] 쿠키 삭제, 주소 변경, 인스턴스 증가로 넘을 수 있다. → 최종 방어는 OpenAI 대시보드 한도이며, 그때는 로그인 사용자도 막힌다.
 - [차트 편향] Last.fm 사용자 구성상 한국·일본 차트가 실제 인기와 다르거나 Ballad·K-POP 곡이 적을 수 있다. 태그가 없어 버려지는 곡도 많을 수 있다. → 빌드 게이트 표로 확인하고, 15곡 확장이 자주 일어나는 조합을 보고한다.
 - [곡 목록 노후화·삭제] 트랙이 지역 제한되거나 사라질 수 있다. 재생 링크가 열리지 않을 수 있다. → 사람이 다시 빌드한다. 아트 조회 실패 시에도 추천은 표시한다.
-- [UI 임시 디자인] Figma 전까지 세로 흐름 레이아웃이다. → 상세 디자인은 후속 작업이다.
 
 ## Migration Plan
 

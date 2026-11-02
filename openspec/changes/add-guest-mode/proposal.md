@@ -4,8 +4,8 @@ Spotify 개발 모드는 OAuth 사용자를 허용 목록 5명으로 제한하�
 
 ## What Changes
 
-- 랜딩의 로그인 버튼 아래에 "로그인 없이 체험하기" 텍스트 링크를 둔다(상세 디자인은 Figma 후 적용).
-- 게스트 입력 화면(`/guest/input`): 기존 기분·상황 칩과 날씨에 더해 장르 칩(복수, 1~3개: Pop / Hip-Hop / R&B / Rock / Indie / EDM / Ballad / Jazz / K-POP)과 국가 칩(단일: 한국 / 영미권(미국+영국) / 일본 / 그 외 세계(프랑스, 스페인, 브라질, 스웨덴))을 둔다. 기분·상황은 기존처럼 하나 이상 고른다.
+- 랜딩의 로그인 버튼 아래에 "Go to Guest mode" 버튼을 두고, 누르면 바텀시트가 열린다(Figma 59:649, 170:703, 170:749).
+- 바텀시트에서 국가(단일: Korea / Western / Japan / RoW)와 장르(복수, 1~3개: Pop / Hip-Hop / R&B / Rock / Indie / EDM / Ballad / Jazz / K-POP)를 고른다. "Start Guest Mode"를 누르면 게스트 입력 화면(`/guest/input`)에서 기존 기분·상황 칩과 날씨로 추천을 요청한다. 선택 없이 직접 들어오면 랜딩으로 돌려보내고, 선택 요약을 누르면 랜딩의 시트로 돌아가 바꿀 수 있다.
 - **정적 곡 목록**: 빌드 스크립트가 Last.fm(국가별 차트, 곡 태그)에서 후보를 모으고 Spotify 검색(client credentials)으로 실제 트랙인지 검증해 파일로 저장한다. 저장 필드는 Spotify 트랙 ID, 제목, 아티스트, 우리가 붙인 장르·국가 라벨뿐이다. Last.fm 순위·재생 수·태그 목록은 저장하지 않는다.
 - Last.fm API 키는 빌드 스크립트에서만 쓴다. 앱 실행 중에는 Last.fm을 호출하지 않는다. 게스트 화면에 "곡 선정 참고: Last.fm" 출처 문구와 링크를 둔다.
 - **추천**: 선택한 장르·국가에 맞는 곡을 모아 요청마다 섞어 최대 50곡을 후보로 쓰고, 기존 추천·검증·재시도·폴백을 재사용한다. 맞는 곡이 15곡 미만이면 같은 국가의 다른 장르로 넓혀 채운다.
@@ -31,8 +31,8 @@ Spotify 개발 모드는 OAuth 사용자를 허용 목록 5명으로 제한하�
 ## Impact
 
 - **코드**:
-  - 새 파일: `moodtune/scripts/build-guest-catalog.mjs`, `moodtune/data/guest-catalog.json`, `moodtune/lib/guestCatalog.ts`(+ 테스트), `moodtune/lib/guestLimit.ts`(+ 테스트), `moodtune/app/guest/input/page.tsx`, `moodtune/app/api/guest/recommend/route.ts`.
-  - 수정: `moodtune/app/page.tsx`(링크), `moodtune/lib/useRecommendSubmit.ts`(엔드포인트 선택, 한도 오류), `moodtune/app/result/page.tsx`(게스트 표시), `moodtune/lib/spotify.ts`(앱 토큰과 트랙 조회).
+  - 새 파일: `moodtune/scripts/build-guest-catalog.mjs`, `moodtune/data/guest-catalog.json`, `moodtune/lib/guestCatalog.ts`(+ 테스트), `moodtune/lib/guestLimit.ts`(+ 테스트), `moodtune/components/GuestModeSheet.tsx`, `moodtune/lib/guestSelection.ts`(+ 테스트), `moodtune/app/guest/input/page.tsx`, `moodtune/app/api/guest/recommend/route.ts`.
+  - 수정: `moodtune/app/page.tsx`(버튼과 시트), `moodtune/lib/useRecommendSubmit.ts`(엔드포인트 선택, 한도 오류), `moodtune/app/result/page.tsx`(게스트 표시), `moodtune/lib/spotify.ts`(앱 토큰과 트랙 조회).
   - 바꾸지 않음: `moodtune/lib/openai.ts`, `moodtune/app/api/recommend/route.ts`, `/input`.
 - **API**: `POST /api/guest/recommend` 추가(인증 없음). 기존 API는 변경 없음.
 - **외부 호출·의존성**: 빌드 시 Last.fm, Spotify 검색. 실행 시 Spotify 트랙 조회 1회, OpenAI. npm 의존성 추가 없음. 환경 변수 `LASTFM_API_KEY`(빌드 전용).

@@ -1,3 +1,4 @@
+import GuestModeSheet from "@/components/GuestModeSheet";
 import VinylRecord from "@/components/VinylRecord";
 
 const ERROR_MESSAGES: Record<string, string> = {
@@ -9,15 +10,15 @@ const ERROR_MESSAGES: Record<string, string> = {
 export default async function LandingPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; guest?: string }>;
 }) {
-  const { error } = await searchParams;
+  const { error, guest } = await searchParams;
   const errorMessage = error ? (ERROR_MESSAGES[error] ?? ERROR_MESSAGES.failed) : null;
 
   return (
-    <main className="flex min-h-dvh flex-1 justify-center bg-[#fafafa]">
+    <main className="flex min-h-dvh flex-1 justify-center overflow-x-hidden bg-[#fafafa]">
       <div className="relative flex w-full max-w-[393px] flex-col items-start gap-[10px]">
-        <header className="flex w-full flex-col items-center border-b-[2px] border-[rgba(228,60,152,0.2)] bg-[#fafafa] py-[10px]">
+        <header className="mb-[8px] flex w-full flex-col items-center border-b-[2px] border-[rgba(228,60,152,0.2)] bg-[#fafafa] py-[10px]">
           <div className="flex items-start gap-[2px]">
             <p className="whitespace-nowrap font-['Helvetica'] text-[20px] font-bold text-black">
               MoodTune
@@ -36,20 +37,20 @@ export default async function LandingPage({
             className="absolute left-[16px] top-[17px] h-[666px] w-[349px]"
           />
 
-          <h1 className="relative whitespace-nowrap font-['Helvetica'] text-[64px] font-bold leading-normal text-black">
+          <h1 className="relative whitespace-nowrap font-['Helvetica'] text-[64px] font-bold leading-[normal] text-black">
             <span className="block">Music</span>
             <span className="block">Does</span>
             <span className="block">Matter.</span>
           </h1>
 
-          <p className="relative whitespace-nowrap font-['Helvetica'] text-[20px] font-normal leading-normal text-black">
+          <p className="relative whitespace-nowrap font-['Helvetica'] text-[20px] font-normal leading-[normal] text-black">
             <span className="block">How’s going?</span>
             <span className="block">Tune Now.</span>
           </p>
 
           <VinylRecord className="left-[166px] top-[198px]" />
 
-          <div className="relative flex flex-col items-start gap-[10px] pt-[280px]">
+          <div className="relative flex flex-col items-start gap-[10px] pt-[240px]">
             {errorMessage && (
               <p role="alert" className="max-w-[280px] text-sm text-red-600">
                 {errorMessage}
@@ -57,10 +58,11 @@ export default async function LandingPage({
             )}
             <a
               href="/api/auth/spotify/login"
-              className="inline-flex items-center justify-center rounded-[30px] bg-[#1ed760] px-[24px] py-[10px] font-['Helvetica'] text-[20px] font-bold text-black"
+              className="inline-flex items-center justify-center rounded-[30px] bg-[#1ed760] px-[24px] py-[10px] font-['Helvetica'] text-[20px] font-bold leading-[normal] text-black"
             >
               Start with Spotify
             </a>
+            <GuestModeSheet defaultOpen={guest === "1"} />
           </div>
         </div>
       </div>

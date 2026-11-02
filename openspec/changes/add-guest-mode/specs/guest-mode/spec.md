@@ -5,30 +5,46 @@ Lets people without an allow-listed Spotify account try MoodTune without signing
 ## ADDED Requirements
 
 ### Requirement: Guest Entry Without Login
-The landing page SHALL show a "로그인 없이 체험하기" link below the Spotify login button that opens the guest input page without any Spotify authorization. Existing login behavior SHALL NOT change.
+The landing page SHALL show a "Go to Guest mode" button below the Spotify login button. Tapping it SHALL open a bottom sheet over the landing page without any Spotify authorization. The sheet's close button and the Escape key SHALL close it and return to the landing page with its selections cleared. Existing login behavior SHALL NOT change.
 
-#### Scenario: Entering guest mode
-- **WHEN** a visitor without a session taps "로그인 없이 체험하기"
-- **THEN** the guest input page SHALL open with no redirect to Spotify
+#### Scenario: Opening guest mode
+- **WHEN** a visitor without a session taps "Go to Guest mode"
+- **THEN** the bottom sheet SHALL open with no redirect to Spotify
+
+#### Scenario: Closing the sheet
+- **WHEN** the user closes the sheet after selecting a country and a genre
+- **THEN** the landing page SHALL be shown and reopening the sheet SHALL show no selection
 
 #### Scenario: Login still available
 - **WHEN** a visitor taps the Spotify login button
 - **THEN** the existing login flow SHALL run unchanged
 
-### Requirement: Guest Input Selections
-The guest input page SHALL offer the existing mood and situation chips and weather display, plus genre chips and country chips. Genres are Pop, Hip-Hop, R&B, Rock, Indie, EDM, Ballad, Jazz, and K-POP, with one to three selected. Countries are 한국, 영미권, 일본, and 그 외 세계, with exactly one selected. Submission SHALL be enabled only when at least one of mood or situation, one to three genres, and one country are selected. The page SHALL NOT offer free text input.
+### Requirement: Guest Catalog Selections
+The bottom sheet SHALL offer country chips Korea, Western, Japan, and RoW with exactly one selectable, and genre chips Pop, Hip-Hop, R&B, Rock, Indie, EDM, Ballad, Jazz, and K-POP with one to three selectable and a count of selected genres. With three genres selected, the other genre chips SHALL be dimmed and not selectable. The "Start Guest Mode" action SHALL be enabled, in pink, only when one country and at least one genre are selected, and SHALL be gray and disabled otherwise. Chips and the close button SHALL have a touch area of at least 40 pixels in each dimension without changing their appearance. The sheet SHALL state that countries are based on the artist's country of origin in a legible size of at least 11 pixels.
 
 #### Scenario: Fourth genre
-- **WHEN** three genres are selected and the user taps another genre
-- **THEN** the fourth genre SHALL NOT become selected
+- **WHEN** three genres are selected
+- **THEN** the other genre chips SHALL be dimmed and tapping them SHALL NOT select them
+- **AND** deselecting a genre SHALL make them selectable again
 
 #### Scenario: Missing selection
-- **WHEN** a mood and a country are selected but no genre is selected
-- **THEN** the submit action SHALL be disabled
+- **WHEN** a country is selected but no genre is selected
+- **THEN** the "Start Guest Mode" action SHALL be gray and disabled
 
 #### Scenario: Country is single choice
-- **WHEN** 한국 is selected and the user taps 일본
-- **THEN** only 일본 SHALL be selected
+- **WHEN** Korea is selected and the user taps Japan
+- **THEN** only Japan SHALL be selected
+
+### Requirement: Guest Input Page
+Starting guest mode SHALL open a guest input page offering the existing mood and situation chips and weather display, with submission enabled when at least one of mood or situation is selected. The page SHALL NOT offer free text input. The page SHALL show a small summary of the selection (for example "Korea · Pop, Indie") that returns to the landing page with the sheet open so the selection can be changed. Opening the page without a valid selection SHALL redirect to the landing page.
+
+#### Scenario: Direct visit
+- **WHEN** a visitor opens the guest input page with no selection
+- **THEN** they SHALL be redirected to the landing page
+
+#### Scenario: Changing the selection
+- **WHEN** the user taps the selection summary
+- **THEN** the landing page SHALL open with the sheet showing the current selection
 
 ### Requirement: Guest Request Validation
 The guest recommendation API SHALL NOT require a session and SHALL reject with a bad request error any request whose mood or situation is not one of the offered options, that has neither mood nor situation, whose genres are not one to three distinct offered values, whose country is not an offered value, or whose weather is malformed. It SHALL ignore any other field, including free text and any library or candidate data.
@@ -117,10 +133,10 @@ The guest result SHALL use the existing result screen, Spotify link, and satisfa
 - **THEN** the response SHALL be handled as on the logged-in result page, in the browser only
 
 ### Requirement: Last.fm Attribution
-The guest input page and guest result page SHALL show the text "곡 선정 참고: Last.fm" with a link to Last.fm. The logged-in pages SHALL NOT show it.
+The guest bottom sheet, guest input page, and guest result page SHALL show the text "곡 선정 참고: Last.fm" with a link to Last.fm. The logged-in pages SHALL NOT show it.
 
 #### Scenario: Attribution visible
-- **WHEN** the guest input page or guest result page is displayed
+- **WHEN** the guest bottom sheet, guest input page, or guest result page is displayed
 - **THEN** the attribution text and link SHALL be visible
 
 ### Requirement: Guest Rate Limit
