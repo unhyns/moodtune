@@ -19,7 +19,7 @@ This app helps users who want to quickly decide what to listen to before heading
 -Last.fm, MusicBrainz (guest catalog build scripts only, never at runtime)
 
 ## Current Stage
-Session 1: 기획 문서 작성 및 프로젝트 컨텍스트 설계
+MVP 구현 완료(로그인 모드, 자유 입력, 날씨·계절 힌트, 후보 섞기, 게스트 모드). 문서 정리와 배포 점검 단계
 
 ## Working Rules
 -Read relevant files before suggesting changes.
