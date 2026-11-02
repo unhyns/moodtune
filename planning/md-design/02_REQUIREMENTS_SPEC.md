@@ -76,8 +76,8 @@ Excited / Calm / Depressed / Focusing / Romantic
 | FR-10 | Result | `/api/recommend` 재호출 | Deferred — 다음 세션 이후 (의도적 보류) |
 | FR-11 | Input | 수동 도시 입력 → `/api/weather` | Not started |
 | FR-12 | Result (UI 노출 없이 내부 로직만) | `/api/recommend` 내 검증/재시도/폴백 로직 | Not started |
-| FR-13 | Landing, Guest Input, Result | `/api/guest/recommend` | In progress (실제 호출 확인 전) |
-| FR-14 | Guest Input | `/api/guest/recommend` | In progress (실제 호출 확인 전) |
+| FR-13 | Landing, Guest Input, Result | `/api/guest/recommend` | Implemented |
+| FR-14 | Guest Input | `/api/guest/recommend` | Implemented |
 
 ## 5. Out of Scope (요구사항 레벨)
 - 인앱 재생 컨트롤
