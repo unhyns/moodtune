@@ -25,11 +25,12 @@
 
 ## 3. 화면
 
-- [ ] 3.1 `moodtune/lib/useRecommendSubmit.ts`에 `endpoint`, `guest`, `guest_limit`을 더한다. 기본값에서 로그인 경로의 요청·URL이 같음을 0.3 기준선으로 확인하면 완료
+- [x] 3.1 `moodtune/lib/useRecommendSubmit.ts`에 `endpoint`, `guest`, 한도 표시(`guestLimited`)를 더한다. 기본값에서 로그인 경로의 요청·URL이 같음을 0.3 기준선으로 확인하면 완료
 - [x] 3.2 `moodtune/components/GuestModeSheet.tsx`와 `moodtune/lib/guestSelection.ts`(+ 테스트), `moodtune/app/page.tsx`의 "Go to Guest mode": X·Esc 닫기, 국가 단일, 장르 1~3개와 3개 후 흐림, 시작 버튼 활성 조건, 12px 안내, 40px 터치 영역, 출처 링크, 선택 저장. Figma 59:649·170:703·170:749와 겹쳐 ±2px 안이면 완료
   - 결과(2026-11-02): 칩·버튼·제목 위치는 Figma와 ±2px 안. 예외: 한글 안내 문구 오른쪽 끝 -9px(글꼴 대체 차이), 위아래 칩이 겹치는 곳은 40px 터치 영역 중 4px를 아래 칩이 가져간다. `/guest/input`은 3.3에서 만들므로 그 전까지 시작 버튼은 404로 간다
-- [ ] 3.3 `moodtune/app/guest/input/page.tsx`: `/input` 디자인 재사용(기분·상황·날씨, '직접 입력' 제외), 선택 없으면 랜딩으로 이동, 선택 요약(누르면 `/?guest=1`), 한도 문구, 출처 링크. 393px에서 가로 스크롤이 없으면 완료
-- [ ] 3.4 `moodtune/app/result/page.tsx`에 `guest=1` 처리(다시 하기 링크, 출처)를 넣는다. `guest=1`이 없을 때 결과 화면이 같으면 완료
+- [x] 3.3 `moodtune/app/guest/input/page.tsx`: `/input` 디자인 재사용(기분·상황·날씨, '직접 입력' 제외), 선택 없으면 랜딩으로 이동, 선택 요약(누르면 `/?guest=1`), 한도 문구, 출처 링크. 393px에서 가로 스크롤이 없으면 완료
+- [x] 3.4 `moodtune/app/result/page.tsx`에 `guest=1` 처리(다시 하기 링크, 출처)를 넣는다. `guest=1`이 없을 때 결과 화면이 같으면 완료
+  - 결과(2026-11-02): `/guest/input`과 게스트 결과 화면까지 동작 확인. 게스트 API(2.4) 전이라 제출 응답은 브라우저에서 가로채 확인했다. 로그인 경로 기준선(0.3)과 프롬프트·응답·`/input` 결과 URL 동일
 
 ## 4. 스텁 검증 (OpenAI 호출 없음)
 

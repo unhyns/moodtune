@@ -10,6 +10,9 @@ export type RecommendRequestBody = {
   situation?: string;
   freeText?: string;
   weather?: WeatherContext;
+  // 게스트 전용 (add-guest-mode).
+  country?: string;
+  genres?: string[];
 };
 
 export type SubmitInput = {
@@ -18,6 +21,9 @@ export type SubmitInput = {
   resultParams?: { mood?: string; situation?: string };
   // /result로 이동하기 직전에 호출된다 (초안 삭제 등).
   onSuccess?: () => void;
+  // 게스트 경로만 지정한다. 없으면 로그인 경로의 동작 그대로다.
+  endpoint?: string;
+  guest?: boolean;
 };
 
 export type SubmitError = null | "failed" | "empty_library";
@@ -27,6 +33,8 @@ export function useRecommendSubmit() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null);
   const [error, setError] = useState<SubmitError>(null);
+  // 게스트 호출 제한(429). 로그인 경로에서는 항상 false다.
+  const [guestLimited, setGuestLimited] = useState(false);
   // 상태가 반영되기 전 같은 프레임의 연속 클릭까지 막기 위한 진행 중 플래그.
   const inFlightRef = useRef(false);
   const pendingRef = useRef<SubmitInput | null>(null);
@@ -36,6 +44,7 @@ export function useRecommendSubmit() {
     inFlightRef.current = true;
     pendingRef.current = input;
     setError(null);
+    setGuestLimited(false);
     setRecommendation(null);
     setIsSubmitting(true);
 
@@ -46,13 +55,18 @@ export function useRecommendSubmit() {
     };
 
     try {
-      const res = await fetch("/api/recommend", {
+      const res = await fetch(input.endpoint ?? "/api/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(input.body),
       });
       if (res.status === 401) {
         router.replace("/");
+        return;
+      }
+      if (input.guest && res.status === 429) {
+        setGuestLimited(true);
+        fail("failed");
         return;
       }
       if (!res.ok) {
@@ -88,11 +102,12 @@ export function useRecommendSubmit() {
       if (weather.icon) params.set("weatherIcon", weather.icon);
       params.set("weatherTempC", String(weather.temperatureC));
     }
+    if (pending.guest) params.set("guest", "1");
     pending.onSuccess?.();
     inFlightRef.current = false;
     setIsSubmitting(false);
     router.push(`/result?${params.toString()}`);
   };
 
-  return { isSubmitting, recommendation, error, submit, handlePopupComplete };
+  return { isSubmitting, recommendation, error, guestLimited, submit, handlePopupComplete };
 }

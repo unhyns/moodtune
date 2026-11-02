@@ -26,6 +26,7 @@ type ResultSearchParams = {
   weatherCity?: string;
   weatherIcon?: string;
   weatherTempC?: string;
+  guest?: string;
 };
 
 type Badge = { label: string; border: string; text: string };
@@ -50,6 +51,7 @@ export default async function ResultPage({
   }
 
   const { uri, name, artist = "", art, creator } = params;
+  const isGuest = params.guest === "1";
   const isPlaylist = params.type === "playlist";
   const byline = isPlaylist ? (creator ?? artist) : artist;
 
@@ -186,11 +188,22 @@ export default async function ResultPage({
         </a>
 
         <Link
-          href="/input"
+          href={isGuest ? "/guest/input" : "/input"}
           className="absolute left-1/2 top-[1137px] -translate-x-1/2 border border-solid border-[#e43c98] bg-white px-[10px] py-[4px]"
         >
           <span className={`${pixelFont.className} whitespace-nowrap text-[22px] text-[#ea7eb9]`}>Tune Again?</span>
         </Link>
+
+        {isGuest && (
+          <a
+            href="https://www.last.fm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute left-1/2 top-[1190px] -translate-x-1/2 whitespace-nowrap border border-solid border-[#e43c98] bg-white px-[10px] py-[4px] font-['Helvetica'] text-[12px] leading-[14px] text-black underline"
+          >
+            곡 선정 참고: Last.fm
+          </a>
+        )}
 
         {/* 만족도 피드백 — Figma result(node 121:52). 응답 전후로 높이가 달라져도 중심(y=1288)이 유지되도록 가운데 기준으로 배치한다. */}
         {isSignalUri(uri) && (
