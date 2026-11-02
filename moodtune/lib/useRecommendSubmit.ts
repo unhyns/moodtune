@@ -33,8 +33,8 @@ export function useRecommendSubmit() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null);
   const [error, setError] = useState<SubmitError>(null);
-  // 게스트 호출 제한(429). 로그인 경로에서는 항상 false다.
-  const [guestLimited, setGuestLimited] = useState(false);
+  // 게스트 전용 안내: 호출 제한(429), OpenAI 혼잡(503). 로그인 경로에서는 항상 null이다.
+  const [guestNotice, setGuestNotice] = useState<null | "limit" | "busy">(null);
   // 상태가 반영되기 전 같은 프레임의 연속 클릭까지 막기 위한 진행 중 플래그.
   const inFlightRef = useRef(false);
   const pendingRef = useRef<SubmitInput | null>(null);
@@ -44,7 +44,7 @@ export function useRecommendSubmit() {
     inFlightRef.current = true;
     pendingRef.current = input;
     setError(null);
-    setGuestLimited(false);
+    setGuestNotice(null);
     setRecommendation(null);
     setIsSubmitting(true);
 
@@ -64,8 +64,8 @@ export function useRecommendSubmit() {
         router.replace("/");
         return;
       }
-      if (input.guest && res.status === 429) {
-        setGuestLimited(true);
+      if (input.guest && (res.status === 429 || res.status === 503)) {
+        setGuestNotice(res.status === 429 ? "limit" : "busy");
         fail("failed");
         return;
       }
@@ -110,5 +110,5 @@ export function useRecommendSubmit() {
     router.push(`/result?${params.toString()}`);
   };
 
-  return { isSubmitting, recommendation, error, guestLimited, submit, handlePopupComplete };
+  return { isSubmitting, recommendation, error, guestNotice, submit, handlePopupComplete };
 }

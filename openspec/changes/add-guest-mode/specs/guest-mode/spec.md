@@ -141,12 +141,24 @@ The guest bottom sheet, guest input page, and guest result page SHALL show the t
 - **THEN** the attribution text and link SHALL be visible
 
 ### Requirement: Guest Rate Limit
-The guest recommendation API SHALL limit requests per browser and per client address, and SHALL limit guest AI use per day, so that guest traffic does not exhaust the AI allowance. A limited request SHALL NOT call the AI, SHALL respond with a too-many-requests error, and SHALL lead the page to show a human-readable message. Limits SHALL reset by day in Asia/Seoul time. These limits SHALL NOT apply to logged-in recommendations.
+The guest recommendation API SHALL limit requests per browser and per client address, and SHALL limit guest AI use per day, so that guest traffic does not exhaust the AI allowance. A limited request SHALL NOT call the AI, SHALL respond with a too-many-requests error, and SHALL lead the page to show a human-readable message. Only successful recommendations SHALL count toward the per-browser daily limit. The AI SHALL be given at most 20 seconds per request. When the AI reports too many requests, the page SHALL show "지금 요청이 많아요. 잠시 후 다시 시도해 주세요."; other failures SHALL show the general retry message without internal details. Limits SHALL reset by day in Asia/Seoul time. These limits SHALL NOT apply to logged-in recommendations.
 
 #### Scenario: Browser limit reached
 - **WHEN** a browser has used its daily guest requests
 - **THEN** the next request SHALL receive a too-many-requests error without calling the AI
 - **AND** the page SHALL show a message that today's trial limit has been reached
+
+#### Scenario: Failed request does not use the browser limit
+- **WHEN** a guest recommendation fails because of an AI error
+- **THEN** the browser's daily count SHALL NOT increase
+
+#### Scenario: AI busy
+- **WHEN** the AI responds with too many requests
+- **THEN** the page SHALL show "지금 요청이 많아요. 잠시 후 다시 시도해 주세요." and allow another try
+
+#### Scenario: AI does not respond
+- **WHEN** the AI does not respond within 20 seconds
+- **THEN** the page SHALL show the general retry message and allow another try
 
 #### Scenario: Next day
 - **WHEN** the date changes in Asia/Seoul after a browser reached its limit

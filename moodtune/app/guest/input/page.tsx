@@ -20,7 +20,7 @@ export default function GuestInputPage() {
   const [situation, setSituation] = useState<string | null>(null);
   const [weather, setWeather] = useState<WeatherContext | null>(null);
   const [selection, setSelection] = useState<GuestSelection | null>(null);
-  const { isSubmitting, recommendation, error: submitError, guestLimited, submit, handlePopupComplete } = useRecommendSubmit();
+  const { isSubmitting, recommendation, error: submitError, guestNotice, submit, handlePopupComplete } = useRecommendSubmit();
 
   // sessionStorage는 브라우저에만 있으므로 마운트 후 읽는다. 선택 없이 직접 들어오면 랜딩으로 돌려보낸다.
   useEffect(() => {
@@ -192,9 +192,11 @@ export default function GuestInputPage() {
             role="alert"
             className="absolute left-1/2 top-[1190px] w-[280px] -translate-x-1/2 border border-solid border-black bg-white px-3 py-2 text-center text-xs text-black"
           >
-            {guestLimited
+            {guestNotice === "limit"
               ? "오늘 체험 횟수를 다 썼어요. 내일 다시 와주세요."
-              : "추천을 가져오지 못했어요. 다시 시도해 주세요."}
+              : guestNotice === "busy"
+                ? "지금 요청이 많아요. 잠시 후 다시 시도해 주세요."
+                : "추천을 가져오지 못했어요. 다시 시도해 주세요."}
           </p>
         )}
 

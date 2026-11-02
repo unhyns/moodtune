@@ -18,6 +18,8 @@ const catalog = catalogJson as GuestCatalogEntry[];
 const LIMIT_COOKIE = "moodtune_guest_limit";
 const LIMIT_COOKIE_MAX_AGE = 60 * 60 * 24 * 2;
 const instanceUsage = createInstanceUsage();
+// openai.ts를 바꾸지 않고 이 경로에서만 건다. 시간이 지나면 응답만 끝내고, 진행 중인 OpenAI 요청은 취소되지 않는다.
+const AI_TIMEOUT_MS = 20_000;
 
 const badRequest = () => NextResponse.json({ error: "bad_request" }, { status: 400 });
 
@@ -48,6 +50,14 @@ function parseWeather(value: unknown): WeatherContext | undefined | null {
   return { condition: "", temperatureC: w.temperatureC, city: w.city, icon: w.icon };
 }
 
+function withTimeout<T>(work: Promise<T>, ms: number): Promise<T> {
+  let timer: ReturnType<typeof setTimeout>;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new Error("AI_TIMEOUT")), ms);
+  });
+  return Promise.race([work, timeout]).finally(() => clearTimeout(timer));
+}
+
 // 주소 원문은 메모리에도 두지 않는다.
 function addressKey(request: Request): string {
   const address = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
@@ -72,23 +82,29 @@ export async function POST(request: Request) {
   const raw = cookieStore.get(LIMIT_COOKIE)?.value;
   const limit = checkGuestLimit(raw ? unseal<BrowserUsage>(raw) : null, addressKey(request), instanceUsage, new Date());
   if (!limit.ok) return NextResponse.json({ error: "guest_limit" }, { status: 429 });
-  cookieStore.set(LIMIT_COOKIE, seal(limit.browser), {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: LIMIT_COOKIE_MAX_AGE,
-  });
 
   const { candidates, widened } = pickGuestCandidates(catalog, selection, (items) => shuffled(items, Math.random));
   if (!candidates.length) return NextResponse.json({ error: "recommend_failed" }, { status: 502 });
 
   try {
-    const result = await getRecommendation({ context, weather, librarySample: candidates.map(toLibraryTrack) });
+    const result = await withTimeout(
+      getRecommendation({ context, weather, librarySample: candidates.map(toLibraryTrack) }),
+      AI_TIMEOUT_MS,
+    );
     const albumArtUrl = await fetchTrackAlbumArt(result.track.id);
+    // 성공한 요청만 브라우저 하루 횟수에 넣는다. 주소·전체 한도는 비용 보호를 위해 실패도 센다.
+    cookieStore.set(LIMIT_COOKIE, seal(limit.browser), {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: LIMIT_COOKIE_MAX_AGE,
+    });
     return NextResponse.json({ ...result, track: { ...result.track, albumArtUrl }, widened });
   } catch (e) {
-    console.error("[guest/recommend] recommendation failed:", e instanceof Error ? e.message : "unknown");
-    return NextResponse.json({ error: "recommend_failed" }, { status: 502 });
+    const message = e instanceof Error ? e.message : "unknown";
+    console.error("[guest/recommend] recommendation failed:", message);
+    if (message === "OpenAI request failed (429)") return NextResponse.json({ error: "ai_busy" }, { status: 503 });
+    return NextResponse.json({ error: "recommend_failed" }, { status: message === "AI_TIMEOUT" ? 504 : 502 });
   }
 }
