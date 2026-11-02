@@ -20,7 +20,7 @@ The landing page SHALL show a "Go to Guest mode" button below the Spotify login 
 - **THEN** the existing login flow SHALL run unchanged
 
 ### Requirement: Guest Catalog Selections
-The bottom sheet SHALL offer country chips Korea, Western, Japan, and RoW with exactly one selectable, and genre chips Pop, Hip-Hop, R&B, Rock, Indie, EDM, Ballad, Jazz, and K-POP with one to three selectable and a count of selected genres. With three genres selected, the other genre chips SHALL be dimmed and not selectable. The "Start Guest Mode" action SHALL be enabled, in pink, only when one country and at least one genre are selected, and SHALL be gray and disabled otherwise. Chips and the close button SHALL have a touch area of at least 40 pixels in each dimension without changing their appearance. The sheet SHALL state that countries are based on the artist's country of origin in a legible size of at least 11 pixels.
+The bottom sheet SHALL offer country chips Korea, Western, Japan, and RoW with exactly one selectable, and genre chips Pop, Hip-Hop, R&B, Rock, Indie, EDM, and K-POP with one to three selectable and a count of selected genres. With three genres selected, the other genre chips SHALL be dimmed and not selectable. The "Start Guest Mode" action SHALL be enabled, in pink, only when one country and at least one genre are selected, and SHALL be gray and disabled otherwise. Chips and the close button SHALL have a touch area of at least 40 pixels in each dimension without changing their appearance. The sheet SHALL state that countries are based on the artist's country of origin in a legible size of at least 11 pixels.
 
 #### Scenario: Fourth genre
 - **WHEN** three genres are selected
@@ -62,7 +62,7 @@ The guest recommendation API SHALL NOT require a session and SHALL reject with a
 - **THEN** that field SHALL NOT reach the AI
 
 ### Requirement: Static Guest Catalog
-Guest recommendations SHALL use a static catalog file produced once by a build script. The script SHALL gather candidates from Last.fm country charts and track tags, and SHALL keep a track only when a Spotify search with app credentials confirms a matching track. Each entry SHALL contain only the Spotify track ID, title, artist, and the genre and country labels assigned by this project. The catalog SHALL NOT contain Last.fm ranks, play counts, listener counts, or tag lists. The Last.fm API key SHALL be used only by the build script, and the running application SHALL NOT call Last.fm. Country labels SHALL represent the artist's country of origin as looked up from MusicBrainz by the build tooling, which the running application SHALL NOT call; a track whose artist has no confident match SHALL have no country label and SHALL NOT be offered as a candidate. The catalog SHALL NOT be served as a public file.
+Guest recommendations SHALL use a static catalog file produced once by a build script. The script SHALL gather candidates from Last.fm country charts and track tags, and SHALL keep a track only when a Spotify search with app credentials confirms a matching track. Each entry SHALL contain only the Spotify track ID, title, artist, and the genre and country labels assigned by this project. The catalog SHALL NOT contain Last.fm ranks, play counts, listener counts, or tag lists. The Last.fm API key SHALL be used only by the build script, and the running application SHALL NOT call Last.fm. Country labels SHALL represent the artist's country of origin as looked up from MusicBrainz by the build tooling, or from a manual override list that takes precedence, which the running application SHALL NOT call; a track whose artist has no confident match SHALL have no country label and SHALL NOT be offered as a candidate. The catalog SHALL NOT be served as a public file.
 
 #### Scenario: Catalog fields
 - **WHEN** the catalog file is inspected
@@ -77,7 +77,7 @@ Guest recommendations SHALL use a static catalog file produced once by a build s
 - **THEN** no request SHALL be made to Last.fm
 
 ### Requirement: Guest Candidate Selection
-For each guest request, the system SHALL collect catalog tracks labeled with the selected country and at least one selected genre. When at least 15 such tracks exist, the candidates SHALL come only from them. When fewer than 15 exist, the system SHALL widen to other tracks of the same country, keeping all matching tracks, until 40 candidates are reached or the country's tracks run out. Candidates SHALL be chosen in an independently randomized order per request and SHALL number at most 50. The source of randomness SHALL NOT be controllable through the request.
+For each guest request, the system SHALL collect catalog tracks labeled with the selected country and at least one selected genre. When at least 15 such tracks exist, the candidates SHALL come only from them. When fewer than 15 exist, the system SHALL widen to other tracks of the same country, keeping all matching tracks, until 40 candidates are reached or the country's tracks run out. When tracks of other genres were added this way, the response SHALL mark the recommendation as widened and the result page SHALL show "조건에 맞는 곡이 적어 같은 국가의 다른 장르 곡도 함께 골랐어요." in small text. Candidates SHALL be chosen in an independently randomized order per request and SHALL number at most 50. The source of randomness SHALL NOT be controllable through the request.
 
 #### Scenario: Enough matching tracks
 - **WHEN** 120 catalog tracks match the selected country and genres
@@ -90,13 +90,14 @@ For each guest request, the system SHALL collect catalog tracks labeled with the
 #### Scenario: Too few matches
 - **WHEN** 8 catalog tracks match and the same country has 100 other tracks
 - **THEN** the candidates SHALL include all 8 and be filled to 40 from the same country
+- **AND** the response SHALL be marked as widened and the result page SHALL show the widened notice
 
 #### Scenario: Different requests differ
 - **WHEN** two requests with the same selections use different random values
 - **THEN** the offered candidates MAY differ
 
 ### Requirement: Guest Recommendation Reuses Recommendation Rules
-A guest recommendation SHALL use the same recommendation rules as a logged-in chip recommendation, with the guest candidates in place of the library sample: selecting only from the candidates, retry once, deterministic fallback to the first candidate, the reason rules, and the weather and season hints. Genre and country SHALL be used only to choose candidates and SHALL NOT be sent to the AI as reason input. The reason SHALL NOT mention any playlist. The response shape SHALL match the logged-in recommendation response.
+A guest recommendation SHALL use the same recommendation rules as a logged-in chip recommendation, with the guest candidates in place of the library sample: selecting only from the candidates, retry once, deterministic fallback to the first candidate, the reason rules, and the weather and season hints. Genre and country SHALL be used only to choose candidates and SHALL NOT be sent to the AI as reason input. The reason SHALL NOT mention any playlist. The response shape SHALL match the logged-in recommendation response, with an added widened field.
 
 #### Scenario: Recommended track is a candidate
 - **WHEN** the AI returns a track that is among the candidates

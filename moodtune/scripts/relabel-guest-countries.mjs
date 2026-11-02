@@ -48,10 +48,15 @@ export function lookupNames(artist) {
   return first === artist ? [artist] : [artist, first];
 }
 
-export function relabel(catalog, cache) {
+// 수동 보정(data/guest-artist-overrides.json)이 MusicBrainz 결과보다 앞선다.
+export function overrideFor(artist, overrides) {
+  return lookupNames(artist).map((n) => overrides[n]).find(Boolean) ?? null;
+}
+
+export function relabel(catalog, cache, overrides = {}) {
   return catalog.map((t) => {
     const hit = lookupNames(t.artist).map((n) => cache[n]).find((r) => r?.status === "ok");
-    const label = labelFromCountry(hit?.country);
+    const label = overrideFor(t.artist, overrides) ?? labelFromCountry(hit?.country);
     return { ...t, countries: label ? [label] : [] };
   });
 }
@@ -110,12 +115,18 @@ async function main() {
   const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, "utf8")) : {};
   const save = () => writeFileSync(cachePath, JSON.stringify(cache));
 
+  const dataDir = dirname(out);
+  const { overrides } = JSON.parse(readFileSync(join(dataDir, "guest-artist-overrides.json"), "utf8"));
+  for (const label of Object.values(overrides)) {
+    if (!COUNTRY_LABELS.includes(label)) throw new Error(`bad override label: ${label}`);
+  }
   const artists = [...new Set(catalog.map((t) => t.artist))].sort();
   let calls = 0;
   let checked = 0;
   let total503 = 0;
   for (const artist of artists) {
     if (checked++ >= limit) break;
+    if (overrideFor(artist, overrides)) continue;
     for (const name of lookupNames(artist)) {
       if (cache[name]?.status === "ok") break;
       if (name in cache) continue;
@@ -156,7 +167,7 @@ async function main() {
     return;
   }
 
-  const next = relabel(catalog, cache);
+  const next = relabel(catalog, cache, overrides);
   assertRelabeled(next);
   if (dryRun) return console.log("dry-run: 파일을 쓰지 않습니다");
   writeFileSync(`${out}.tmp`, JSON.stringify(next, null, 1) + "\n");
@@ -168,7 +179,7 @@ async function main() {
   }
   console.log("TABLE " + JSON.stringify(rows));
   // 라벨을 못 붙인 아티스트와 마지막 조회의 상태.
-  const failed = artists.filter((a) => !lookupNames(a).some((n) => cache[n]?.status === "ok"));
+  const failed = artists.filter((a) => !overrideFor(a, overrides) && !lookupNames(a).some((n) => cache[n]?.status === "ok"));
   const labeled = artists.length - failed.length;
   const reasons = {};
   for (const a of failed) {

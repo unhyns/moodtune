@@ -47,6 +47,8 @@ export type RecommendationResult = {
   // Result 화면에서 "Artist" 자리에 아티스트명(track) 또는 생성자명(playlist)을 구분해 보여주기 위한 필드.
   type: "track" | "playlist";
   creator?: string;
+  // 게스트 전용. 조건에 맞는 곡이 적어 같은 국가의 다른 장르 곡으로 후보를 채운 경우 true.
+  widened?: boolean;
 };
 
 export type LibraryResponse = {

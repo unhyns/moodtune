@@ -19,10 +19,11 @@
 
 ## 2. 서버 로직
 
-- [ ] 2.1 `moodtune/lib/guestCatalog.ts`의 `pickGuestCandidates`와 테스트: 국가·장르 필터, 50곡 상한, 맞는 곡 15곡 경계(14/15), 15~39곡은 그대로, 15곡 미만은 맞는 곡을 모두 포함해 같은 국가로 40곡까지, 다른 국가 곡 없음, 중복 없음, 입력 불변, 고정 난수 재현. `node --test` 통과 시 완료
-- [ ] 2.2 `moodtune/lib/guestLimit.ts`의 판정 함수와 테스트(Decision 7): 브라우저·주소·전체 한도 경계, Asia/Seoul 날짜 경계, 위조 쿠키는 0회로 처리. 쿠키는 `seal`/`unseal`을 쓴다. `node --test` 통과 시 완료
-- [ ] 2.3 `moodtune/lib/spotify.ts`에 앱 토큰과 트랙 조회를 더한다(Decision 6). 기존 함수는 바꾸지 않는다. 2초 제한과 실패 시 빈 값을 스텁으로 확인하면 완료
-- [ ] 2.4 `moodtune/app/api/guest/recommend/route.ts`: 허용 목록 검증(Decision 8) → 제한 확인 → 후보 선택 → `getRecommendation` → 아트 조회. `readSession`과 사용자 API를 호출하지 않고 선택값을 로그에 남기지 않는다. `pnpm build`가 통과하면 완료
+- [x] 2.1 `moodtune/lib/guestCatalog.ts`의 `pickGuestCandidates`와 테스트: 국가·장르 필터, 50곡 상한, 맞는 곡 15곡 경계(14/15), 15~39곡은 그대로, 15곡 미만은 맞는 곡을 모두 포함해 같은 국가로 40곡까지, 다른 국가 곡 없음, 중복 없음, 입력 불변, 고정 난수 재현. `node --test` 통과 시 완료
+- [x] 2.2 `moodtune/lib/guestLimit.ts`의 판정 함수와 테스트(Decision 7): 브라우저·주소·전체 한도 경계, Asia/Seoul 날짜 경계, 위조 쿠키는 0회로 처리. 쿠키는 `seal`/`unseal`을 쓴다. `node --test` 통과 시 완료
+- [x] 2.3 `moodtune/lib/spotify.ts`에 앱 토큰과 트랙 조회를 더한다(Decision 6). 기존 함수는 바꾸지 않는다. 2초 제한과 실패 시 빈 값을 스텁으로 확인하면 완료
+- [x] 2.4 `moodtune/app/api/guest/recommend/route.ts`: 허용 목록 검증(Decision 8) → 제한 확인 → 후보 선택 → `getRecommendation` → 아트 조회. `readSession`과 사용자 API를 호출하지 않고 선택값을 로그에 남기지 않는다. `pnpm build`가 통과하면 완료
+- [x] 2.5 칩 설정과 보정(2026-11-02): Ballad·Jazz를 칩 설정에서 제거, `data/guest-artist-overrides.json` 수동 보정 적용, `widened` 응답과 결과 화면 안내. 스텁 서버로 게스트 API를 확인했고 외부 호출 시도 0건, 로그인 경로 기준선과 동일하다. 실제 Spotify 아트 조회는 5.2에서 확인한다
 
 ## 3. 화면
 

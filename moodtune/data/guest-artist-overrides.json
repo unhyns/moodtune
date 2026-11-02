@@ -1,0 +1,9 @@
+{
+  "_source": "수동 보정. MusicBrainz에 국가 값이 없거나 잘못 잡힌 아티스트를 사용자가 직접 지정했다(2026-11-02). scripts/relabel-guest-countries.mjs가 MusicBrainz 결과보다 먼저 적용한다.",
+  "overrides": {
+    "Charli xcx": "Western",
+    "PinkPantheress": "Western",
+    "beabadoobee": "Western",
+    "tuki.": "Japan"
+  }
+}

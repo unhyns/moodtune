@@ -103,6 +103,7 @@ export function useRecommendSubmit() {
       params.set("weatherTempC", String(weather.temperatureC));
     }
     if (pending.guest) params.set("guest", "1");
+    if (pending.guest && recommendation.widened) params.set("widened", "1");
     pending.onSuccess?.();
     inFlightRef.current = false;
     setIsSubmitting(false);

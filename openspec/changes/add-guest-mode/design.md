@@ -28,7 +28,7 @@
 ### Decision 1: 게스트 전용 화면과 API를 따로 둔다
 - 진입은 랜딩 위 바텀시트(`components/GuestModeSheet.tsx`, 네이티브 `<dialog>`)이고, 화면은 `/guest/input`, API는 `POST /api/guest/recommend`다. 시트의 선택은 `sessionStorage`(`moodtune:guestSelection`)로 넘기고, 값이 없거나 형식이 틀리면 `/guest/input`이 랜딩으로 돌려보낸다. 선택 요약은 `/?guest=1`로 돌아가 시트를 현재 선택과 함께 연다.
 - `/input`은 절대 좌표 레이아웃에 라이브러리 확인과 401 이동이 묶여 있어 분기를 넣으면 로그인 경로 회귀 위험이 크다. 칩 옵션(`chipColors`), `QuickReplyChip`, `WeatherBadge`, `LoadingPopup`은 재사용한다.
-- 시트는 Figma 좌표(393×485)를 따르고, 칩 모양은 그대로 둔 채 `::before`로 누를 수 있는 영역을 40px 이상으로 넓힌다. 줄 간격이 36px이라 위아래 칩의 영역이 2px씩 겹친다. "아티스트 출신 국가 기준"은 Figma의 8px 대신 12px로 쓴다. 3개 선택 후 나머지 장르 칩은 `#b1b1b0`으로 흐리게 하고 비활성화한다. `/guest/input`은 Figma가 없어 `/input` 디자인을 재사용한다.
+- 시트는 Figma 좌표를 따르되 Ballad·Jazz를 빼서 줄이 줄어 높이를 485에서 449로 줄였다. 장르 칩 목록은 `lib/guestSelection.ts`의 설정 하나로 시트와 API에 함께 반영되고, 시트에서는 줄바꿈으로 배치한다. 칩 모양은 칩 모양은 그대로 둔 채 `::before`로 누를 수 있는 영역을 40px 이상으로 넓힌다. 줄 간격이 36px이라 위아래 칩의 영역이 2px씩 겹친다. "아티스트 출신 국가 기준"은 Figma의 8px 대신 12px로 쓴다. 3개 선택 후 나머지 장르 칩은 `#b1b1b0`으로 흐리게 하고 비활성화한다. `/guest/input`은 Figma가 없어 `/input` 디자인을 재사용한다.
 - `useRecommendSubmit`의 `SubmitInput`에 `endpoint?`와 `guest?`를 더한다. 기본값은 기존과 같아 로그인 경로의 요청과 URL이 바뀌지 않는다. `guest`이면 `/result` 쿼리에 `guest=1`을 더한다.
 - `/result`는 `guest=1`일 때 다시 하기 링크를 `/guest/input`으로 바꾸고 출처 문구를 보인다. 그 외 표시는 같다.
 
@@ -49,15 +49,17 @@
 2. 후보마다 `track.getTopTags`를 받아 **매핑 표**로 9개 장르에 대응시킨다(예: `hip-hop`, `rap` → Hip-Hop). 곡 태그로 정하지 못하면 `artist.getTopTags`(더 높은 점수 기준)를 쓴다. 국가·언어 태그(`japanese`, `anime` 등)는 가장 가까운 칩에 넣는 근사 매핑이다. 그래도 없으면 버린다. 태그 원본은 라벨을 만든 뒤 버린다.
 3. Spotify `search`(`limit` 최대 10, 앱 토큰)로 제목·아티스트를 찾고(한글·일본어 후보는 `Accept-Language`로 현지 표기를 요청), 정규화(대소문자, 괄호·feat. 표기 제거)한 제목과 첫 아티스트가 일치할 때만 채택한다. `external_ids`나 `popularity`에 의존하지 않는다.
 4. Spotify는 호출 간격 2초 이상, 하루 상한 300회(KST 기준)를 두고, 429를 받으면 Last.fm·Spotify 모두 재시도 없이 바로 멈춘다. Spotify의 차단 시각과 호출 수는 재개용 폴더에 남겨, 해제 전이나 상한 도달 후에는 호출 전에 멈춘다. `--skip-remaining`은 네트워크와 API 키 없이 지금까지 검색된 곡으로 파일을 만들고, 옵션 없이 다시 실행하면 남은 곡만 이어서 검색해 파일을 교체한다. 재개용 임시 파일은 저장소 밖에 두고 후보 제목·아티스트와 우리 라벨만 정렬해 담으며, 응답 원본·태그·순위·재생 수는 남기지 않는다. 파일의 제목·아티스트는 Spotify 응답 값이고, ID 순으로 정렬해 차트 순서가 남지 않는다.
-5. **국가 라벨**: `scripts/relabel-guest-countries.mjs`가 곡의 첫 아티스트로 MusicBrainz(`country`)를 조회해 라벨을 다시 붙인다. KR → Korea, JP → Japan, US·GB·CA → Western, 그 외 → RoW. 이름이나 별칭이 정확히 일치하고 점수가 90 이상일 때만 쓰고, 동명이인끼리 국가가 다르거나 값이 없으면 라벨을 붙이지 않는다. 호출 간격 1.1초, 503은 15초 뒤 재시도(같은 아티스트 연속 3번, 누적 300번 초과 시 중단), 429와 그 밖의 오류는 즉시 중단한다. 앱 실행 중에는 호출하지 않는다. 빌드로 파일을 다시 만들면 이 스크립트도 다시 돌린다.
-6. **빌드 게이트**: 국가별 150곡 이상을 목표로 하고, 국가 4개 × 장르 9개 표의 곡 수를 출력한다. 국가 하나라도 50곡 미만이면 파일을 쓰지 않고 실패한다. 그래서 실행 시 국가를 넓히는 경우가 생기지 않는다. 숫자는 첫 빌드 결과를 보고 사용자와 조정한다.
+5. **수동 보정**: `data/guest-artist-overrides.json`이 MusicBrainz 결과보다 앞선다(Charli xcx·PinkPantheress·beabadoobee → Western, tuki. → Japan). 파일에 수동 보정임을 적어 둔다.
+6. **국가 라벨**: `scripts/relabel-guest-countries.mjs`가 곡의 첫 아티스트로 MusicBrainz(`country`)를 조회해 라벨을 다시 붙인다. KR → Korea, JP → Japan, US·GB·CA → Western, 그 외 → RoW. 이름이나 별칭이 정확히 일치하고 점수가 90 이상일 때만 쓰고, 동명이인끼리 국가가 다르거나 값이 없으면 라벨을 붙이지 않는다. 호출 간격 1.1초, 503은 15초 뒤 재시도(같은 아티스트 연속 3번, 누적 300번 초과 시 중단), 429와 그 밖의 오류는 즉시 중단한다. 앱 실행 중에는 호출하지 않는다. 빌드로 파일을 다시 만들면 이 스크립트도 다시 돌린다.
+7. **빌드 게이트**: 국가별 150곡 이상을 목표로 하고, 국가 4개 × 장르 9개 표의 곡 수를 출력한다. 국가 하나라도 50곡 미만이면 파일을 쓰지 않고 실패한다. 그래서 실행 시 국가를 넓히는 경우가 생기지 않는다. 숫자는 첫 빌드 결과를 보고 사용자와 조정한다.
 
 ### Decision 4: 후보 선택은 순수 함수로 둔다
 `moodtune/lib/guestCatalog.ts`의 `pickGuestCandidates(catalog, { genres, country }, random)`.
 - 국가와 장르(선택 중 하나 이상)가 맞는 곡이 15곡 이상이면 그 곡들만 섞어 앞에서 최대 50곡을 쓴다.
 - 15곡 미만이면 맞는 곡 전부에 같은 국가의 다른 곡을 섞어 40곡까지 채운다(국가의 곡이 그보다 적으면 있는 만큼).
 - **맞는 곡이 15~39곡이면 40곡을 채우지 않고 그대로 쓴다.** 요구사항의 "40~50곡"과 "15곡 미만일 때만 넓힘"을 함께 만족할 수 없는 구간이고, 선택한 장르를 지키는 쪽을 택했다.
-- 난수는 라우트 내부 인자로 주입하고(기본 `Math.random`) 본문으로 받지 않는다. 같은 난수를 `getRecommendation`에도 쓸 수 있다.
+- 섞기 함수를 인자로 받아 테스트에서는 고정 난수를 넘긴다. 라우트는 `Math.random`을 쓰고 본문으로 받지 않는다.
+- 다른 장르 곡을 실제로 채웠을 때만 `widened: true`를 응답에 넣고, `/result?widened=1`이 안내 한 줄을 보여 준다.
 
 ### Decision 5: `getRecommendation`을 그대로 쓴다
 - `getRecommendation({ context: { mood, situation }, weather, librarySample: candidates })`로 호출한다. `openai.ts`는 바꾸지 않으므로 프롬프트 규칙과 힌트, 재시도, 폴백이 로그인 칩 경로와 같다.

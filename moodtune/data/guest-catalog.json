@@ -299,7 +299,9 @@
   "genres": [
    "EDM"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "0KKkJNfGyhkQ5aFogxQAPU",
@@ -636,7 +638,9 @@
    "Pop",
    "Indie"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "0gSNi1CGG7ExDV8UvUsSoj",
@@ -836,7 +840,9 @@
   "genres": [
    "Indie"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "0r2JVOjI7H1jhXzXBOorKu",
@@ -1201,7 +1207,9 @@
   "genres": [
    "Pop"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "1EryAkZ0VHstC6haIxVBiE",
@@ -1538,7 +1546,9 @@
    "Pop",
    "R&B"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "1YXot2MLAG9sttepCtBRM7",
@@ -1581,7 +1591,9 @@
    "Rock",
    "Indie"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "1aKvZDoLGkNMxoRYgkckZG",
@@ -2442,7 +2454,9 @@
   "genres": [
    "Pop"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "2RsAajgo0g7bMCHxwH3Sk0",
@@ -2635,7 +2649,7 @@
    "Pop"
   ],
   "countries": [
-   "RoW"
+   "Japan"
   ]
  },
  {
@@ -3457,7 +3471,9 @@
   "genres": [
    "Pop"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "3Z8NMM7IRu4YKDHBo6vmX3",
@@ -3983,7 +3999,9 @@
    "Indie",
    "Jazz"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "41d2WjuL0ikRKVjxmL7ZFz",
@@ -4334,7 +4352,9 @@
    "Pop",
    "Indie"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "4SRShYMtFIGgnOU7iBicMH",
@@ -4659,7 +4679,9 @@
   "genres": [
    "Pop"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "4wH4dJgrsxONID6KS2tDQM",
@@ -5087,7 +5109,9 @@
    "Pop",
    "EDM"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "5GUYJTQap5F3RDQiCOJhrS",
@@ -5689,7 +5713,9 @@
   "genres": [
    "Indie"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "5y2ijHECwFYWqcAHKTZgzD",
@@ -5917,7 +5943,9 @@
   "genres": [
    "Rock"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "6H67gFuycHyTOROX2M4bbs",
@@ -7029,7 +7057,9 @@
   "genres": [
    "Pop"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "7ahB1ea9N3SHIvoYQe245z",
@@ -7218,7 +7248,9 @@
    "Pop",
    "EDM"
   ],
-  "countries": []
+  "countries": [
+   "Western"
+  ]
  },
  {
   "id": "7vgTNTaEz3CsBZ1N4YQalM",

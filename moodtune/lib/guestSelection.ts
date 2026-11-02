@@ -1,6 +1,7 @@
 // 게스트 바텀시트의 선택 (add-guest-mode design.md Decision 1). 같은 탭의 sessionStorage로 /guest/input에 넘긴다.
 export const GUEST_COUNTRIES = ["Korea", "Western", "Japan", "RoW"] as const;
-export const GUEST_GENRES = ["Pop", "Hip-Hop", "R&B", "Rock", "Indie", "EDM", "Ballad", "Jazz", "K-POP"] as const;
+// 칩 설정. 곡이 거의 없어 Ballad·Jazz는 뺐다. 이 목록에 넣으면 시트와 API에 함께 반영된다.
+export const GUEST_GENRES = ["Pop", "Hip-Hop", "R&B", "Rock", "Indie", "EDM", "K-POP"] as const;
 export const MAX_GUEST_GENRES = 3;
 
 export type GuestCountry = (typeof GUEST_COUNTRIES)[number];

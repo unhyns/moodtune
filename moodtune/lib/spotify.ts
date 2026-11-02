@@ -150,6 +150,36 @@ async function fetchPlaylistTracks(token: string, id: string): Promise<LibraryTr
   return out;
 }
 
+// 게스트 앨범 아트 조회용 앱 토큰. 사용자 데이터에 접근할 수 없고, 만료 전까지 재사용한다.
+let appToken: { value: string; expiresAt: number } | null = null;
+
+async function getAppToken(): Promise<string> {
+  if (appToken && appToken.expiresAt - Date.now() > 60_000) return appToken.value;
+  const res = await tokenRequest({ grant_type: "client_credentials" });
+  if (!res.ok) throw new Error(`app token failed (${res.status})`);
+  const t = (await res.json()) as TokenResponse;
+  appToken = { value: t.access_token, expiresAt: Date.now() + t.expires_in * 1000 };
+  return appToken.value;
+}
+
+const ALBUM_ART_TIMEOUT_MS = 2000;
+
+// 고른 곡 한 곡만 조회한다. 할당량을 로그인 사용자와 공유하므로 재시도하지 않고, 실패하거나 늦으면 아트 없이 보여 준다.
+export async function fetchTrackAlbumArt(trackId: string): Promise<string> {
+  const lookup = async () => {
+    const token = await getAppToken();
+    const res = await fetch(`${API}/tracks/${encodeURIComponent(trackId)}`, {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    });
+    if (!res.ok) return "";
+    const track = (await res.json()) as { album?: { images?: { url: string }[] } };
+    return track.album?.images?.[0]?.url ?? "";
+  };
+  const timeout = new Promise<string>((resolve) => setTimeout(() => resolve(""), ALBUM_ART_TIMEOUT_MS));
+  return Promise.race([lookup().catch(() => ""), timeout]);
+}
+
 export async function fetchLibrary(token: string): Promise<LibraryFetchResult> {
   const me = await api<{ id: string; display_name: string | null }>(token, "/me");
   const liked = await fetchLiked(token);

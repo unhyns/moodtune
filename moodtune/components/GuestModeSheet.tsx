@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   clearGuestSelection,
+  GUEST_GENRES,
   MAX_GUEST_GENRES,
   readGuestSelection,
   writeGuestSelection,
@@ -11,7 +12,8 @@ import {
   type GuestGenre,
 } from "@/lib/guestSelection";
 
-// 랜딩의 게스트 진입 버튼과 바텀시트 (Figma 170:703 비활성, 170:749 활성). 좌표는 393×485 프레임 기준이다.
+// 랜딩의 게스트 진입 버튼과 바텀시트 (Figma 170:703 비활성, 170:749 활성).
+// 좌표는 393 폭 기준이고, Ballad·Jazz를 빼서 한 줄이 줄어 높이는 Figma 485에서 449로 줄였다.
 const COUNTRY_CHIPS: { value: GuestCountry; label: string; left: number; top: number }[] = [
   { value: "Korea", label: "Korea", left: 28, top: 153 },
   { value: "Western", label: "Western", left: 109, top: 153 },
@@ -19,39 +21,29 @@ const COUNTRY_CHIPS: { value: GuestCountry; label: string; left: number; top: nu
   { value: "RoW", label: "RoW: Rest of World", left: 28, top: 189 },
 ];
 
-const GENRE_CHIPS: { value: GuestGenre; left: number; top: number }[] = [
-  { value: "Pop", left: 28, top: 275 },
-  { value: "Hip-Hop", left: 95, top: 275 },
-  { value: "R&B", left: 192, top: 275 },
-  { value: "Rock", left: 263, top: 275 },
-  { value: "Indie", left: 28, top: 311 },
-  { value: "EDM", left: 101, top: 311 },
-  { value: "Ballad", left: 175, top: 311 },
-  { value: "Jazz", left: 28, top: 347 },
-  { value: "K-POP", left: 99, top: 347 },
-];
-
 // 모양은 Figma대로 두고 누를 수 있는 영역만 ::before로 40px 이상 넓힌다.
 const TOUCH_AREA =
   "before:absolute before:left-1/2 before:top-1/2 before:h-10 before:min-w-10 before:w-full before:-translate-x-1/2 before:-translate-y-1/2 before:content-['']";
 
+// 줄바꿈되는 칩이 선택될 때 옆 칩이 밀리지 않도록 굵은 글자 폭을 미리 잡아 둔다.
+const BOLD_WIDTH = "after:block after:h-0 after:overflow-hidden after:font-bold after:content-[attr(data-label)]";
+
 function Chip({
   label,
-  left,
-  top,
+  position,
   selected,
   dimmed,
   onClick,
 }: {
   label: string;
-  left: number;
-  top: number;
+  // 국가 칩은 Figma 좌표에 두고, 장르 칩은 설정 목록에 따라 줄바꿈한다.
+  position?: { left: number; top: number };
   selected: boolean;
   dimmed?: boolean;
   onClick: () => void;
 }) {
   const look = selected
-    ? "bg-[#e43c98] font-bold text-white"
+    ? "border border-solid border-[#e43c98] bg-[#e43c98] font-bold text-white"
     : dimmed
       ? "border border-solid border-[#b1b1b0] bg-white text-[#b1b1b0]"
       : "border border-solid border-[#6b6b73] bg-white text-[#6b6b73]";
@@ -61,8 +53,9 @@ function Chip({
       aria-pressed={selected}
       disabled={dimmed}
       onClick={onClick}
-      style={{ left, top }}
-      className={`absolute whitespace-nowrap px-[10px] py-[4px] font-['Helvetica'] text-[16px] leading-[18px] disabled:cursor-not-allowed ${TOUCH_AREA} ${look}`}
+      style={position}
+      data-label={label}
+      className={`${position ? "absolute" : "relative"} whitespace-nowrap px-[10px] py-[4px] font-['Helvetica'] text-[16px] leading-[18px] disabled:cursor-not-allowed ${position ? "" : BOLD_WIDTH} ${TOUCH_AREA} ${look}`}
     >
       {label}
     </button>
@@ -127,9 +120,9 @@ export default function GuestModeSheet({ defaultOpen = false }: { defaultOpen?: 
         ref={dialogRef}
         onClose={handleClose}
         aria-labelledby="guest-sheet-title"
-        className="mx-auto mb-0 mt-auto h-[485px] max-h-dvh w-full max-w-[393px] overflow-y-auto overflow-x-hidden rounded-t-[16px] bg-white p-0 text-black backdrop:bg-black/40"
+        className="mx-auto mb-0 mt-auto h-[449px] max-h-dvh w-full max-w-[393px] overflow-y-auto overflow-x-hidden rounded-t-[16px] bg-white p-0 text-black backdrop:bg-black/40"
       >
-        <div className="relative h-[485px] w-full">
+        <div className="relative h-[449px] w-full">
           <h2
             id="guest-sheet-title"
             className="absolute left-[16px] top-[28px] whitespace-nowrap font-['Helvetica'] text-[32px] font-bold leading-[37px]"
@@ -164,8 +157,7 @@ export default function GuestModeSheet({ defaultOpen = false }: { defaultOpen?: 
             <Chip
               key={chip.value}
               label={chip.label}
-              left={chip.left}
-              top={chip.top}
+              position={{ left: chip.left, top: chip.top }}
               selected={country === chip.value}
               onClick={() => setCountry(country === chip.value ? null : chip.value)}
             />
@@ -175,26 +167,26 @@ export default function GuestModeSheet({ defaultOpen = false }: { defaultOpen?: 
           <p className="absolute left-[106px] top-[248px] font-['Helvetica'] text-[12px] leading-[14px]">
             {genres.length}/{MAX_GUEST_GENRES}
           </p>
-          {GENRE_CHIPS.map((chip) => {
-            const selected = genres.includes(chip.value);
-            return (
-              <Chip
-                key={chip.value}
-                label={chip.value}
-                left={chip.left}
-                top={chip.top}
-                selected={selected}
-                dimmed={genresFull && !selected}
-                onClick={() => toggleGenre(chip.value)}
-              />
-            );
-          })}
+          <div className="absolute left-[28px] right-[28px] top-[275px] flex flex-wrap gap-x-[14px] gap-y-[8px]">
+            {GUEST_GENRES.map((genre) => {
+              const selected = genres.includes(genre);
+              return (
+                <Chip
+                  key={genre}
+                  label={genre}
+                  selected={selected}
+                  dimmed={genresFull && !selected}
+                  onClick={() => toggleGenre(genre)}
+                />
+              );
+            })}
+          </div>
 
           <button
             type="button"
             disabled={!canStart}
             onClick={handleStart}
-            className="absolute left-1/2 top-[404px] -translate-x-1/2 whitespace-nowrap rounded-[30px] bg-[#e43c98] px-[24px] py-[10px] font-['Helvetica'] text-[20px] font-bold leading-[23px] text-white disabled:cursor-not-allowed disabled:bg-[#979797]"
+            className="absolute left-1/2 top-[368px] -translate-x-1/2 whitespace-nowrap rounded-[30px] bg-[#e43c98] px-[24px] py-[10px] font-['Helvetica'] text-[20px] font-bold leading-[23px] text-white disabled:cursor-not-allowed disabled:bg-[#979797]"
           >
             Start Guest Mode
           </button>
@@ -203,7 +195,7 @@ export default function GuestModeSheet({ defaultOpen = false }: { defaultOpen?: 
             href="https://www.last.fm"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute left-1/2 top-[456px] -translate-x-1/2 whitespace-nowrap font-['Helvetica'] text-[12px] leading-[14px] text-[#6b6b73] underline"
+            className="absolute left-1/2 top-[420px] -translate-x-1/2 whitespace-nowrap font-['Helvetica'] text-[12px] leading-[14px] text-[#6b6b73] underline"
           >
             곡 선정 참고: Last.fm
           </a>

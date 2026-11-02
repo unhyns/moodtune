@@ -27,6 +27,7 @@ type ResultSearchParams = {
   weatherIcon?: string;
   weatherTempC?: string;
   guest?: string;
+  widened?: string;
 };
 
 type Badge = { label: string; border: string; text: string };
@@ -176,6 +177,12 @@ export default async function ResultPage({
               {params.reason}
             </p>
           </div>
+        )}
+
+        {isGuest && params.widened === "1" && (
+          <p className="absolute left-1/2 top-[1040px] -translate-x-1/2 whitespace-nowrap border border-solid border-[#e43c98] bg-white px-[8px] py-[2px] font-['Helvetica'] text-[11px] leading-[14px] text-black">
+            조건에 맞는 곡이 적어 같은 국가의 다른 장르 곡도 함께 골랐어요.
+          </p>
         )}
 
         <a

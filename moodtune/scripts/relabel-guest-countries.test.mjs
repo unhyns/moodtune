@@ -1,7 +1,7 @@
 // 국가 라벨 함수 검증. 실행: node --test scripts/relabel-guest-countries.test.mjs
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { assertRelabeled, labelFromCountry, lookupNames, pickArtist, relabel, shouldStopOn503 } from "./relabel-guest-countries.mjs";
+import { assertRelabeled, labelFromCountry, lookupNames, overrideFor, pickArtist, relabel, shouldStopOn503 } from "./relabel-guest-countries.mjs";
 
 test("국가 코드 매핑", () => {
   const cases = [["KR", "Korea"], ["JP", "Japan"], ["US", "Western"], ["GB", "Western"], ["CA", "Western"], ["AU", "RoW"], ["IE", "RoW"], ["NZ", "RoW"], ["FR", "RoW"], ["SE", "RoW"], [null, null], [undefined, null]];
@@ -44,4 +44,16 @@ test("503은 연속 3번 또는 누적 300번 초과에서 멈춘다", () => {
   assert.equal(shouldStopOn503(2, 300), false);
   assert.equal(shouldStopOn503(3, 3), true);
   assert.equal(shouldStopOn503(1, 301), true);
+});
+
+test("수동 보정은 MusicBrainz 결과보다 앞서고 첫 아티스트에도 적용된다", () => {
+  const overrides = { "tuki.": "Japan", "Charli xcx": "Western" };
+  const catalog = [
+    { id: "a", name: "x", artist: "tuki.", genres: ["Pop"], countries: [] },
+    { id: "b", name: "y", artist: "Charli xcx, Billie Eilish", genres: ["Pop"], countries: [] },
+    { id: "c", name: "z", artist: "IU", genres: ["Pop"], countries: [] },
+  ];
+  const out = relabel(catalog, { "tuki.": { status: "ok", country: "SK" }, IU: { status: "ok", country: "KR" } }, overrides);
+  assert.deepEqual(out.map((t) => t.countries), [["Japan"], ["Western"], ["Korea"]]);
+  assert.equal(overrideFor("IU", overrides), null);
 });

@@ -11,20 +11,20 @@ function key(): Buffer {
   return createHash("sha256").update(requireEnv("SESSION_SECRET")).digest();
 }
 
-export function seal(session: SpotifySession): string {
+export function seal(value: unknown): string {
   const iv = randomBytes(12);
   const cipher = createCipheriv("aes-256-gcm", key(), iv);
-  const data = Buffer.concat([cipher.update(JSON.stringify(session), "utf8"), cipher.final()]);
+  const data = Buffer.concat([cipher.update(JSON.stringify(value), "utf8"), cipher.final()]);
   return Buffer.concat([iv, cipher.getAuthTag(), data]).toString("base64url");
 }
 
-export function unseal(value: string): SpotifySession | null {
+export function unseal<T = SpotifySession>(value: string): T | null {
   try {
     const buf = Buffer.from(value, "base64url");
     const decipher = createDecipheriv("aes-256-gcm", key(), buf.subarray(0, 12));
     decipher.setAuthTag(buf.subarray(12, 28));
     const json = Buffer.concat([decipher.update(buf.subarray(28)), decipher.final()]).toString("utf8");
-    return JSON.parse(json) as SpotifySession;
+    return JSON.parse(json) as T;
   } catch {
     return null;
   }
