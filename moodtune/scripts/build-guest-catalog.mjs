@@ -412,7 +412,7 @@ async function main() {
   // 빌드가 끝난 뒤에만 기존 파일을 한 번에 교체한다.
   writeFileSync(`${out}.tmp`, JSON.stringify(catalog, null, 1) + "\n");
   renameSync(`${out}.tmp`, out);
-  console.log(`저장: data/guest-catalog.json`);
+  console.log(`저장: data/guest-catalog.json. 국가 라벨은 차트 기준이므로 scripts/relabel-guest-countries.mjs를 이어서 돌리세요`);
 }
 
 if (import.meta.main) await main();

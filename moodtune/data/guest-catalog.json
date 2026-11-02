@@ -8,10 +8,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -22,8 +19,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -34,10 +30,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -49,8 +42,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -61,8 +53,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -73,7 +64,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -85,7 +76,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -97,8 +88,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -110,7 +100,7 @@
    "Jazz"
   ],
   "countries": [
-   "jp"
+   "RoW"
   ]
  },
  {
@@ -121,9 +111,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -134,8 +122,7 @@
    "Pop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -147,8 +134,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -159,7 +145,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -169,9 +155,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "0BxE4FqsDD1Ot4YuBXwAPp",
@@ -182,10 +166,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -198,8 +179,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -211,7 +191,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -222,9 +202,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -235,7 +213,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -247,7 +225,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -258,10 +236,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -272,10 +247,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -286,7 +258,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -297,7 +269,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -308,7 +280,7 @@
    "Indie"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -318,11 +290,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "0IsIY8pfu1yaGkPUD7pkDx",
@@ -331,9 +299,7 @@
   "genres": [
    "EDM"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "0KKkJNfGyhkQ5aFogxQAPU",
@@ -343,7 +309,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -354,7 +320,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -366,7 +332,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -377,8 +343,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -389,10 +354,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -403,8 +365,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -416,7 +377,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -427,7 +388,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -439,7 +400,7 @@
    "R&B"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -450,7 +411,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -461,8 +422,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -473,10 +433,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -488,7 +445,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -499,10 +456,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -513,7 +467,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -524,10 +478,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -539,8 +490,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -551,7 +501,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -563,7 +513,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -574,7 +524,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -585,7 +535,7 @@
    "Jazz"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -597,12 +547,7 @@
    "Rock",
    "EDM"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "0d510tdfPL5wEdjUDe9CjH",
@@ -612,7 +557,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -623,9 +568,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -637,10 +580,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -651,8 +591,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -663,8 +602,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -676,7 +614,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -687,8 +625,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -699,9 +636,7 @@
    "Pop",
    "Indie"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "0gSNi1CGG7ExDV8UvUsSoj",
@@ -711,7 +646,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -722,8 +657,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -735,7 +669,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -747,7 +681,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -758,7 +692,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -770,7 +704,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -781,7 +715,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -792,7 +726,7 @@
    "Jazz"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -803,7 +737,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -814,7 +748,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -826,7 +760,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -837,7 +771,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -848,7 +782,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -859,10 +793,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -873,10 +804,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -887,8 +815,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -900,9 +827,7 @@
    "Rock",
    "EDM"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "0qWoOHqTirzo59FQ9eoECH",
@@ -911,9 +836,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "0r2JVOjI7H1jhXzXBOorKu",
@@ -923,7 +846,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -934,8 +857,7 @@
    "Pop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -946,7 +868,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -956,9 +878,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "0snQkGI5qnAmohLE7jTsTn",
@@ -968,7 +888,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -978,9 +898,7 @@
   "genres": [
    "K-POP"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "0tygvOInRGuzGDDepZAQcA",
@@ -991,7 +909,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1002,7 +920,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1013,8 +931,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -1026,7 +943,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1038,7 +955,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -1049,8 +966,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -1061,8 +977,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1073,7 +988,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1085,10 +1000,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1099,10 +1011,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1113,8 +1022,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -1125,10 +1033,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1139,8 +1044,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1151,7 +1055,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1162,7 +1066,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1174,8 +1078,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1187,9 +1090,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1200,7 +1101,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1212,7 +1113,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1223,8 +1124,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1235,7 +1135,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1246,8 +1146,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1258,7 +1157,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1269,7 +1168,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1281,7 +1180,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1292,9 +1191,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -1304,12 +1201,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "1EryAkZ0VHstC6haIxVBiE",
@@ -1319,8 +1211,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1332,7 +1223,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1344,7 +1235,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1356,9 +1247,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1369,8 +1258,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1382,7 +1270,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1393,7 +1281,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "RoW"
   ]
  },
  {
@@ -1405,7 +1293,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1416,9 +1304,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1429,10 +1315,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1443,7 +1326,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -1454,8 +1337,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1466,7 +1348,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -1477,9 +1359,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -1490,7 +1370,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1501,8 +1381,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1514,8 +1393,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1526,8 +1404,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -1538,9 +1415,7 @@
    "Pop",
    "Indie"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "1TtqALMlSp0o2RUu91Auz8",
@@ -1551,7 +1426,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1562,8 +1437,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1575,10 +1449,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1589,7 +1460,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -1600,7 +1471,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -1612,8 +1483,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -1624,9 +1494,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Japan"
   ]
  },
  {
@@ -1637,11 +1505,7 @@
    "Rock",
    "Indie"
   ],
-  "countries": [
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "1W7023CuJrWPbD4q2Sipoh",
@@ -1652,8 +1516,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1664,10 +1527,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -1678,11 +1538,7 @@
    "Pop",
    "R&B"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "1YXot2MLAG9sttepCtBRM7",
@@ -1692,8 +1548,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1704,8 +1559,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1716,9 +1570,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1729,11 +1581,7 @@
    "Rock",
    "Indie"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "1aKvZDoLGkNMxoRYgkckZG",
@@ -1743,8 +1591,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -1755,7 +1602,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1766,7 +1613,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -1777,8 +1624,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -1790,7 +1636,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -1801,7 +1647,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -1813,7 +1659,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -1824,8 +1670,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -1836,7 +1681,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1848,7 +1693,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -1860,9 +1705,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1873,7 +1716,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -1884,10 +1727,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -1897,9 +1737,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "1oAwsWBovWRIp7qLMGPIet",
@@ -1909,10 +1747,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -1923,7 +1758,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1934,7 +1769,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -1946,8 +1781,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -1958,8 +1792,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -1970,7 +1803,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -1982,9 +1815,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -1995,8 +1826,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2009,7 +1839,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2020,9 +1850,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2033,10 +1861,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2047,7 +1872,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -2058,9 +1883,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2070,11 +1893,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "1yKAqZoi8xWGLCf5vajroL",
@@ -2084,7 +1903,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2096,9 +1915,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2108,9 +1925,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "1zHUEIQ6yzaWBzhNCV1SGW",
@@ -2121,7 +1936,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2133,9 +1948,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2146,8 +1959,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -2159,10 +1971,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2174,7 +1983,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2185,9 +1994,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2201,7 +2008,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2211,9 +2018,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "22NHkFYbgxB2Zirj29Gbp8",
@@ -2223,10 +2028,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2238,10 +2040,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2252,7 +2051,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -2264,8 +2063,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2276,7 +2074,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2287,7 +2085,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2298,7 +2096,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -2309,9 +2107,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -2322,7 +2118,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2333,8 +2129,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2347,8 +2142,7 @@
    "Ballad"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -2359,7 +2153,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2371,7 +2165,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2382,9 +2176,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2396,8 +2188,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2408,9 +2199,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2420,9 +2209,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "2IgbYlOlFpiSFYnsqB39lM",
@@ -2433,7 +2220,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -2445,9 +2232,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2458,8 +2243,7 @@
    "Rock"
   ],
   "countries": [
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2469,9 +2253,7 @@
   "genres": [
    "K-POP"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "2JuasWPUodaUxf5nwNpciQ",
@@ -2481,7 +2263,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2494,7 +2276,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2505,7 +2287,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2516,7 +2298,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "RoW"
   ]
  },
  {
@@ -2527,7 +2309,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2538,8 +2320,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2550,7 +2331,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "RoW"
   ]
  },
  {
@@ -2561,7 +2342,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2573,10 +2354,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2587,8 +2365,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2599,7 +2376,7 @@
    "K-POP"
   ],
   "countries": [
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2610,8 +2387,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2623,7 +2399,7 @@
    "R&B"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2634,7 +2410,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2645,10 +2421,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2659,7 +2432,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -2669,10 +2442,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "2RsAajgo0g7bMCHxwH3Sk0",
@@ -2682,10 +2452,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2697,7 +2464,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2709,7 +2476,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -2721,9 +2488,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2734,7 +2499,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2747,7 +2512,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2759,8 +2524,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2771,7 +2535,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2782,9 +2546,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -2796,7 +2558,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2807,7 +2569,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -2818,7 +2580,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2829,8 +2591,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -2841,7 +2602,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2852,8 +2613,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2864,8 +2624,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2876,7 +2635,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "RoW"
   ]
  },
  {
@@ -2887,7 +2646,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2898,9 +2657,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -2911,10 +2668,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -2925,9 +2679,7 @@
    "Pop",
    "R&B"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "2gZUPNdnz5Y45eiGxpHGSc",
@@ -2937,7 +2689,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2951,7 +2703,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2962,7 +2714,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -2973,7 +2725,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -2984,8 +2736,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -2996,7 +2747,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -3007,7 +2758,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3018,10 +2769,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3033,7 +2781,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3044,8 +2792,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -3057,7 +2804,7 @@
    "Ballad"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3068,7 +2815,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3080,7 +2827,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -3091,10 +2838,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3105,7 +2849,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3117,7 +2861,7 @@
    "EDM"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -3129,7 +2873,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3140,10 +2884,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3154,8 +2895,7 @@
    "Pop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3167,7 +2907,7 @@
    "Ballad"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3178,7 +2918,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3190,9 +2930,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3202,9 +2940,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "30FURVTCpbKyykjSEQzGkH",
@@ -3215,7 +2951,7 @@
    "Jazz"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3225,9 +2961,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "318Irz9qyCcwS0teqsaNcg",
@@ -3237,7 +2971,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -3248,7 +2982,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -3259,7 +2993,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3270,7 +3004,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -3280,9 +3014,7 @@
   "genres": [
    "Rock"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "348NF6vX0Yh22xvH0EZEro",
@@ -3292,7 +3024,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -3303,7 +3035,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3315,7 +3047,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3327,7 +3059,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3338,9 +3070,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -3350,9 +3080,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "38tXZcL1gZRfbqfOG0VMTH",
@@ -3362,8 +3090,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -3374,7 +3101,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3385,7 +3112,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3396,7 +3123,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3409,8 +3136,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -3421,7 +3147,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3433,8 +3159,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3446,8 +3171,7 @@
    "EDM"
   ],
   "countries": [
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3459,7 +3183,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3470,7 +3194,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3481,7 +3205,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3493,10 +3217,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3507,7 +3228,7 @@
    "Jazz"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -3519,9 +3240,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3532,7 +3251,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3543,10 +3262,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3557,8 +3273,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3571,7 +3286,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3583,7 +3298,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3594,9 +3309,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -3609,7 +3322,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3621,8 +3334,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3635,9 +3347,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -3647,10 +3357,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "us_uk",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "3SoarlzPEiF7NgSeGsh44S",
@@ -3661,7 +3368,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3672,8 +3379,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -3683,9 +3389,7 @@
   "genres": [
    "Hip-Hop"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "3WSOUb3U7tqURbBSgZTrZX",
@@ -3696,9 +3400,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3710,7 +3412,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -3721,7 +3423,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Japan"
   ]
  },
  {
@@ -3733,7 +3435,7 @@
    "R&B"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -3745,10 +3447,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -3758,11 +3457,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "3Z8NMM7IRu4YKDHBo6vmX3",
@@ -3773,7 +3468,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -3784,7 +3479,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3796,7 +3491,7 @@
    "Ballad"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3807,9 +3502,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Japan"
   ]
  },
  {
@@ -3821,7 +3514,7 @@
    "K-POP"
   ],
   "countries": [
-   "world"
+   "Korea"
   ]
  },
  {
@@ -3832,7 +3525,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Japan"
   ]
  },
  {
@@ -3843,7 +3536,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3854,7 +3547,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -3866,7 +3559,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -3877,7 +3570,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -3888,10 +3581,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -3902,7 +3592,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3913,7 +3603,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -3925,7 +3615,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3937,7 +3627,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -3948,8 +3638,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -3960,7 +3649,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -3971,7 +3660,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -3982,8 +3671,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -3994,7 +3682,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -4005,7 +3693,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4017,7 +3705,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Japan"
   ]
  },
  {
@@ -4029,8 +3717,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4041,7 +3728,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4052,7 +3739,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -4063,7 +3750,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -4075,8 +3762,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -4087,8 +3773,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4100,7 +3785,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4111,10 +3796,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4125,9 +3807,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4137,12 +3817,7 @@
   "genres": [
    "Rock"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "3r8RuvgbX9s7ammBn07D3W",
@@ -4152,9 +3827,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -4165,7 +3838,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -4177,7 +3850,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -4187,12 +3860,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "3tbHqU6PKS2bIGWx9cn082",
@@ -4202,7 +3870,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -4213,7 +3881,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -4224,10 +3892,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4238,7 +3903,7 @@
    "Indie"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -4249,8 +3914,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4262,10 +3926,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4276,10 +3937,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4292,7 +3950,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -4303,10 +3961,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4317,7 +3972,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -4328,12 +3983,7 @@
    "Indie",
    "Jazz"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "41d2WjuL0ikRKVjxmL7ZFz",
@@ -4343,7 +3993,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -4355,9 +4005,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4368,8 +4016,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4379,12 +4026,7 @@
   "genres": [
    "Rock"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "43iIQbw5hx986dUEZbr3eN",
@@ -4395,9 +4037,7 @@
    "Jazz"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp"
+   "RoW"
   ]
  },
  {
@@ -4408,7 +4048,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -4419,8 +4059,7 @@
    "Pop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4431,8 +4070,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4443,8 +4081,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4454,11 +4091,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "4CeeEOM32jQcH3eN9Q2dGj",
@@ -4468,10 +4101,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4481,9 +4111,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "4E0P1xs3JNmsNr5c5nFTZJ",
@@ -4492,9 +4120,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "4EWCNWgDS8707fNSZ1oaA5",
@@ -4505,8 +4131,7 @@
    "R&B"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4518,7 +4143,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4529,8 +4154,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -4541,8 +4165,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -4553,10 +4176,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4567,9 +4187,7 @@
    "Indie",
    "EDM"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "4KW1lqgSr8TKrvBII0Brf8",
@@ -4579,7 +4197,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -4591,7 +4209,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -4603,10 +4221,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4617,7 +4232,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4628,8 +4243,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -4641,9 +4255,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4655,7 +4267,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -4667,7 +4279,7 @@
    "Jazz"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -4678,8 +4290,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -4690,8 +4301,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4702,7 +4312,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -4713,10 +4323,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4727,10 +4334,7 @@
    "Pop",
    "Indie"
   ],
-  "countries": [
-   "us_uk",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "4SRShYMtFIGgnOU7iBicMH",
@@ -4740,7 +4344,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -4751,10 +4355,7 @@
    "Rock",
    "Indie"
   ],
-  "countries": [
-   "kr",
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "4Uiw0Sl9yskBaC6P4DcdVD",
@@ -4764,9 +4365,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4778,7 +4377,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -4789,9 +4388,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4802,10 +4399,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4817,7 +4411,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -4829,7 +4423,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -4842,7 +4436,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -4854,9 +4448,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -4867,7 +4459,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -4878,7 +4470,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -4890,7 +4482,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -4900,9 +4492,7 @@
   "genres": [
    "K-POP"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "4e9eGQYsOiBcftrWXwsVco",
@@ -4912,7 +4502,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -4923,7 +4513,7 @@
    "K-POP"
   ],
   "countries": [
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -4934,8 +4524,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -4946,8 +4535,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -4958,8 +4546,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -4970,7 +4557,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -4982,9 +4569,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -4996,8 +4581,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "RoW"
   ]
  },
  {
@@ -5008,7 +4592,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5021,8 +4605,7 @@
    "Jazz"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -5034,7 +4617,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -5045,7 +4628,7 @@
    "R&B"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -5056,8 +4639,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -5068,9 +4650,7 @@
    "Rock",
    "Indie"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "4w2GLmK2wnioVnb5CPQeex",
@@ -5079,10 +4659,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "4wH4dJgrsxONID6KS2tDQM",
@@ -5093,8 +4670,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5106,10 +4682,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5121,7 +4694,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5133,7 +4706,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5144,7 +4717,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5155,8 +4728,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5168,7 +4740,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5180,7 +4752,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5191,7 +4763,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5202,7 +4774,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5214,7 +4786,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -5225,8 +4797,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5238,8 +4809,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5250,10 +4820,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5265,7 +4832,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5276,8 +4843,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5288,8 +4854,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5301,7 +4866,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -5313,7 +4878,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5324,7 +4889,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5336,9 +4901,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -5351,8 +4914,7 @@
    "Jazz"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -5363,7 +4925,7 @@
    "K-POP"
   ],
   "countries": [
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5375,8 +4937,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5387,7 +4948,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -5398,7 +4959,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5409,7 +4970,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5421,7 +4982,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5434,7 +4995,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -5445,7 +5006,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5459,7 +5020,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5470,9 +5031,7 @@
    "Pop",
    "Rock"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "5DZOKNtaoVEssXu9ltcMjx",
@@ -5483,8 +5042,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5495,8 +5053,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5507,8 +5064,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5520,10 +5076,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5534,11 +5087,7 @@
    "Pop",
    "EDM"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "5GUYJTQap5F3RDQiCOJhrS",
@@ -5548,7 +5097,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5559,7 +5108,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5570,7 +5119,7 @@
    "K-POP"
   ],
   "countries": [
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5581,10 +5130,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5595,7 +5141,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5607,7 +5153,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5618,8 +5164,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5631,7 +5176,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5643,9 +5188,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5656,8 +5199,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5668,7 +5210,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -5680,11 +5222,7 @@
    "Rock",
    "Indie"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "5QHdBMFvD4ow4ePzZRNZQB",
@@ -5694,7 +5232,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -5705,7 +5243,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -5717,7 +5255,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5728,10 +5266,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5742,7 +5277,7 @@
    "Indie"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -5753,7 +5288,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -5764,9 +5299,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5778,8 +5311,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -5790,7 +5322,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5801,8 +5333,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -5813,10 +5344,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5827,8 +5355,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5840,7 +5367,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5851,9 +5378,7 @@
    "R&B",
    "K-POP"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "5cY8y2XgOfkAh4kSWLFKkz",
@@ -5864,7 +5389,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -5875,9 +5400,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -5888,9 +5411,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5901,8 +5422,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -5913,8 +5433,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -5925,7 +5444,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -5936,7 +5455,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -5947,7 +5466,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -5958,7 +5477,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -5969,7 +5488,7 @@
    "Indie"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -5980,7 +5499,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -5991,7 +5510,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6003,8 +5522,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -6015,7 +5533,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6026,8 +5544,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -6039,7 +5556,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6050,7 +5567,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6060,10 +5577,7 @@
   "genres": [
    "EDM"
   ],
-  "countries": [
-   "kr",
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "5rfOARz6QO73wPATyMtQQZ",
@@ -6073,9 +5587,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6087,10 +5599,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6102,8 +5611,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -6114,7 +5622,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "world"
+   "Korea"
   ]
  },
  {
@@ -6126,8 +5634,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6138,7 +5645,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -6149,7 +5656,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -6161,7 +5668,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6172,10 +5679,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6185,9 +5689,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "us_uk"
-  ]
+  "countries": []
  },
  {
   "id": "5y2ijHECwFYWqcAHKTZgzD",
@@ -6197,7 +5699,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6209,9 +5711,7 @@
    "Rock",
    "K-POP"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "60a0Rd6pjrkxjPbaKzXjfq",
@@ -6221,9 +5721,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6235,8 +5733,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "jp"
+   "RoW"
   ]
  },
  {
@@ -6248,7 +5745,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -6260,10 +5757,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6275,9 +5769,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6288,7 +5780,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6299,7 +5791,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -6311,8 +5803,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -6324,7 +5815,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -6336,8 +5827,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -6348,9 +5838,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -6361,7 +5849,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6372,7 +5860,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6383,9 +5871,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -6397,8 +5883,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -6410,7 +5895,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6422,7 +5907,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6432,9 +5917,7 @@
   "genres": [
    "Rock"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "6H67gFuycHyTOROX2M4bbs",
@@ -6445,7 +5928,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6457,8 +5940,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6471,8 +5953,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6483,10 +5964,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6498,7 +5976,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6510,9 +5988,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6523,10 +5999,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -6537,8 +6010,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6549,10 +6021,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -6563,8 +6032,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -6575,8 +6043,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6588,7 +6055,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6599,8 +6066,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6611,7 +6077,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6622,10 +6088,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -6637,7 +6100,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -6648,8 +6111,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6660,8 +6122,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6673,7 +6134,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6684,10 +6145,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6699,7 +6157,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6710,7 +6168,7 @@
    "Rock"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6722,9 +6180,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6735,7 +6191,7 @@
    "Pop"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -6747,7 +6203,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "RoW"
   ]
  },
  {
@@ -6759,7 +6215,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -6770,7 +6226,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6782,10 +6238,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6797,9 +6250,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6810,7 +6261,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -6821,8 +6272,7 @@
    "Pop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6832,10 +6282,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "us_uk",
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "6ic8OlLUNEATToEFU3xmaH",
@@ -6846,7 +6293,7 @@
    "EDM"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -6858,8 +6305,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -6870,8 +6316,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -6881,10 +6326,7 @@
   "genres": [
    "Rock"
   ],
-  "countries": [
-   "kr",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "6nGLUW73Q5LefL1H6Q6bk5",
@@ -6894,7 +6336,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -6905,7 +6347,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6916,10 +6358,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -6930,7 +6369,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6941,8 +6380,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6954,10 +6392,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -6968,8 +6403,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -6980,7 +6414,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -6991,8 +6425,7 @@
    "Jazz"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Western"
   ]
  },
  {
@@ -7004,8 +6437,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -7016,7 +6448,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -7027,7 +6459,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Japan"
   ]
  },
  {
@@ -7039,7 +6471,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -7051,9 +6483,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Korea"
   ]
  },
  {
@@ -7063,11 +6493,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "6xugCaKQQzLo0xnD3dZfjy",
@@ -7077,7 +6503,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "RoW"
   ]
  },
  {
@@ -7088,9 +6514,7 @@
    "R&B",
    "K-POP"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "70L6nHORQsblY813yNqUR3",
@@ -7100,8 +6524,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7113,10 +6536,7 @@
    "Indie"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7129,10 +6549,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "RoW"
   ]
  },
  {
@@ -7145,7 +6562,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -7156,7 +6573,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -7168,7 +6585,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -7179,10 +6596,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7195,7 +6609,7 @@
    "EDM"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -7207,7 +6621,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -7218,8 +6632,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -7231,7 +6644,7 @@
    "Indie"
   ],
   "countries": [
-   "jp"
+   "Western"
   ]
  },
  {
@@ -7242,8 +6655,7 @@
    "Pop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7254,7 +6666,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -7265,7 +6677,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -7276,9 +6688,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7289,7 +6699,7 @@
    "Pop"
   ],
   "countries": [
-   "kr"
+   "Japan"
   ]
  },
  {
@@ -7301,7 +6711,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -7311,10 +6721,7 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "us_uk",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "7B3BwNecBhKvNwSMOOl7Gk",
@@ -7324,10 +6731,7 @@
    "Pop"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7339,8 +6743,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -7352,9 +6755,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7365,8 +6766,7 @@
    "Rock"
   ],
   "countries": [
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7377,7 +6777,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -7388,8 +6788,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -7401,9 +6800,7 @@
    "EDM"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7414,7 +6811,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "Western"
   ]
  },
  {
@@ -7425,7 +6822,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -7436,7 +6833,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -7447,7 +6844,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -7460,8 +6857,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -7473,9 +6869,7 @@
    "EDM"
   ],
   "countries": [
-   "kr",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7486,7 +6880,7 @@
    "Pop"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -7498,8 +6892,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7510,9 +6903,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk",
-   "jp",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7523,9 +6914,7 @@
    "Indie",
    "K-POP"
   ],
-  "countries": [
-   "kr"
-  ]
+  "countries": []
  },
  {
   "id": "7Jpb9OejYYIwsBIVQwceRy",
@@ -7537,8 +6926,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -7550,9 +6938,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7564,7 +6950,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr"
+   "Korea"
   ]
  },
  {
@@ -7575,8 +6961,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -7588,7 +6973,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -7599,7 +6984,7 @@
    "Indie"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -7610,7 +6995,7 @@
    "Rock"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -7622,8 +7007,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7635,9 +7019,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk",
-   "jp"
+   "RoW"
   ]
  },
  {
@@ -7647,12 +7029,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "7ahB1ea9N3SHIvoYQe245z",
@@ -7662,8 +7039,7 @@
    "K-POP"
   ],
   "countries": [
-   "kr",
-   "jp"
+   "Korea"
   ]
  },
  {
@@ -7675,7 +7051,7 @@
    "Indie"
   ],
   "countries": [
-   "world"
+   "RoW"
   ]
  },
  {
@@ -7687,8 +7063,7 @@
    "R&B"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7700,8 +7075,7 @@
    "R&B"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -7714,7 +7088,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -7725,8 +7099,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "us_uk",
-   "world"
+   "Western"
   ]
  },
  {
@@ -7737,8 +7110,7 @@
    "Rock"
   ],
   "countries": [
-   "kr",
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -7750,7 +7122,7 @@
    "EDM"
   ],
   "countries": [
-   "kr"
+   "RoW"
   ]
  },
  {
@@ -7761,7 +7133,7 @@
    "Rock"
   ],
   "countries": [
-   "us_uk"
+   "Western"
   ]
  },
  {
@@ -7772,7 +7144,7 @@
    "Indie"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -7782,12 +7154,7 @@
   "genres": [
    "Pop"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "7o2AeQZzfCERsRmOM86EcB",
@@ -7796,9 +7163,7 @@
   "genres": [
    "EDM"
   ],
-  "countries": [
-   "jp"
-  ]
+  "countries": []
  },
  {
   "id": "7ovUcF5uHTBRzUpB6ZOmvt",
@@ -7808,7 +7173,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -7819,7 +7184,7 @@
    "Pop"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -7831,7 +7196,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -7842,7 +7207,7 @@
    "Hip-Hop"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -7853,9 +7218,7 @@
    "Pop",
    "EDM"
   ],
-  "countries": [
-   "world"
-  ]
+  "countries": []
  },
  {
   "id": "7vgTNTaEz3CsBZ1N4YQalM",
@@ -7866,7 +7229,7 @@
    "R&B"
   ],
   "countries": [
-   "kr"
+   "Western"
   ]
  },
  {
@@ -7878,7 +7241,7 @@
    "Rock"
   ],
   "countries": [
-   "jp"
+   "Japan"
   ]
  },
  {
@@ -7888,11 +7251,6 @@
   "genres": [
    "Indie"
   ],
-  "countries": [
-   "kr",
-   "us_uk",
-   "jp",
-   "world"
-  ]
+  "countries": []
  }
 ]
