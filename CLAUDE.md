@@ -4,7 +4,7 @@
 Micro SaaS MVP project for a Vibe Coding class.
 
 ## Product Idea
-This app helps users who want to quickly decide what to listen to before heading out solve the daily "what should I listen to right now" decision fatigue by recommending tracks from their own Spotify library based on mood, weather, and situation.
+This app helps users who want to quickly decide what to listen to before heading out solve the daily "what should I listen to right now" decision fatigue by recommending tracks from their own Spotify library based on mood, weather, and situation. Guest mode lets people without an allow-listed Spotify account try it with a prebuilt static catalog.
 
 ## Tech Stack
 -Next.js
@@ -16,6 +16,7 @@ This app helps users who want to quickly decide what to listen to before heading
 -Spotify Web API
 -Weather API (OpenWeather)
 -OpenAI API (gpt-4o-mini)
+-Last.fm, MusicBrainz (guest catalog build scripts only, never at runtime)
 
 ## Current Stage
 Session 1: 기획 문서 작성 및 프로젝트 컨텍스트 설계
@@ -34,7 +35,7 @@ Do not add:
 -complex authentication
 -real-time collaboration
 -large file upload
--external API integrations beyond Spotify, weather, and OpenAI — no additional third-party services without explicit approval
+-external API integrations beyond Spotify, weather, and OpenAI — no additional third-party services without explicit approval (approved exception: Last.fm and MusicBrainz in `moodtune/scripts/` only; the running app must not call them, and Last.fm ranks, play counts, and tag lists must not be stored)
 
 ## References
 -Follow docs/DESIGN.md for UI direction.

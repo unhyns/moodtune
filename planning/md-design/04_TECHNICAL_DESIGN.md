@@ -10,7 +10,8 @@ Next.js, React, TypeScript, Tailwind CSS, Spotify Web API, OpenWeather API, Open
 
 | Route | 종류 | 설명 |
 |-------|------|------|
-| `/` | Page | Landing — Spotify 로그인 |
+| `/` | Page | Landing — Spotify 로그인, 게스트 바텀시트(`?guest=1`이면 열린 상태) |
+| `/guest/input` | Page | 게스트 입력(기분·상황·날씨). 선택 없으면 `/`로 이동 |
 | `/input` | Page | 기분·상황 입력 + 날씨 표시 |
 | `/result` | Page | 추천 결과 표시. 필수 쿼리 파라미터(`uri`, `name`) 없이 진입 시 `/input`으로 리다이렉트 |
 | `/api/auth/spotify/login` | API | Spotify OAuth 인증 요청 시작 |
@@ -18,6 +19,7 @@ Next.js, React, TypeScript, Tailwind CSS, Spotify Web API, OpenWeather API, Open
 | `/api/spotify/library` | API | 로그인 사용자의 저장 곡(Liked Songs) 및 본인이 생성한 플레이리스트 조회 (팔로우한 플레이리스트 제외) |
 | `/api/weather` | API | 위치(lat/lng) 또는 도시명 기반 날씨 조회 |
 | `/api/recommend` | API | 기분+상황+날씨+라이브러리 샘플 → OpenAI API 추천 요청 |
+| `/api/guest/recommend` | API | 세션 없음. 기분·상황·날씨+국가·장르 → 곡 목록 후보로 추천. 호출 제한 적용 |
 
 <!-- FR-10 "다시 추천받기"는 이번 MVP에서 의도적으로 보류되어 다음 세션 이후 재설계 예정이다 (재호출/별도 엔드포인트 여부도 그때 함께 확정). 02 Decisions Log 참고. -->
 
@@ -52,6 +54,15 @@ moodtune/                      # Next.js 프로젝트 루트
     weatherPhrase.ts          # 날씨 아이콘·기온 → "{상태} {기온표현} 날" 문구
     contextHints.ts           # 날씨 범주·계절(Asia/Seoul)·경로 → 곡 선택용 힌트와 우선순위 문장
     shuffle.ts                # 후보 순서를 섞는 순수 함수 (입력 배열은 바꾸지 않음)
+    guestSelection.ts         # 게스트 칩 설정(국가·장르)과 선택 저장(sessionStorage)
+    guestCatalog.ts           # 게스트 후보 선택 (국가·장르 필터, 넓히기, 최대 50곡)
+    guestLimit.ts             # 게스트 호출 제한 판정
+  data/
+    guest-catalog.json        # 게스트 곡 목록 (Spotify ID·제목·아티스트, 우리 라벨). 서버에서만 읽는다
+    guest-artist-overrides.json # 아티스트 출신 국가 수동 보정
+  scripts/
+    build-guest-catalog.mjs   # 곡 목록 빌드 (Last.fm 후보·태그, Spotify 검증). 사람이 실행
+    relabel-guest-countries.mjs # 국가 라벨 (MusicBrainz, 수동 보정). 사람이 실행
   types/
     index.ts                  # 아래 Data Model 인터페이스 정의
   tests/                      테스트 코드
@@ -112,6 +123,13 @@ RecommendationResult
 - **후보 순서**: `Track list`는 `librarySample`의 순서만 요청마다 무작위로 섞은 것이다(`lib/shuffle.ts`). 후보 집합은 그대로이고, 시스템 프롬프트에 순서에는 의미가 없다는 안내 한 줄을 둔다. 곡 대조와 폴백은 섞지 않은 원래 배열을 쓴다.
 - **시각·난수**: `getRecommendation(request, now = new Date(), random = Math.random)`의 인자로만 받으며 요청 본문으로 받지 않는다. 요청마다 한 번 계산해 재시도에도 같은 힌트와 같은 순서를 쓴다.
 
+### 4.3 게스트 추천
+- 곡 목록에서 국가와 장르(하나 이상)가 맞는 곡을 고른다. 15곡 이상이면 그 곡만 섞어 최대 50곡, 미만이면 맞는 곡 전부에 같은 국가의 다른 곡을 더해 40곡까지 채우고 응답에 `widened: true`를 넣는다.
+- 추천은 `getRecommendation()`을 그대로 쓴다. 국가·장르는 프롬프트에 넣지 않고, 칩 값은 허용 목록으로만 받는다.
+- 앨범 아트는 고른 곡 한 곡만 앱 토큰으로 조회한다(2초 제한, 실패하면 아트 없음). 할당량을 로그인 사용자와 공유한다.
+- 호출 제한: 서명 쿠키 하루 5회, 주소 분당 3회, 전체 하루 20회(뒤 둘은 인스턴스 메모리 기준이라 엄밀하지 않다). 최종 방어는 OpenAI 대시보드 사용 한도다.
+- 실패는 응답을 `recommend_failed`(502)로 통일해 내부 오류를 노출하지 않는다. 한도 초과는 429다.
+
 ## 5. State (클라이언트 상태 관리)
 - 별도 전역 상태 라이브러리(Redux 등) 없이 React 로컬 상태 + URL/세션 기반으로 관리 (MVP 범위에 맞춰 최소화).
 - **Landing**: 로그인 진행 상태(idle/connecting/error)만 로컬 상태로 관리.
@@ -139,6 +157,8 @@ SPOTIFY_CLIENT_SECRET
 SPOTIFY_REDIRECT_URI
 OPENWEATHER_API_KEY
 OPENAI_API_KEY
+SESSION_SECRET
+LASTFM_API_KEY    # 곡 목록 빌드 전용. 배포 환경에 넣지 않는다
 ```
 
 ## 8. 에러 처리 전략
@@ -150,7 +170,7 @@ OPENAI_API_KEY
 - 커스텀 인증 시스템 (Spotify OAuth 외 추가 인증 없음)
 - 실시간 기능 (websocket 등)
 - 대용량 파일 업로드/저장
-- Spotify, OpenWeather, OpenAI 이외 외부 서비스 연동
+- Spotify, OpenWeather, OpenAI 이외 외부 서비스 연동 (예외: Last.fm·MusicBrainz는 빌드 스크립트 전용이며 앱 실행 중에는 호출하지 않는다)
 
 ## 10. Open Questions
 - [ ] TODO: 배포 대상 (Vercel 가정, 확정 필요).

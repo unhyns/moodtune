@@ -14,10 +14,13 @@
 
 ## Main Screens
 - **Landing Page**: 로고 + 핑크 구분선 헤더, 큰 헤드라인("Music Does Matter."), 계속 회전하는 LP판(CSS 애니메이션, `prefers-reduced-motion` 대응), Spotify 연동 CTA(초록 `#1ed760` 알약 버튼). 에러 메시지는 CTA 버튼 바로 위에 표시.
+- **Guest Mode Sheet** (랜딩 위 바텀시트): Spotify 버튼 아래 "Go to Guest mode"(`#2f2f2f` 테두리 알약)로 연다. 흰 배경, 위 모서리 16px 둥글게, 뒤는 반투명 검정. Country·Genre 사각 칩은 평소 `#6b6b73` 테두리, 선택하면 `#e43c98` 배경에 흰 글자, 장르 3개를 고르면 나머지는 `#b1b1b0`으로 흐려진다. "Start Guest Mode" 알약은 활성 `#e43c98`, 비활성 `#979797`. 칩 모양은 그대로 두고 터치 영역만 40px 이상으로 넓힌다. Figma 170:703·170:749 기준이며 Ballad·Jazz를 빼서 높이가 449px이다.
+- **Guest Input Page** (`/guest/input`): Input 화면 디자인을 재사용한다. "with Spotify" 자리에 선택 요약 태그, '직접 입력' 자리에 "곡 선정 참고: Last.fm" 링크를 둔다.
 - **Mood & Context Input Page**: 핑크 배경 위에 실시간 글래스 시계, Y2K 장식 스티커, 날씨 상태 박스(위치 실패 시 빨간 테두리 + 수동 입력창, 성공 시 핑크 테두리 + 이모지 아이콘 + 기온), 기분/상황 색상별 태그(하나 선택 시 나머지는 회색 `#AFAFAF`로 비활성 처리), "Tune Mine!" 제출 버튼(핫핑크 `#f91e96`).
 - **Free Text Input Page** (`/input/custom`): Input의 "Tune Mine!" 아래 '직접 입력' 링크(흰 배경, 핑크 `#e43c98` 테두리)로 진입. 핑크 배경 위 레트로 핑크 폰 화면 이미지(Figma 156:586·156:624, `public/input/custom-phone.png`)에 PNG 기준 %·`cqw`로 요소를 올린다. 흰 영역 안에 Pixelify Sans 인사 문구(`#ea7eb9`)와 같은 줄 오른쪽 끝의 날씨(`#b0b0b6` 14px), 우측 정렬 둥근모 입력 글(`#f91e96`, 한글 15자 줄바꿈, 빈 상태 안내 `#b0b0b6`), 입력 글 아래 채팅 시스템 메시지 형태의 실패·빈 라이브러리 문구, 안내 문구·글자 수 줄, 핫핑크 "Tune Mine!"(비활성 `#b0b0b6`). 폰 아래에 "← Back to Choose" 링크. 폰 그림의 키·안테나·배터리·제목 바는 장식이라 클릭·스크린리더 대상이 아니다.
 - **Recommendation Result Page**: *(미리디자인 상태)* 흰 카드 + 앨범아트 + 곡명/아티스트 + 추천 이유 + 검정 알약 모양 "Spotify에서 재생하기" 버튼.
   - **만족도 피드백 영역**: "Tune Again?" 아래, 보라(`#8d29f2`) 테두리 흰 박스에 Pixelify Sans로 "( ᵕ·̮ᵕ )♩ Did You Enjoy?" + "Well-Tuned!"(핫핑크 `#f91e96` 배경) / "Not Enough"(흰 배경, 파랑 `#0a46c7` 테두리) 버튼. 응답하면 버튼이 회색(`#8793a0`) 감사 문구로 바뀐다 (Figma node 121:52 / 121:149).
+  - **게스트 표시**: "Tune Again?" 아래 Last.fm 출처 링크, 후보를 넓힌 경우 "Listen in Spotify!" 위에 11px 안내 한 줄.
 
 ## UI Rules
 - Use clear button text (아이콘/이모지는 텍스트를 보완할 뿐, 아이콘 단독 버튼은 없음).
